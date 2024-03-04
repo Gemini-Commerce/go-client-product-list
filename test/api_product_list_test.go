@@ -1,5 +1,5 @@
 /*
-Collection Service
+product-list/bulk_update_product_list_associations.proto
 
 Testing ProductListAPIService
 
@@ -21,18 +21,6 @@ func Test_product-list_ProductListAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-
-	t.Run("Test ProductListAPIService BulkUpdateProductListAssociations", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.ProductListAPI.BulkUpdateProductListAssociations(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
 
 	t.Run("Test ProductListAPIService CreateProductList", func(t *testing.T) {
 
@@ -166,6 +154,18 @@ func Test_product-list_ProductListAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ProductListAPIService ProductListBulkUpdateProductListAssociations", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ProductListAPI.ProductListBulkUpdateProductListAssociations(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ProductListAPIService SearchProductLists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -183,6 +183,18 @@ func Test_product-list_ProductListAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.ProductListAPI.SearchProductListsByIds(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ProductListAPIService SetProductListAssociations", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ProductListAPI.SetProductListAssociations(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

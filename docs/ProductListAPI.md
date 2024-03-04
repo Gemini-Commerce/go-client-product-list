@@ -1,10 +1,9 @@
 # GeminiCommerce\ProductList\ProductListAPI
 
-All URIs are relative to *https://product-list.api.gogemini.io*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BulkUpdateProductListAssociations**](ProductListAPI.md#BulkUpdateProductListAssociations) | **Post** /productlist.ProductList/BulkUpdateProductListAssociations | Bulk update collection associations position
 [**CreateProductList**](ProductListAPI.md#CreateProductList) | **Post** /productlist.ProductList/CreateProductList | Create Collection
 [**CreateProductListAssociation**](ProductListAPI.md#CreateProductListAssociation) | **Post** /productlist.ProductList/CreateProductListAssociation | Create Collection/Product Association
 [**DeleteProductList**](ProductListAPI.md#DeleteProductList) | **Post** /productlist.ProductList/DeleteProductList | Delete Collection
@@ -16,76 +15,12 @@ Method | HTTP request | Description
 [**GetProductListsCount**](ProductListAPI.md#GetProductListsCount) | **Post** /productlist.ProductList/GetProductListsCount | Get Collection Product Count
 [**ListProductListAssociations**](ProductListAPI.md#ListProductListAssociations) | **Post** /productlist.ProductList/ListProductListAssociations | List Collection/Product Associations
 [**ListProductLists**](ProductListAPI.md#ListProductLists) | **Post** /productlist.ProductList/ListProductLists | List Collections
+[**ProductListBulkUpdateProductListAssociations**](ProductListAPI.md#ProductListBulkUpdateProductListAssociations) | **Post** /productlist.ProductList/BulkUpdateProductListAssociations | 
 [**SearchProductLists**](ProductListAPI.md#SearchProductLists) | **Post** /productlist.ProductList/SearchProductLists | Search Collections
 [**SearchProductListsByIds**](ProductListAPI.md#SearchProductListsByIds) | **Post** /productlist.ProductList/SearchProductListsByIds | Search Collections by Ids
+[**SetProductListAssociations**](ProductListAPI.md#SetProductListAssociations) | **Post** /productlist.ProductList/SetProductListAssociations | Set Collection/Product Associations
 [**UpdateProductList**](ProductListAPI.md#UpdateProductList) | **Post** /productlist.ProductList/UpdateProductList | Update Collection
 
-
-
-## BulkUpdateProductListAssociations
-
-> RpcStatus BulkUpdateProductListAssociations(ctx).Body(body).Execute()
-
-Bulk update collection associations position
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/Gemini-Commerce/go-client-product-list"
-)
-
-func main() {
-	body := *openapiclient.NewProductlistBulkUpdateProductListAssociationsRequest() // ProductlistBulkUpdateProductListAssociationsRequest | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductListAPI.BulkUpdateProductListAssociations(context.Background()).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProductListAPI.BulkUpdateProductListAssociations``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `BulkUpdateProductListAssociations`: RpcStatus
-	fmt.Fprintf(os.Stdout, "Response from `ProductListAPI.BulkUpdateProductListAssociations`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiBulkUpdateProductListAssociationsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistBulkUpdateProductListAssociationsRequest**](ProductlistBulkUpdateProductListAssociationsRequest.md) |  | 
-
-### Return type
-
-[**RpcStatus**](RpcStatus.md)
-
-### Authorization
-
-[standardAuthorization](../README.md#standardAuthorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## CreateProductList
@@ -142,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -208,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -274,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -340,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -406,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -472,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -538,7 +473,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -604,7 +539,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -670,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -736,7 +671,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -802,7 +737,71 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ProductListBulkUpdateProductListAssociations
+
+> map[string]interface{} ProductListBulkUpdateProductListAssociations(ctx).Body(body).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-list"
+)
+
+func main() {
+	body := *openapiclient.NewProductlistBulkUpdateProductListAssociationsRequest() // ProductlistBulkUpdateProductListAssociationsRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductListAPI.ProductListBulkUpdateProductListAssociations(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductListAPI.ProductListBulkUpdateProductListAssociations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductListBulkUpdateProductListAssociations`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `ProductListAPI.ProductListBulkUpdateProductListAssociations`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProductListBulkUpdateProductListAssociationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ProductlistBulkUpdateProductListAssociationsRequest**](ProductlistBulkUpdateProductListAssociationsRequest.md) |  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -868,7 +867,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
@@ -934,7 +933,73 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SetProductListAssociations
+
+> ProductlistSetProductListAssociationsResponse SetProductListAssociations(ctx).Body(body).Execute()
+
+Set Collection/Product Associations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-list"
+)
+
+func main() {
+	body := *openapiclient.NewProductlistSetProductListAssociationsRequest() // ProductlistSetProductListAssociationsRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductListAPI.SetProductListAssociations(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductListAPI.SetProductListAssociations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SetProductListAssociations`: ProductlistSetProductListAssociationsResponse
+	fmt.Fprintf(os.Stdout, "Response from `ProductListAPI.SetProductListAssociations`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSetProductListAssociationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ProductlistSetProductListAssociationsRequest**](ProductlistSetProductListAssociationsRequest.md) |  | 
+
+### Return type
+
+[**ProductlistSetProductListAssociationsResponse**](ProductlistSetProductListAssociationsResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -1000,7 +1065,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+No authorization required
 
 ### HTTP request headers
 
