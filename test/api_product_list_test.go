@@ -1,5 +1,5 @@
 /*
-product-list/bulk_update_product_list_associations.proto
+Collection Service
 
 Testing ProductListAPIService
 

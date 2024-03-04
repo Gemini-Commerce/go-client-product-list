@@ -1,9 +1,17 @@
 openapi: 3.0.1
 info:
-  title: product-list/bulk_update_product_list_associations.proto
-  version: version not set
+  contact:
+    email: info@gemini-commerce.com
+    name: Gemini Team
+  license:
+    name: Gemini fair use license
+    url: https://gemini-commerce.com/api/fair-use-license
+  title: Collection Service
+  version: v1
 servers:
-- url: /
+- url: https://product-list.api.gogemini.io/
+security:
+- Authorization: []
 tags:
 - description: Collection Description
   externalDocs:
@@ -1457,4 +1465,14 @@ components:
             $ref: '#/components/schemas/protobufAny'
           type: array
       type: object
+  securitySchemes:
+    Authorization:
+      in: header
+      name: Authorization
+      type: apiKey
+    standardAuthorization:
+      flows:
+        implicit:
+          scopes: {}
+      type: oauth2
 x-original-swagger-version: "2.0"
