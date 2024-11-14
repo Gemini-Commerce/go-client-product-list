@@ -24,7 +24,10 @@ type ProductlistSetProductListAssociationsRequest struct {
 	ListId *string `json:"listId,omitempty"`
 	ProductGrn *string `json:"productGrn,omitempty"`
 	Associations []SetProductListAssociationsRequestAssociation `json:"associations,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistSetProductListAssociationsRequest ProductlistSetProductListAssociationsRequest
 
 // NewProductlistSetProductListAssociationsRequest instantiates a new ProductlistSetProductListAssociationsRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -61,8 +64,8 @@ func (o *ProductlistSetProductListAssociationsRequest) GetTenantIdOk() (*string,
 	return o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistSetProductListAssociationsRequest) HasTenantId() bool {
+// &#39;Has&#39;TenantId returns a boolean if a field has been set.
+func (o *ProductlistSetProductListAssociationsRequest) &#39;Has&#39;TenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -93,8 +96,8 @@ func (o *ProductlistSetProductListAssociationsRequest) GetListIdOk() (*string, b
 	return o.ListId, true
 }
 
-// HasListId returns a boolean if a field has been set.
-func (o *ProductlistSetProductListAssociationsRequest) HasListId() bool {
+// &#39;Has&#39;ListId returns a boolean if a field has been set.
+func (o *ProductlistSetProductListAssociationsRequest) &#39;Has&#39;ListId() bool {
 	if o != nil && !IsNil(o.ListId) {
 		return true
 	}
@@ -125,8 +128,8 @@ func (o *ProductlistSetProductListAssociationsRequest) GetProductGrnOk() (*strin
 	return o.ProductGrn, true
 }
 
-// HasProductGrn returns a boolean if a field has been set.
-func (o *ProductlistSetProductListAssociationsRequest) HasProductGrn() bool {
+// &#39;Has&#39;ProductGrn returns a boolean if a field has been set.
+func (o *ProductlistSetProductListAssociationsRequest) &#39;Has&#39;ProductGrn() bool {
 	if o != nil && !IsNil(o.ProductGrn) {
 		return true
 	}
@@ -157,8 +160,8 @@ func (o *ProductlistSetProductListAssociationsRequest) GetAssociationsOk() ([]Se
 	return o.Associations, true
 }
 
-// HasAssociations returns a boolean if a field has been set.
-func (o *ProductlistSetProductListAssociationsRequest) HasAssociations() bool {
+// &#39;Has&#39;Associations returns a boolean if a field has been set.
+func (o *ProductlistSetProductListAssociationsRequest) &#39;Has&#39;Associations() bool {
 	if o != nil && !IsNil(o.Associations) {
 		return true
 	}
@@ -193,9 +196,56 @@ func (o ProductlistSetProductListAssociationsRequest) ToMap() (map[string]interf
 	if !IsNil(o.Associations) {
 		toSerialize["associations"] = o.Associations
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistSetProductListAssociationsRequest) UnmarshalJSON(data []byte) (err error) {
+	varProductlistSetProductListAssociationsRequest := _ProductlistSetProductListAssociationsRequest{}
+
+	err = json.Unmarshal(data, &varProductlistSetProductListAssociationsRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistSetProductListAssociationsRequest(varProductlistSetProductListAssociationsRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "listId")
+		delete(additionalProperties, "productGrn")
+		delete(additionalProperties, "associations")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistSetProductListAssociationsRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistSetProductListAssociationsRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistSetProductListAssociationsRequest struct {
 	value *ProductlistSetProductListAssociationsRequest
 	isSet bool

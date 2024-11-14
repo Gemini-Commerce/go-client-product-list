@@ -26,7 +26,10 @@ type ProductlistCreateProductListRequest struct {
 	EntityType *string `json:"entityType,omitempty"`
 	EntityCode *string `json:"entityCode,omitempty"`
 	Attributes *map[string]ProtobufAny `json:"attributes,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistCreateProductListRequest ProductlistCreateProductListRequest
 
 // NewProductlistCreateProductListRequest instantiates a new ProductlistCreateProductListRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -63,8 +66,8 @@ func (o *ProductlistCreateProductListRequest) GetTenantIdOk() (*string, bool) {
 	return o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasTenantId() bool {
+// &#39;Has&#39;TenantId returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) &#39;Has&#39;TenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -95,8 +98,8 @@ func (o *ProductlistCreateProductListRequest) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasCode() bool {
+// &#39;Has&#39;Code returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) &#39;Has&#39;Code() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -127,8 +130,8 @@ func (o *ProductlistCreateProductListRequest) GetUrlKeyOk() (*ProductlistLocaliz
 	return o.UrlKey, true
 }
 
-// HasUrlKey returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasUrlKey() bool {
+// &#39;Has&#39;UrlKey returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) &#39;Has&#39;UrlKey() bool {
 	if o != nil && !IsNil(o.UrlKey) {
 		return true
 	}
@@ -159,8 +162,8 @@ func (o *ProductlistCreateProductListRequest) GetEntityTypeOk() (*string, bool) 
 	return o.EntityType, true
 }
 
-// HasEntityType returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasEntityType() bool {
+// &#39;Has&#39;EntityType returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) &#39;Has&#39;EntityType() bool {
 	if o != nil && !IsNil(o.EntityType) {
 		return true
 	}
@@ -191,8 +194,8 @@ func (o *ProductlistCreateProductListRequest) GetEntityCodeOk() (*string, bool) 
 	return o.EntityCode, true
 }
 
-// HasEntityCode returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasEntityCode() bool {
+// &#39;Has&#39;EntityCode returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) &#39;Has&#39;EntityCode() bool {
 	if o != nil && !IsNil(o.EntityCode) {
 		return true
 	}
@@ -223,8 +226,8 @@ func (o *ProductlistCreateProductListRequest) GetAttributesOk() (*map[string]Pro
 	return o.Attributes, true
 }
 
-// HasAttributes returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasAttributes() bool {
+// &#39;Has&#39;Attributes returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) &#39;Has&#39;Attributes() bool {
 	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
@@ -265,9 +268,58 @@ func (o ProductlistCreateProductListRequest) ToMap() (map[string]interface{}, er
 	if !IsNil(o.Attributes) {
 		toSerialize["attributes"] = o.Attributes
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistCreateProductListRequest) UnmarshalJSON(data []byte) (err error) {
+	varProductlistCreateProductListRequest := _ProductlistCreateProductListRequest{}
+
+	err = json.Unmarshal(data, &varProductlistCreateProductListRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistCreateProductListRequest(varProductlistCreateProductListRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "urlKey")
+		delete(additionalProperties, "entityType")
+		delete(additionalProperties, "entityCode")
+		delete(additionalProperties, "attributes")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistCreateProductListRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistCreateProductListRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistCreateProductListRequest struct {
 	value *ProductlistCreateProductListRequest
 	isSet bool

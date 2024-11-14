@@ -22,7 +22,10 @@ var _ MappedNullable = &ProductlistDeleteProductListAssociationRequest{}
 type ProductlistDeleteProductListAssociationRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
 	Id *string `json:"id,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistDeleteProductListAssociationRequest ProductlistDeleteProductListAssociationRequest
 
 // NewProductlistDeleteProductListAssociationRequest instantiates a new ProductlistDeleteProductListAssociationRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -59,8 +62,8 @@ func (o *ProductlistDeleteProductListAssociationRequest) GetTenantIdOk() (*strin
 	return o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistDeleteProductListAssociationRequest) HasTenantId() bool {
+// &#39;Has&#39;TenantId returns a boolean if a field has been set.
+func (o *ProductlistDeleteProductListAssociationRequest) &#39;Has&#39;TenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -91,8 +94,8 @@ func (o *ProductlistDeleteProductListAssociationRequest) GetIdOk() (*string, boo
 	return o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ProductlistDeleteProductListAssociationRequest) HasId() bool {
+// &#39;Has&#39;Id returns a boolean if a field has been set.
+func (o *ProductlistDeleteProductListAssociationRequest) &#39;Has&#39;Id() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -121,9 +124,54 @@ func (o ProductlistDeleteProductListAssociationRequest) ToMap() (map[string]inte
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistDeleteProductListAssociationRequest) UnmarshalJSON(data []byte) (err error) {
+	varProductlistDeleteProductListAssociationRequest := _ProductlistDeleteProductListAssociationRequest{}
+
+	err = json.Unmarshal(data, &varProductlistDeleteProductListAssociationRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistDeleteProductListAssociationRequest(varProductlistDeleteProductListAssociationRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "id")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistDeleteProductListAssociationRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistDeleteProductListAssociationRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistDeleteProductListAssociationRequest struct {
 	value *ProductlistDeleteProductListAssociationRequest
 	isSet bool

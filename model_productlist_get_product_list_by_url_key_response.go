@@ -21,7 +21,10 @@ var _ MappedNullable = &ProductlistGetProductListByUrlKeyResponse{}
 // ProductlistGetProductListByUrlKeyResponse struct for ProductlistGetProductListByUrlKeyResponse
 type ProductlistGetProductListByUrlKeyResponse struct {
 	List *ProductlistProductListEntity `json:"list,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistGetProductListByUrlKeyResponse ProductlistGetProductListByUrlKeyResponse
 
 // NewProductlistGetProductListByUrlKeyResponse instantiates a new ProductlistGetProductListByUrlKeyResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -58,8 +61,8 @@ func (o *ProductlistGetProductListByUrlKeyResponse) GetListOk() (*ProductlistPro
 	return o.List, true
 }
 
-// HasList returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByUrlKeyResponse) HasList() bool {
+// &#39;Has&#39;List returns a boolean if a field has been set.
+func (o *ProductlistGetProductListByUrlKeyResponse) &#39;Has&#39;List() bool {
 	if o != nil && !IsNil(o.List) {
 		return true
 	}
@@ -85,9 +88,53 @@ func (o ProductlistGetProductListByUrlKeyResponse) ToMap() (map[string]interface
 	if !IsNil(o.List) {
 		toSerialize["list"] = o.List
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistGetProductListByUrlKeyResponse) UnmarshalJSON(data []byte) (err error) {
+	varProductlistGetProductListByUrlKeyResponse := _ProductlistGetProductListByUrlKeyResponse{}
+
+	err = json.Unmarshal(data, &varProductlistGetProductListByUrlKeyResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistGetProductListByUrlKeyResponse(varProductlistGetProductListByUrlKeyResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "list")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistGetProductListByUrlKeyResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistGetProductListByUrlKeyResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistGetProductListByUrlKeyResponse struct {
 	value *ProductlistGetProductListByUrlKeyResponse
 	isSet bool

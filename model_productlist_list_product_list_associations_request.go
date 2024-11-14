@@ -26,7 +26,10 @@ type ProductlistListProductListAssociationsRequest struct {
 	PageSize *int64 `json:"pageSize,omitempty"`
 	PageToken *string `json:"pageToken,omitempty"`
 	OrderBy []ProductlistOrderBy `json:"orderBy,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistListProductListAssociationsRequest ProductlistListProductListAssociationsRequest
 
 // NewProductlistListProductListAssociationsRequest instantiates a new ProductlistListProductListAssociationsRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -63,8 +66,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetTenantIdOk() (*string
 	return o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasTenantId() bool {
+// &#39;Has&#39;TenantId returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;TenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -95,8 +98,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetListIdOk() (*string, 
 	return o.ListId, true
 }
 
-// HasListId returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasListId() bool {
+// &#39;Has&#39;ListId returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;ListId() bool {
 	if o != nil && !IsNil(o.ListId) {
 		return true
 	}
@@ -127,8 +130,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetProductGrnOk() (*stri
 	return o.ProductGrn, true
 }
 
-// HasProductGrn returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasProductGrn() bool {
+// &#39;Has&#39;ProductGrn returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;ProductGrn() bool {
 	if o != nil && !IsNil(o.ProductGrn) {
 		return true
 	}
@@ -159,8 +162,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetPageSizeOk() (*int64,
 	return o.PageSize, true
 }
 
-// HasPageSize returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasPageSize() bool {
+// &#39;Has&#39;PageSize returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;PageSize() bool {
 	if o != nil && !IsNil(o.PageSize) {
 		return true
 	}
@@ -191,8 +194,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetPageTokenOk() (*strin
 	return o.PageToken, true
 }
 
-// HasPageToken returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasPageToken() bool {
+// &#39;Has&#39;PageToken returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;PageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}
@@ -223,8 +226,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetOrderByOk() ([]Produc
 	return o.OrderBy, true
 }
 
-// HasOrderBy returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasOrderBy() bool {
+// &#39;Has&#39;OrderBy returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;OrderBy() bool {
 	if o != nil && !IsNil(o.OrderBy) {
 		return true
 	}
@@ -265,9 +268,58 @@ func (o ProductlistListProductListAssociationsRequest) ToMap() (map[string]inter
 	if !IsNil(o.OrderBy) {
 		toSerialize["orderBy"] = o.OrderBy
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistListProductListAssociationsRequest) UnmarshalJSON(data []byte) (err error) {
+	varProductlistListProductListAssociationsRequest := _ProductlistListProductListAssociationsRequest{}
+
+	err = json.Unmarshal(data, &varProductlistListProductListAssociationsRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistListProductListAssociationsRequest(varProductlistListProductListAssociationsRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "listId")
+		delete(additionalProperties, "productGrn")
+		delete(additionalProperties, "pageSize")
+		delete(additionalProperties, "pageToken")
+		delete(additionalProperties, "orderBy")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistListProductListAssociationsRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistListProductListAssociationsRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistListProductListAssociationsRequest struct {
 	value *ProductlistListProductListAssociationsRequest
 	isSet bool

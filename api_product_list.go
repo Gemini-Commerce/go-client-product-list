@@ -23,18 +23,18 @@ import (
 // ProductListAPIService ProductListAPI service
 type ProductListAPIService service
 
-type ProductListAPICreateProductListRequest struct {
+type ApiCreateProductListRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistCreateProductListRequest
 }
 
-func (r ProductListAPICreateProductListRequest) Body(body ProductlistCreateProductListRequest) ProductListAPICreateProductListRequest {
+func (r ApiCreateProductListRequest) Body(body ProductlistCreateProductListRequest) ApiCreateProductListRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPICreateProductListRequest) Execute() (*ProductlistCreateProductListResponse, *http.Response, error) {
+func (r ApiCreateProductListRequest) Execute() (*ProductlistCreateProductListResponse, *http.Response, error) {
 	return r.ApiService.CreateProductListExecute(r)
 }
 
@@ -44,10 +44,10 @@ CreateProductList Create Collection
 The CreateProductList endpoint is used to create a new collection of products within the system. This endpoint allows users to define the details and attributes of the collection.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPICreateProductListRequest
+ @return ApiCreateProductListRequest
 */
-func (a *ProductListAPIService) CreateProductList(ctx context.Context) ProductListAPICreateProductListRequest {
-	return ProductListAPICreateProductListRequest{
+func (a *ProductListAPIService) CreateProductList(ctx context.Context) ApiCreateProductListRequest {
+	return ApiCreateProductListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *ProductListAPIService) CreateProductList(ctx context.Context) ProductLi
 
 // Execute executes the request
 //  @return ProductlistCreateProductListResponse
-func (a *ProductListAPIService) CreateProductListExecute(r ProductListAPICreateProductListRequest) (*ProductlistCreateProductListResponse, *http.Response, error) {
+func (a *ProductListAPIService) CreateProductListExecute(r ApiCreateProductListRequest) (*ProductlistCreateProductListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -177,18 +177,18 @@ func (a *ProductListAPIService) CreateProductListExecute(r ProductListAPICreateP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPICreateProductListAssociationRequest struct {
+type ApiCreateProductListAssociationRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistCreateProductListAssociationRequest
 }
 
-func (r ProductListAPICreateProductListAssociationRequest) Body(body ProductlistCreateProductListAssociationRequest) ProductListAPICreateProductListAssociationRequest {
+func (r ApiCreateProductListAssociationRequest) Body(body ProductlistCreateProductListAssociationRequest) ApiCreateProductListAssociationRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPICreateProductListAssociationRequest) Execute() (*ProductlistCreateProductListAssociationResponse, *http.Response, error) {
+func (r ApiCreateProductListAssociationRequest) Execute() (*ProductlistCreateProductListAssociationResponse, *http.Response, error) {
 	return r.ApiService.CreateProductListAssociationExecute(r)
 }
 
@@ -198,10 +198,10 @@ CreateProductListAssociation Create Collection/Product Association
 The CreateProductListAssociation endpoint is used to create an association between a collection and a product.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPICreateProductListAssociationRequest
+ @return ApiCreateProductListAssociationRequest
 */
-func (a *ProductListAPIService) CreateProductListAssociation(ctx context.Context) ProductListAPICreateProductListAssociationRequest {
-	return ProductListAPICreateProductListAssociationRequest{
+func (a *ProductListAPIService) CreateProductListAssociation(ctx context.Context) ApiCreateProductListAssociationRequest {
+	return ApiCreateProductListAssociationRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -209,7 +209,7 @@ func (a *ProductListAPIService) CreateProductListAssociation(ctx context.Context
 
 // Execute executes the request
 //  @return ProductlistCreateProductListAssociationResponse
-func (a *ProductListAPIService) CreateProductListAssociationExecute(r ProductListAPICreateProductListAssociationRequest) (*ProductlistCreateProductListAssociationResponse, *http.Response, error) {
+func (a *ProductListAPIService) CreateProductListAssociationExecute(r ApiCreateProductListAssociationRequest) (*ProductlistCreateProductListAssociationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -331,18 +331,18 @@ func (a *ProductListAPIService) CreateProductListAssociationExecute(r ProductLis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPIDeleteProductListRequest struct {
+type ApiDeleteProductListRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistDeleteProductListRequest
 }
 
-func (r ProductListAPIDeleteProductListRequest) Body(body ProductlistDeleteProductListRequest) ProductListAPIDeleteProductListRequest {
+func (r ApiDeleteProductListRequest) Body(body ProductlistDeleteProductListRequest) ApiDeleteProductListRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPIDeleteProductListRequest) Execute() (*ProductlistDeleteProductListResponse, *http.Response, error) {
+func (r ApiDeleteProductListRequest) Execute() (*ProductlistDeleteProductListResponse, *http.Response, error) {
 	return r.ApiService.DeleteProductListExecute(r)
 }
 
@@ -352,10 +352,10 @@ DeleteProductList Delete Collection
 The DeleteProductList endpoint is used to delete an existing collection of products within the system.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPIDeleteProductListRequest
+ @return ApiDeleteProductListRequest
 */
-func (a *ProductListAPIService) DeleteProductList(ctx context.Context) ProductListAPIDeleteProductListRequest {
-	return ProductListAPIDeleteProductListRequest{
+func (a *ProductListAPIService) DeleteProductList(ctx context.Context) ApiDeleteProductListRequest {
+	return ApiDeleteProductListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -363,7 +363,7 @@ func (a *ProductListAPIService) DeleteProductList(ctx context.Context) ProductLi
 
 // Execute executes the request
 //  @return ProductlistDeleteProductListResponse
-func (a *ProductListAPIService) DeleteProductListExecute(r ProductListAPIDeleteProductListRequest) (*ProductlistDeleteProductListResponse, *http.Response, error) {
+func (a *ProductListAPIService) DeleteProductListExecute(r ApiDeleteProductListRequest) (*ProductlistDeleteProductListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -485,18 +485,18 @@ func (a *ProductListAPIService) DeleteProductListExecute(r ProductListAPIDeleteP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPIDeleteProductListAssociationRequest struct {
+type ApiDeleteProductListAssociationRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistDeleteProductListAssociationRequest
 }
 
-func (r ProductListAPIDeleteProductListAssociationRequest) Body(body ProductlistDeleteProductListAssociationRequest) ProductListAPIDeleteProductListAssociationRequest {
+func (r ApiDeleteProductListAssociationRequest) Body(body ProductlistDeleteProductListAssociationRequest) ApiDeleteProductListAssociationRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPIDeleteProductListAssociationRequest) Execute() (*ProductlistDeleteProductListAssociationResponse, *http.Response, error) {
+func (r ApiDeleteProductListAssociationRequest) Execute() (*ProductlistDeleteProductListAssociationResponse, *http.Response, error) {
 	return r.ApiService.DeleteProductListAssociationExecute(r)
 }
 
@@ -506,10 +506,10 @@ DeleteProductListAssociation Delete Collection/Product Association
 The DeleteProductListAssociation endpoint is used to delete an association between a collection and a product.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPIDeleteProductListAssociationRequest
+ @return ApiDeleteProductListAssociationRequest
 */
-func (a *ProductListAPIService) DeleteProductListAssociation(ctx context.Context) ProductListAPIDeleteProductListAssociationRequest {
-	return ProductListAPIDeleteProductListAssociationRequest{
+func (a *ProductListAPIService) DeleteProductListAssociation(ctx context.Context) ApiDeleteProductListAssociationRequest {
+	return ApiDeleteProductListAssociationRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -517,7 +517,7 @@ func (a *ProductListAPIService) DeleteProductListAssociation(ctx context.Context
 
 // Execute executes the request
 //  @return ProductlistDeleteProductListAssociationResponse
-func (a *ProductListAPIService) DeleteProductListAssociationExecute(r ProductListAPIDeleteProductListAssociationRequest) (*ProductlistDeleteProductListAssociationResponse, *http.Response, error) {
+func (a *ProductListAPIService) DeleteProductListAssociationExecute(r ApiDeleteProductListAssociationRequest) (*ProductlistDeleteProductListAssociationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -639,18 +639,18 @@ func (a *ProductListAPIService) DeleteProductListAssociationExecute(r ProductLis
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPIGetProductListAssociationsByProductGrnRequest struct {
+type ApiGetProductListAssociationsByProductGrnRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistGetProductListAssociationsByProductGrnRequest
 }
 
-func (r ProductListAPIGetProductListAssociationsByProductGrnRequest) Body(body ProductlistGetProductListAssociationsByProductGrnRequest) ProductListAPIGetProductListAssociationsByProductGrnRequest {
+func (r ApiGetProductListAssociationsByProductGrnRequest) Body(body ProductlistGetProductListAssociationsByProductGrnRequest) ApiGetProductListAssociationsByProductGrnRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPIGetProductListAssociationsByProductGrnRequest) Execute() (*ProductlistGetProductListAssociationsByProductGrnResponse, *http.Response, error) {
+func (r ApiGetProductListAssociationsByProductGrnRequest) Execute() (*ProductlistGetProductListAssociationsByProductGrnResponse, *http.Response, error) {
 	return r.ApiService.GetProductListAssociationsByProductGrnExecute(r)
 }
 
@@ -660,10 +660,10 @@ GetProductListAssociationsByProductGrn Get Collection/Product Associations by Pr
 The GetProductListAssociationsByProductGrn endpoint is used to get the associations between a collection and a list of products by product GRN.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPIGetProductListAssociationsByProductGrnRequest
+ @return ApiGetProductListAssociationsByProductGrnRequest
 */
-func (a *ProductListAPIService) GetProductListAssociationsByProductGrn(ctx context.Context) ProductListAPIGetProductListAssociationsByProductGrnRequest {
-	return ProductListAPIGetProductListAssociationsByProductGrnRequest{
+func (a *ProductListAPIService) GetProductListAssociationsByProductGrn(ctx context.Context) ApiGetProductListAssociationsByProductGrnRequest {
+	return ApiGetProductListAssociationsByProductGrnRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -671,7 +671,7 @@ func (a *ProductListAPIService) GetProductListAssociationsByProductGrn(ctx conte
 
 // Execute executes the request
 //  @return ProductlistGetProductListAssociationsByProductGrnResponse
-func (a *ProductListAPIService) GetProductListAssociationsByProductGrnExecute(r ProductListAPIGetProductListAssociationsByProductGrnRequest) (*ProductlistGetProductListAssociationsByProductGrnResponse, *http.Response, error) {
+func (a *ProductListAPIService) GetProductListAssociationsByProductGrnExecute(r ApiGetProductListAssociationsByProductGrnRequest) (*ProductlistGetProductListAssociationsByProductGrnResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -793,18 +793,18 @@ func (a *ProductListAPIService) GetProductListAssociationsByProductGrnExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPIGetProductListByCodeRequest struct {
+type ApiGetProductListByCodeRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistGetProductListByCodeRequest
 }
 
-func (r ProductListAPIGetProductListByCodeRequest) Body(body ProductlistGetProductListByCodeRequest) ProductListAPIGetProductListByCodeRequest {
+func (r ApiGetProductListByCodeRequest) Body(body ProductlistGetProductListByCodeRequest) ApiGetProductListByCodeRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPIGetProductListByCodeRequest) Execute() (*ProductlistGetProductListByCodeResponse, *http.Response, error) {
+func (r ApiGetProductListByCodeRequest) Execute() (*ProductlistGetProductListByCodeResponse, *http.Response, error) {
 	return r.ApiService.GetProductListByCodeExecute(r)
 }
 
@@ -814,10 +814,10 @@ GetProductListByCode Get Collection by Code
 The GetProductListByCode endpoint is used to retrieve an existing collection of products within the system.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPIGetProductListByCodeRequest
+ @return ApiGetProductListByCodeRequest
 */
-func (a *ProductListAPIService) GetProductListByCode(ctx context.Context) ProductListAPIGetProductListByCodeRequest {
-	return ProductListAPIGetProductListByCodeRequest{
+func (a *ProductListAPIService) GetProductListByCode(ctx context.Context) ApiGetProductListByCodeRequest {
+	return ApiGetProductListByCodeRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -825,7 +825,7 @@ func (a *ProductListAPIService) GetProductListByCode(ctx context.Context) Produc
 
 // Execute executes the request
 //  @return ProductlistGetProductListByCodeResponse
-func (a *ProductListAPIService) GetProductListByCodeExecute(r ProductListAPIGetProductListByCodeRequest) (*ProductlistGetProductListByCodeResponse, *http.Response, error) {
+func (a *ProductListAPIService) GetProductListByCodeExecute(r ApiGetProductListByCodeRequest) (*ProductlistGetProductListByCodeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -947,18 +947,18 @@ func (a *ProductListAPIService) GetProductListByCodeExecute(r ProductListAPIGetP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPIGetProductListByIdRequest struct {
+type ApiGetProductListByIdRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistGetProductListByIdRequest
 }
 
-func (r ProductListAPIGetProductListByIdRequest) Body(body ProductlistGetProductListByIdRequest) ProductListAPIGetProductListByIdRequest {
+func (r ApiGetProductListByIdRequest) Body(body ProductlistGetProductListByIdRequest) ApiGetProductListByIdRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPIGetProductListByIdRequest) Execute() (*ProductlistGetProductListByIdResponse, *http.Response, error) {
+func (r ApiGetProductListByIdRequest) Execute() (*ProductlistGetProductListByIdResponse, *http.Response, error) {
 	return r.ApiService.GetProductListByIdExecute(r)
 }
 
@@ -968,10 +968,10 @@ GetProductListById Get Collection by Id
 The GetProductListById endpoint is used to retrieve an existing collection of products within the system.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPIGetProductListByIdRequest
+ @return ApiGetProductListByIdRequest
 */
-func (a *ProductListAPIService) GetProductListById(ctx context.Context) ProductListAPIGetProductListByIdRequest {
-	return ProductListAPIGetProductListByIdRequest{
+func (a *ProductListAPIService) GetProductListById(ctx context.Context) ApiGetProductListByIdRequest {
+	return ApiGetProductListByIdRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -979,7 +979,7 @@ func (a *ProductListAPIService) GetProductListById(ctx context.Context) ProductL
 
 // Execute executes the request
 //  @return ProductlistGetProductListByIdResponse
-func (a *ProductListAPIService) GetProductListByIdExecute(r ProductListAPIGetProductListByIdRequest) (*ProductlistGetProductListByIdResponse, *http.Response, error) {
+func (a *ProductListAPIService) GetProductListByIdExecute(r ApiGetProductListByIdRequest) (*ProductlistGetProductListByIdResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1101,18 +1101,18 @@ func (a *ProductListAPIService) GetProductListByIdExecute(r ProductListAPIGetPro
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPIGetProductListByUrlKeyRequest struct {
+type ApiGetProductListByUrlKeyRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistGetProductListByUrlKeyRequest
 }
 
-func (r ProductListAPIGetProductListByUrlKeyRequest) Body(body ProductlistGetProductListByUrlKeyRequest) ProductListAPIGetProductListByUrlKeyRequest {
+func (r ApiGetProductListByUrlKeyRequest) Body(body ProductlistGetProductListByUrlKeyRequest) ApiGetProductListByUrlKeyRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPIGetProductListByUrlKeyRequest) Execute() (*ProductlistGetProductListByUrlKeyResponse, *http.Response, error) {
+func (r ApiGetProductListByUrlKeyRequest) Execute() (*ProductlistGetProductListByUrlKeyResponse, *http.Response, error) {
 	return r.ApiService.GetProductListByUrlKeyExecute(r)
 }
 
@@ -1122,10 +1122,10 @@ GetProductListByUrlKey Get Collection by Url Key
 The GetProductListByUrlKey endpoint is used to retrieve an existing collection of products within the system.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPIGetProductListByUrlKeyRequest
+ @return ApiGetProductListByUrlKeyRequest
 */
-func (a *ProductListAPIService) GetProductListByUrlKey(ctx context.Context) ProductListAPIGetProductListByUrlKeyRequest {
-	return ProductListAPIGetProductListByUrlKeyRequest{
+func (a *ProductListAPIService) GetProductListByUrlKey(ctx context.Context) ApiGetProductListByUrlKeyRequest {
+	return ApiGetProductListByUrlKeyRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1133,7 +1133,7 @@ func (a *ProductListAPIService) GetProductListByUrlKey(ctx context.Context) Prod
 
 // Execute executes the request
 //  @return ProductlistGetProductListByUrlKeyResponse
-func (a *ProductListAPIService) GetProductListByUrlKeyExecute(r ProductListAPIGetProductListByUrlKeyRequest) (*ProductlistGetProductListByUrlKeyResponse, *http.Response, error) {
+func (a *ProductListAPIService) GetProductListByUrlKeyExecute(r ApiGetProductListByUrlKeyRequest) (*ProductlistGetProductListByUrlKeyResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1255,18 +1255,18 @@ func (a *ProductListAPIService) GetProductListByUrlKeyExecute(r ProductListAPIGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPIGetProductListsCountRequest struct {
+type ApiGetProductListsCountRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistGetProductListsCountRequest
 }
 
-func (r ProductListAPIGetProductListsCountRequest) Body(body ProductlistGetProductListsCountRequest) ProductListAPIGetProductListsCountRequest {
+func (r ApiGetProductListsCountRequest) Body(body ProductlistGetProductListsCountRequest) ApiGetProductListsCountRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPIGetProductListsCountRequest) Execute() (*ProductlistGetProductListsCountResponse, *http.Response, error) {
+func (r ApiGetProductListsCountRequest) Execute() (*ProductlistGetProductListsCountResponse, *http.Response, error) {
 	return r.ApiService.GetProductListsCountExecute(r)
 }
 
@@ -1276,10 +1276,10 @@ GetProductListsCount Get Collection Product Count
 The GetProductListsCount endpoint is used to get the number of products associated with a collection.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPIGetProductListsCountRequest
+ @return ApiGetProductListsCountRequest
 */
-func (a *ProductListAPIService) GetProductListsCount(ctx context.Context) ProductListAPIGetProductListsCountRequest {
-	return ProductListAPIGetProductListsCountRequest{
+func (a *ProductListAPIService) GetProductListsCount(ctx context.Context) ApiGetProductListsCountRequest {
+	return ApiGetProductListsCountRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1287,7 +1287,7 @@ func (a *ProductListAPIService) GetProductListsCount(ctx context.Context) Produc
 
 // Execute executes the request
 //  @return ProductlistGetProductListsCountResponse
-func (a *ProductListAPIService) GetProductListsCountExecute(r ProductListAPIGetProductListsCountRequest) (*ProductlistGetProductListsCountResponse, *http.Response, error) {
+func (a *ProductListAPIService) GetProductListsCountExecute(r ApiGetProductListsCountRequest) (*ProductlistGetProductListsCountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1409,18 +1409,18 @@ func (a *ProductListAPIService) GetProductListsCountExecute(r ProductListAPIGetP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPIListProductListAssociationsRequest struct {
+type ApiListProductListAssociationsRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistListProductListAssociationsRequest
 }
 
-func (r ProductListAPIListProductListAssociationsRequest) Body(body ProductlistListProductListAssociationsRequest) ProductListAPIListProductListAssociationsRequest {
+func (r ApiListProductListAssociationsRequest) Body(body ProductlistListProductListAssociationsRequest) ApiListProductListAssociationsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPIListProductListAssociationsRequest) Execute() (*ProductlistListProductListAssociationsResponse, *http.Response, error) {
+func (r ApiListProductListAssociationsRequest) Execute() (*ProductlistListProductListAssociationsResponse, *http.Response, error) {
 	return r.ApiService.ListProductListAssociationsExecute(r)
 }
 
@@ -1430,10 +1430,10 @@ ListProductListAssociations List Collection/Product Associations
 The ListProductListAssociations endpoint is used to list the associations between a collection and a list of products.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPIListProductListAssociationsRequest
+ @return ApiListProductListAssociationsRequest
 */
-func (a *ProductListAPIService) ListProductListAssociations(ctx context.Context) ProductListAPIListProductListAssociationsRequest {
-	return ProductListAPIListProductListAssociationsRequest{
+func (a *ProductListAPIService) ListProductListAssociations(ctx context.Context) ApiListProductListAssociationsRequest {
+	return ApiListProductListAssociationsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1441,7 +1441,7 @@ func (a *ProductListAPIService) ListProductListAssociations(ctx context.Context)
 
 // Execute executes the request
 //  @return ProductlistListProductListAssociationsResponse
-func (a *ProductListAPIService) ListProductListAssociationsExecute(r ProductListAPIListProductListAssociationsRequest) (*ProductlistListProductListAssociationsResponse, *http.Response, error) {
+func (a *ProductListAPIService) ListProductListAssociationsExecute(r ApiListProductListAssociationsRequest) (*ProductlistListProductListAssociationsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1563,18 +1563,18 @@ func (a *ProductListAPIService) ListProductListAssociationsExecute(r ProductList
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPIListProductListsRequest struct {
+type ApiListProductListsRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistListProductListsRequest
 }
 
-func (r ProductListAPIListProductListsRequest) Body(body ProductlistListProductListsRequest) ProductListAPIListProductListsRequest {
+func (r ApiListProductListsRequest) Body(body ProductlistListProductListsRequest) ApiListProductListsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPIListProductListsRequest) Execute() (*ProductlistListProductListsResponse, *http.Response, error) {
+func (r ApiListProductListsRequest) Execute() (*ProductlistListProductListsResponse, *http.Response, error) {
 	return r.ApiService.ListProductListsExecute(r)
 }
 
@@ -1584,10 +1584,10 @@ ListProductLists List Collections
 The ListProductLists endpoint is used to retrieve a list of existing collections of products within the system.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPIListProductListsRequest
+ @return ApiListProductListsRequest
 */
-func (a *ProductListAPIService) ListProductLists(ctx context.Context) ProductListAPIListProductListsRequest {
-	return ProductListAPIListProductListsRequest{
+func (a *ProductListAPIService) ListProductLists(ctx context.Context) ApiListProductListsRequest {
+	return ApiListProductListsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1595,7 +1595,7 @@ func (a *ProductListAPIService) ListProductLists(ctx context.Context) ProductLis
 
 // Execute executes the request
 //  @return ProductlistListProductListsResponse
-func (a *ProductListAPIService) ListProductListsExecute(r ProductListAPIListProductListsRequest) (*ProductlistListProductListsResponse, *http.Response, error) {
+func (a *ProductListAPIService) ListProductListsExecute(r ApiListProductListsRequest) (*ProductlistListProductListsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1717,18 +1717,18 @@ func (a *ProductListAPIService) ListProductListsExecute(r ProductListAPIListProd
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPIProductListBulkUpdateProductListAssociationsRequest struct {
+type ApiProductListBulkUpdateProductListAssociationsRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistBulkUpdateProductListAssociationsRequest
 }
 
-func (r ProductListAPIProductListBulkUpdateProductListAssociationsRequest) Body(body ProductlistBulkUpdateProductListAssociationsRequest) ProductListAPIProductListBulkUpdateProductListAssociationsRequest {
+func (r ApiProductListBulkUpdateProductListAssociationsRequest) Body(body ProductlistBulkUpdateProductListAssociationsRequest) ApiProductListBulkUpdateProductListAssociationsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPIProductListBulkUpdateProductListAssociationsRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiProductListBulkUpdateProductListAssociationsRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ProductListBulkUpdateProductListAssociationsExecute(r)
 }
 
@@ -1736,10 +1736,10 @@ func (r ProductListAPIProductListBulkUpdateProductListAssociationsRequest) Execu
 ProductListBulkUpdateProductListAssociations Method for ProductListBulkUpdateProductListAssociations
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPIProductListBulkUpdateProductListAssociationsRequest
+ @return ApiProductListBulkUpdateProductListAssociationsRequest
 */
-func (a *ProductListAPIService) ProductListBulkUpdateProductListAssociations(ctx context.Context) ProductListAPIProductListBulkUpdateProductListAssociationsRequest {
-	return ProductListAPIProductListBulkUpdateProductListAssociationsRequest{
+func (a *ProductListAPIService) ProductListBulkUpdateProductListAssociations(ctx context.Context) ApiProductListBulkUpdateProductListAssociationsRequest {
+	return ApiProductListBulkUpdateProductListAssociationsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1747,7 +1747,7 @@ func (a *ProductListAPIService) ProductListBulkUpdateProductListAssociations(ctx
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *ProductListAPIService) ProductListBulkUpdateProductListAssociationsExecute(r ProductListAPIProductListBulkUpdateProductListAssociationsRequest) (map[string]interface{}, *http.Response, error) {
+func (a *ProductListAPIService) ProductListBulkUpdateProductListAssociationsExecute(r ApiProductListBulkUpdateProductListAssociationsRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1847,18 +1847,18 @@ func (a *ProductListAPIService) ProductListBulkUpdateProductListAssociationsExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPISearchProductListsRequest struct {
+type ApiSearchProductListsRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistSearchProductListsRequest
 }
 
-func (r ProductListAPISearchProductListsRequest) Body(body ProductlistSearchProductListsRequest) ProductListAPISearchProductListsRequest {
+func (r ApiSearchProductListsRequest) Body(body ProductlistSearchProductListsRequest) ApiSearchProductListsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPISearchProductListsRequest) Execute() (*ProductlistSearchProductListsResponse, *http.Response, error) {
+func (r ApiSearchProductListsRequest) Execute() (*ProductlistSearchProductListsResponse, *http.Response, error) {
 	return r.ApiService.SearchProductListsExecute(r)
 }
 
@@ -1868,10 +1868,10 @@ SearchProductLists Search Collections
 The SearchProductLists endpoint is used to retrieve a list of existing collections of products within the system.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPISearchProductListsRequest
+ @return ApiSearchProductListsRequest
 */
-func (a *ProductListAPIService) SearchProductLists(ctx context.Context) ProductListAPISearchProductListsRequest {
-	return ProductListAPISearchProductListsRequest{
+func (a *ProductListAPIService) SearchProductLists(ctx context.Context) ApiSearchProductListsRequest {
+	return ApiSearchProductListsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1879,7 +1879,7 @@ func (a *ProductListAPIService) SearchProductLists(ctx context.Context) ProductL
 
 // Execute executes the request
 //  @return ProductlistSearchProductListsResponse
-func (a *ProductListAPIService) SearchProductListsExecute(r ProductListAPISearchProductListsRequest) (*ProductlistSearchProductListsResponse, *http.Response, error) {
+func (a *ProductListAPIService) SearchProductListsExecute(r ApiSearchProductListsRequest) (*ProductlistSearchProductListsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2001,18 +2001,18 @@ func (a *ProductListAPIService) SearchProductListsExecute(r ProductListAPISearch
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPISearchProductListsByIdsRequest struct {
+type ApiSearchProductListsByIdsRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistSearchProductListsByIdsRequest
 }
 
-func (r ProductListAPISearchProductListsByIdsRequest) Body(body ProductlistSearchProductListsByIdsRequest) ProductListAPISearchProductListsByIdsRequest {
+func (r ApiSearchProductListsByIdsRequest) Body(body ProductlistSearchProductListsByIdsRequest) ApiSearchProductListsByIdsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPISearchProductListsByIdsRequest) Execute() (*ProductlistSearchProductListsByIdsResponse, *http.Response, error) {
+func (r ApiSearchProductListsByIdsRequest) Execute() (*ProductlistSearchProductListsByIdsResponse, *http.Response, error) {
 	return r.ApiService.SearchProductListsByIdsExecute(r)
 }
 
@@ -2022,10 +2022,10 @@ SearchProductListsByIds Search Collections by Ids
 The SearchProductListsByIds endpoint is used to retrieve a list of existing collections of products within the system.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPISearchProductListsByIdsRequest
+ @return ApiSearchProductListsByIdsRequest
 */
-func (a *ProductListAPIService) SearchProductListsByIds(ctx context.Context) ProductListAPISearchProductListsByIdsRequest {
-	return ProductListAPISearchProductListsByIdsRequest{
+func (a *ProductListAPIService) SearchProductListsByIds(ctx context.Context) ApiSearchProductListsByIdsRequest {
+	return ApiSearchProductListsByIdsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2033,7 +2033,7 @@ func (a *ProductListAPIService) SearchProductListsByIds(ctx context.Context) Pro
 
 // Execute executes the request
 //  @return ProductlistSearchProductListsByIdsResponse
-func (a *ProductListAPIService) SearchProductListsByIdsExecute(r ProductListAPISearchProductListsByIdsRequest) (*ProductlistSearchProductListsByIdsResponse, *http.Response, error) {
+func (a *ProductListAPIService) SearchProductListsByIdsExecute(r ApiSearchProductListsByIdsRequest) (*ProductlistSearchProductListsByIdsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2155,18 +2155,18 @@ func (a *ProductListAPIService) SearchProductListsByIdsExecute(r ProductListAPIS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPISetProductListAssociationsRequest struct {
+type ApiSetProductListAssociationsRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistSetProductListAssociationsRequest
 }
 
-func (r ProductListAPISetProductListAssociationsRequest) Body(body ProductlistSetProductListAssociationsRequest) ProductListAPISetProductListAssociationsRequest {
+func (r ApiSetProductListAssociationsRequest) Body(body ProductlistSetProductListAssociationsRequest) ApiSetProductListAssociationsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPISetProductListAssociationsRequest) Execute() (*ProductlistSetProductListAssociationsResponse, *http.Response, error) {
+func (r ApiSetProductListAssociationsRequest) Execute() (*ProductlistSetProductListAssociationsResponse, *http.Response, error) {
 	return r.ApiService.SetProductListAssociationsExecute(r)
 }
 
@@ -2176,10 +2176,10 @@ SetProductListAssociations Set Collection/Product Associations
 The SetProductListAssociations endpoint is used to set the associations between a collection and a list of products.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPISetProductListAssociationsRequest
+ @return ApiSetProductListAssociationsRequest
 */
-func (a *ProductListAPIService) SetProductListAssociations(ctx context.Context) ProductListAPISetProductListAssociationsRequest {
-	return ProductListAPISetProductListAssociationsRequest{
+func (a *ProductListAPIService) SetProductListAssociations(ctx context.Context) ApiSetProductListAssociationsRequest {
+	return ApiSetProductListAssociationsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2187,7 +2187,7 @@ func (a *ProductListAPIService) SetProductListAssociations(ctx context.Context) 
 
 // Execute executes the request
 //  @return ProductlistSetProductListAssociationsResponse
-func (a *ProductListAPIService) SetProductListAssociationsExecute(r ProductListAPISetProductListAssociationsRequest) (*ProductlistSetProductListAssociationsResponse, *http.Response, error) {
+func (a *ProductListAPIService) SetProductListAssociationsExecute(r ApiSetProductListAssociationsRequest) (*ProductlistSetProductListAssociationsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2309,18 +2309,18 @@ func (a *ProductListAPIService) SetProductListAssociationsExecute(r ProductListA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ProductListAPIUpdateProductListRequest struct {
+type ApiUpdateProductListRequest struct {
 	ctx context.Context
 	ApiService *ProductListAPIService
 	body *ProductlistUpdateProductListRequest
 }
 
-func (r ProductListAPIUpdateProductListRequest) Body(body ProductlistUpdateProductListRequest) ProductListAPIUpdateProductListRequest {
+func (r ApiUpdateProductListRequest) Body(body ProductlistUpdateProductListRequest) ApiUpdateProductListRequest {
 	r.body = &body
 	return r
 }
 
-func (r ProductListAPIUpdateProductListRequest) Execute() (*ProductlistUpdateProductListResponse, *http.Response, error) {
+func (r ApiUpdateProductListRequest) Execute() (*ProductlistUpdateProductListResponse, *http.Response, error) {
 	return r.ApiService.UpdateProductListExecute(r)
 }
 
@@ -2330,10 +2330,10 @@ UpdateProductList Update Collection
 The UpdateProductList endpoint is used to update an existing collection of products within the system.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductListAPIUpdateProductListRequest
+ @return ApiUpdateProductListRequest
 */
-func (a *ProductListAPIService) UpdateProductList(ctx context.Context) ProductListAPIUpdateProductListRequest {
-	return ProductListAPIUpdateProductListRequest{
+func (a *ProductListAPIService) UpdateProductList(ctx context.Context) ApiUpdateProductListRequest {
+	return ApiUpdateProductListRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2341,7 +2341,7 @@ func (a *ProductListAPIService) UpdateProductList(ctx context.Context) ProductLi
 
 // Execute executes the request
 //  @return ProductlistUpdateProductListResponse
-func (a *ProductListAPIService) UpdateProductListExecute(r ProductListAPIUpdateProductListRequest) (*ProductlistUpdateProductListResponse, *http.Response, error) {
+func (a *ProductListAPIService) UpdateProductListExecute(r ApiUpdateProductListRequest) (*ProductlistUpdateProductListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}

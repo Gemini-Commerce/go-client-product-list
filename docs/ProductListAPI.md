@@ -1,4 +1,4 @@
-# GeminiCommerce\ProductList\ProductListAPI
+# \ProductListAPI
 
 All URIs are relative to *https://product-list.api.gogemini.io*
 

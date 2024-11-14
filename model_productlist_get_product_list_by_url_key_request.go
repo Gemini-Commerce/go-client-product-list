@@ -23,7 +23,10 @@ type ProductlistGetProductListByUrlKeyRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
 	UrlKey *string `json:"urlKey,omitempty"`
 	Locale *string `json:"locale,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistGetProductListByUrlKeyRequest ProductlistGetProductListByUrlKeyRequest
 
 // NewProductlistGetProductListByUrlKeyRequest instantiates a new ProductlistGetProductListByUrlKeyRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -60,8 +63,8 @@ func (o *ProductlistGetProductListByUrlKeyRequest) GetTenantIdOk() (*string, boo
 	return o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByUrlKeyRequest) HasTenantId() bool {
+// &#39;Has&#39;TenantId returns a boolean if a field has been set.
+func (o *ProductlistGetProductListByUrlKeyRequest) &#39;Has&#39;TenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -92,8 +95,8 @@ func (o *ProductlistGetProductListByUrlKeyRequest) GetUrlKeyOk() (*string, bool)
 	return o.UrlKey, true
 }
 
-// HasUrlKey returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByUrlKeyRequest) HasUrlKey() bool {
+// &#39;Has&#39;UrlKey returns a boolean if a field has been set.
+func (o *ProductlistGetProductListByUrlKeyRequest) &#39;Has&#39;UrlKey() bool {
 	if o != nil && !IsNil(o.UrlKey) {
 		return true
 	}
@@ -124,8 +127,8 @@ func (o *ProductlistGetProductListByUrlKeyRequest) GetLocaleOk() (*string, bool)
 	return o.Locale, true
 }
 
-// HasLocale returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByUrlKeyRequest) HasLocale() bool {
+// &#39;Has&#39;Locale returns a boolean if a field has been set.
+func (o *ProductlistGetProductListByUrlKeyRequest) &#39;Has&#39;Locale() bool {
 	if o != nil && !IsNil(o.Locale) {
 		return true
 	}
@@ -157,9 +160,55 @@ func (o ProductlistGetProductListByUrlKeyRequest) ToMap() (map[string]interface{
 	if !IsNil(o.Locale) {
 		toSerialize["locale"] = o.Locale
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistGetProductListByUrlKeyRequest) UnmarshalJSON(data []byte) (err error) {
+	varProductlistGetProductListByUrlKeyRequest := _ProductlistGetProductListByUrlKeyRequest{}
+
+	err = json.Unmarshal(data, &varProductlistGetProductListByUrlKeyRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistGetProductListByUrlKeyRequest(varProductlistGetProductListByUrlKeyRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "urlKey")
+		delete(additionalProperties, "locale")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistGetProductListByUrlKeyRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistGetProductListByUrlKeyRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistGetProductListByUrlKeyRequest struct {
 	value *ProductlistGetProductListByUrlKeyRequest
 	isSet bool

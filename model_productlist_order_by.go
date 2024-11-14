@@ -22,7 +22,10 @@ var _ MappedNullable = &ProductlistOrderBy{}
 type ProductlistOrderBy struct {
 	Field *string `json:"field,omitempty"`
 	Direction *OrderByDirection `json:"direction,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistOrderBy ProductlistOrderBy
 
 // NewProductlistOrderBy instantiates a new ProductlistOrderBy object
 // This constructor will assign default values to properties that have it defined,
@@ -63,8 +66,8 @@ func (o *ProductlistOrderBy) GetFieldOk() (*string, bool) {
 	return o.Field, true
 }
 
-// HasField returns a boolean if a field has been set.
-func (o *ProductlistOrderBy) HasField() bool {
+// &#39;Has&#39;Field returns a boolean if a field has been set.
+func (o *ProductlistOrderBy) &#39;Has&#39;Field() bool {
 	if o != nil && !IsNil(o.Field) {
 		return true
 	}
@@ -95,8 +98,8 @@ func (o *ProductlistOrderBy) GetDirectionOk() (*OrderByDirection, bool) {
 	return o.Direction, true
 }
 
-// HasDirection returns a boolean if a field has been set.
-func (o *ProductlistOrderBy) HasDirection() bool {
+// &#39;Has&#39;Direction returns a boolean if a field has been set.
+func (o *ProductlistOrderBy) &#39;Has&#39;Direction() bool {
 	if o != nil && !IsNil(o.Direction) {
 		return true
 	}
@@ -125,9 +128,54 @@ func (o ProductlistOrderBy) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Direction) {
 		toSerialize["direction"] = o.Direction
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistOrderBy) UnmarshalJSON(data []byte) (err error) {
+	varProductlistOrderBy := _ProductlistOrderBy{}
+
+	err = json.Unmarshal(data, &varProductlistOrderBy)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistOrderBy(varProductlistOrderBy)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "field")
+		delete(additionalProperties, "direction")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistOrderBy) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistOrderBy) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistOrderBy struct {
 	value *ProductlistOrderBy
 	isSet bool

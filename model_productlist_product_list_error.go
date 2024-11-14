@@ -22,7 +22,10 @@ var _ MappedNullable = &ProductlistProductListError{}
 type ProductlistProductListError struct {
 	Code *string `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistProductListError ProductlistProductListError
 
 // NewProductlistProductListError instantiates a new ProductlistProductListError object
 // This constructor will assign default values to properties that have it defined,
@@ -59,8 +62,8 @@ func (o *ProductlistProductListError) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *ProductlistProductListError) HasCode() bool {
+// &#39;Has&#39;Code returns a boolean if a field has been set.
+func (o *ProductlistProductListError) &#39;Has&#39;Code() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -91,8 +94,8 @@ func (o *ProductlistProductListError) GetMessageOk() (*string, bool) {
 	return o.Message, true
 }
 
-// HasMessage returns a boolean if a field has been set.
-func (o *ProductlistProductListError) HasMessage() bool {
+// &#39;Has&#39;Message returns a boolean if a field has been set.
+func (o *ProductlistProductListError) &#39;Has&#39;Message() bool {
 	if o != nil && !IsNil(o.Message) {
 		return true
 	}
@@ -121,9 +124,54 @@ func (o ProductlistProductListError) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistProductListError) UnmarshalJSON(data []byte) (err error) {
+	varProductlistProductListError := _ProductlistProductListError{}
+
+	err = json.Unmarshal(data, &varProductlistProductListError)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistProductListError(varProductlistProductListError)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "message")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistProductListError) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistProductListError) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistProductListError struct {
 	value *ProductlistProductListError
 	isSet bool

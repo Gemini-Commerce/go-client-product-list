@@ -24,7 +24,10 @@ type ProductlistSearchProductListsByIdsRequest struct {
 	Ids []string `json:"ids,omitempty"`
 	PageSize *int64 `json:"pageSize,omitempty"`
 	PageNumber *int64 `json:"pageNumber,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistSearchProductListsByIdsRequest ProductlistSearchProductListsByIdsRequest
 
 // NewProductlistSearchProductListsByIdsRequest instantiates a new ProductlistSearchProductListsByIdsRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -61,8 +64,8 @@ func (o *ProductlistSearchProductListsByIdsRequest) GetTenantIdOk() (*string, bo
 	return o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsByIdsRequest) HasTenantId() bool {
+// &#39;Has&#39;TenantId returns a boolean if a field has been set.
+func (o *ProductlistSearchProductListsByIdsRequest) &#39;Has&#39;TenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -93,8 +96,8 @@ func (o *ProductlistSearchProductListsByIdsRequest) GetIdsOk() ([]string, bool) 
 	return o.Ids, true
 }
 
-// HasIds returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsByIdsRequest) HasIds() bool {
+// &#39;Has&#39;Ids returns a boolean if a field has been set.
+func (o *ProductlistSearchProductListsByIdsRequest) &#39;Has&#39;Ids() bool {
 	if o != nil && !IsNil(o.Ids) {
 		return true
 	}
@@ -125,8 +128,8 @@ func (o *ProductlistSearchProductListsByIdsRequest) GetPageSizeOk() (*int64, boo
 	return o.PageSize, true
 }
 
-// HasPageSize returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsByIdsRequest) HasPageSize() bool {
+// &#39;Has&#39;PageSize returns a boolean if a field has been set.
+func (o *ProductlistSearchProductListsByIdsRequest) &#39;Has&#39;PageSize() bool {
 	if o != nil && !IsNil(o.PageSize) {
 		return true
 	}
@@ -157,8 +160,8 @@ func (o *ProductlistSearchProductListsByIdsRequest) GetPageNumberOk() (*int64, b
 	return o.PageNumber, true
 }
 
-// HasPageNumber returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsByIdsRequest) HasPageNumber() bool {
+// &#39;Has&#39;PageNumber returns a boolean if a field has been set.
+func (o *ProductlistSearchProductListsByIdsRequest) &#39;Has&#39;PageNumber() bool {
 	if o != nil && !IsNil(o.PageNumber) {
 		return true
 	}
@@ -193,9 +196,56 @@ func (o ProductlistSearchProductListsByIdsRequest) ToMap() (map[string]interface
 	if !IsNil(o.PageNumber) {
 		toSerialize["pageNumber"] = o.PageNumber
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistSearchProductListsByIdsRequest) UnmarshalJSON(data []byte) (err error) {
+	varProductlistSearchProductListsByIdsRequest := _ProductlistSearchProductListsByIdsRequest{}
+
+	err = json.Unmarshal(data, &varProductlistSearchProductListsByIdsRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistSearchProductListsByIdsRequest(varProductlistSearchProductListsByIdsRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "ids")
+		delete(additionalProperties, "pageSize")
+		delete(additionalProperties, "pageNumber")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistSearchProductListsByIdsRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistSearchProductListsByIdsRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistSearchProductListsByIdsRequest struct {
 	value *ProductlistSearchProductListsByIdsRequest
 	isSet bool

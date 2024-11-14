@@ -22,7 +22,10 @@ var _ MappedNullable = &ProductlistBulkUpdateProductListAssociationsRequestProdu
 type ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation struct {
 	Id *string `json:"id,omitempty"`
 	Position *int32 `json:"position,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation
 
 // NewProductlistBulkUpdateProductListAssociationsRequestProductListAssociation instantiates a new ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation object
 // This constructor will assign default values to properties that have it defined,
@@ -59,8 +62,8 @@ func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociati
 	return o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) HasId() bool {
+// &#39;Has&#39;Id returns a boolean if a field has been set.
+func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) &#39;Has&#39;Id() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -91,8 +94,8 @@ func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociati
 	return o.Position, true
 }
 
-// HasPosition returns a boolean if a field has been set.
-func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) HasPosition() bool {
+// &#39;Has&#39;Position returns a boolean if a field has been set.
+func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) &#39;Has&#39;Position() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -121,9 +124,54 @@ func (o ProductlistBulkUpdateProductListAssociationsRequestProductListAssociatio
 	if !IsNil(o.Position) {
 		toSerialize["position"] = o.Position
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) UnmarshalJSON(data []byte) (err error) {
+	varProductlistBulkUpdateProductListAssociationsRequestProductListAssociation := _ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation{}
+
+	err = json.Unmarshal(data, &varProductlistBulkUpdateProductListAssociationsRequestProductListAssociation)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation(varProductlistBulkUpdateProductListAssociationsRequestProductListAssociation)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "position")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistBulkUpdateProductListAssociationsRequestProductListAssociation struct {
 	value *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation
 	isSet bool

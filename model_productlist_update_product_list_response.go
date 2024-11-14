@@ -22,7 +22,10 @@ var _ MappedNullable = &ProductlistUpdateProductListResponse{}
 type ProductlistUpdateProductListResponse struct {
 	List *ProductlistProductListEntity `json:"list,omitempty"`
 	Errors []ProductlistProductListError `json:"errors,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistUpdateProductListResponse ProductlistUpdateProductListResponse
 
 // NewProductlistUpdateProductListResponse instantiates a new ProductlistUpdateProductListResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -59,8 +62,8 @@ func (o *ProductlistUpdateProductListResponse) GetListOk() (*ProductlistProductL
 	return o.List, true
 }
 
-// HasList returns a boolean if a field has been set.
-func (o *ProductlistUpdateProductListResponse) HasList() bool {
+// &#39;Has&#39;List returns a boolean if a field has been set.
+func (o *ProductlistUpdateProductListResponse) &#39;Has&#39;List() bool {
 	if o != nil && !IsNil(o.List) {
 		return true
 	}
@@ -91,8 +94,8 @@ func (o *ProductlistUpdateProductListResponse) GetErrorsOk() ([]ProductlistProdu
 	return o.Errors, true
 }
 
-// HasErrors returns a boolean if a field has been set.
-func (o *ProductlistUpdateProductListResponse) HasErrors() bool {
+// &#39;Has&#39;Errors returns a boolean if a field has been set.
+func (o *ProductlistUpdateProductListResponse) &#39;Has&#39;Errors() bool {
 	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
@@ -121,9 +124,54 @@ func (o ProductlistUpdateProductListResponse) ToMap() (map[string]interface{}, e
 	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistUpdateProductListResponse) UnmarshalJSON(data []byte) (err error) {
+	varProductlistUpdateProductListResponse := _ProductlistUpdateProductListResponse{}
+
+	err = json.Unmarshal(data, &varProductlistUpdateProductListResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistUpdateProductListResponse(varProductlistUpdateProductListResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "list")
+		delete(additionalProperties, "errors")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistUpdateProductListResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistUpdateProductListResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistUpdateProductListResponse struct {
 	value *ProductlistUpdateProductListResponse
 	isSet bool

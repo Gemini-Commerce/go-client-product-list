@@ -24,7 +24,10 @@ type ProductlistProductListAssociation struct {
 	ListId *string `json:"listId,omitempty"`
 	Position *int32 `json:"position,omitempty"`
 	ProductGrn *string `json:"productGrn,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistProductListAssociation ProductlistProductListAssociation
 
 // NewProductlistProductListAssociation instantiates a new ProductlistProductListAssociation object
 // This constructor will assign default values to properties that have it defined,
@@ -61,8 +64,8 @@ func (o *ProductlistProductListAssociation) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ProductlistProductListAssociation) HasId() bool {
+// &#39;Has&#39;Id returns a boolean if a field has been set.
+func (o *ProductlistProductListAssociation) &#39;Has&#39;Id() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -93,8 +96,8 @@ func (o *ProductlistProductListAssociation) GetListIdOk() (*string, bool) {
 	return o.ListId, true
 }
 
-// HasListId returns a boolean if a field has been set.
-func (o *ProductlistProductListAssociation) HasListId() bool {
+// &#39;Has&#39;ListId returns a boolean if a field has been set.
+func (o *ProductlistProductListAssociation) &#39;Has&#39;ListId() bool {
 	if o != nil && !IsNil(o.ListId) {
 		return true
 	}
@@ -125,8 +128,8 @@ func (o *ProductlistProductListAssociation) GetPositionOk() (*int32, bool) {
 	return o.Position, true
 }
 
-// HasPosition returns a boolean if a field has been set.
-func (o *ProductlistProductListAssociation) HasPosition() bool {
+// &#39;Has&#39;Position returns a boolean if a field has been set.
+func (o *ProductlistProductListAssociation) &#39;Has&#39;Position() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -157,8 +160,8 @@ func (o *ProductlistProductListAssociation) GetProductGrnOk() (*string, bool) {
 	return o.ProductGrn, true
 }
 
-// HasProductGrn returns a boolean if a field has been set.
-func (o *ProductlistProductListAssociation) HasProductGrn() bool {
+// &#39;Has&#39;ProductGrn returns a boolean if a field has been set.
+func (o *ProductlistProductListAssociation) &#39;Has&#39;ProductGrn() bool {
 	if o != nil && !IsNil(o.ProductGrn) {
 		return true
 	}
@@ -193,9 +196,56 @@ func (o ProductlistProductListAssociation) ToMap() (map[string]interface{}, erro
 	if !IsNil(o.ProductGrn) {
 		toSerialize["productGrn"] = o.ProductGrn
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistProductListAssociation) UnmarshalJSON(data []byte) (err error) {
+	varProductlistProductListAssociation := _ProductlistProductListAssociation{}
+
+	err = json.Unmarshal(data, &varProductlistProductListAssociation)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistProductListAssociation(varProductlistProductListAssociation)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "listId")
+		delete(additionalProperties, "position")
+		delete(additionalProperties, "productGrn")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistProductListAssociation) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistProductListAssociation) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistProductListAssociation struct {
 	value *ProductlistProductListAssociation
 	isSet bool

@@ -96,5 +96,4 @@ model_rpc_status.go
 model_search_product_lists_request_query.go
 model_set_product_list_associations_request_association.go
 response.go
-test/api_product_list_test.go
 utils.go

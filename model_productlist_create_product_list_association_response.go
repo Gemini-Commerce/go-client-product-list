@@ -22,7 +22,10 @@ var _ MappedNullable = &ProductlistCreateProductListAssociationResponse{}
 type ProductlistCreateProductListAssociationResponse struct {
 	Association *ProductlistProductListAssociation `json:"association,omitempty"`
 	Errors []ProductlistProductListAssociationError `json:"errors,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistCreateProductListAssociationResponse ProductlistCreateProductListAssociationResponse
 
 // NewProductlistCreateProductListAssociationResponse instantiates a new ProductlistCreateProductListAssociationResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -59,8 +62,8 @@ func (o *ProductlistCreateProductListAssociationResponse) GetAssociationOk() (*P
 	return o.Association, true
 }
 
-// HasAssociation returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListAssociationResponse) HasAssociation() bool {
+// &#39;Has&#39;Association returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListAssociationResponse) &#39;Has&#39;Association() bool {
 	if o != nil && !IsNil(o.Association) {
 		return true
 	}
@@ -91,8 +94,8 @@ func (o *ProductlistCreateProductListAssociationResponse) GetErrorsOk() ([]Produ
 	return o.Errors, true
 }
 
-// HasErrors returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListAssociationResponse) HasErrors() bool {
+// &#39;Has&#39;Errors returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListAssociationResponse) &#39;Has&#39;Errors() bool {
 	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
@@ -121,9 +124,54 @@ func (o ProductlistCreateProductListAssociationResponse) ToMap() (map[string]int
 	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistCreateProductListAssociationResponse) UnmarshalJSON(data []byte) (err error) {
+	varProductlistCreateProductListAssociationResponse := _ProductlistCreateProductListAssociationResponse{}
+
+	err = json.Unmarshal(data, &varProductlistCreateProductListAssociationResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistCreateProductListAssociationResponse(varProductlistCreateProductListAssociationResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "association")
+		delete(additionalProperties, "errors")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistCreateProductListAssociationResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistCreateProductListAssociationResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistCreateProductListAssociationResponse struct {
 	value *ProductlistCreateProductListAssociationResponse
 	isSet bool

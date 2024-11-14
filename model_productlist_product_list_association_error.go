@@ -22,7 +22,10 @@ var _ MappedNullable = &ProductlistProductListAssociationError{}
 type ProductlistProductListAssociationError struct {
 	Code *string `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistProductListAssociationError ProductlistProductListAssociationError
 
 // NewProductlistProductListAssociationError instantiates a new ProductlistProductListAssociationError object
 // This constructor will assign default values to properties that have it defined,
@@ -59,8 +62,8 @@ func (o *ProductlistProductListAssociationError) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *ProductlistProductListAssociationError) HasCode() bool {
+// &#39;Has&#39;Code returns a boolean if a field has been set.
+func (o *ProductlistProductListAssociationError) &#39;Has&#39;Code() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -91,8 +94,8 @@ func (o *ProductlistProductListAssociationError) GetMessageOk() (*string, bool) 
 	return o.Message, true
 }
 
-// HasMessage returns a boolean if a field has been set.
-func (o *ProductlistProductListAssociationError) HasMessage() bool {
+// &#39;Has&#39;Message returns a boolean if a field has been set.
+func (o *ProductlistProductListAssociationError) &#39;Has&#39;Message() bool {
 	if o != nil && !IsNil(o.Message) {
 		return true
 	}
@@ -121,9 +124,54 @@ func (o ProductlistProductListAssociationError) ToMap() (map[string]interface{},
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistProductListAssociationError) UnmarshalJSON(data []byte) (err error) {
+	varProductlistProductListAssociationError := _ProductlistProductListAssociationError{}
+
+	err = json.Unmarshal(data, &varProductlistProductListAssociationError)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistProductListAssociationError(varProductlistProductListAssociationError)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "message")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistProductListAssociationError) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistProductListAssociationError) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistProductListAssociationError struct {
 	value *ProductlistProductListAssociationError
 	isSet bool

@@ -30,7 +30,10 @@ type ProductlistProductListEntity struct {
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 	Attributes *map[string]ProtobufAny `json:"attributes,omitempty"`
 	CountAssociations *int64 `json:"countAssociations,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistProductListEntity ProductlistProductListEntity
 
 // NewProductlistProductListEntity instantiates a new ProductlistProductListEntity object
 // This constructor will assign default values to properties that have it defined,
@@ -67,8 +70,8 @@ func (o *ProductlistProductListEntity) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) HasId() bool {
+// &#39;Has&#39;Id returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) &#39;Has&#39;Id() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -99,8 +102,8 @@ func (o *ProductlistProductListEntity) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) HasCode() bool {
+// &#39;Has&#39;Code returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) &#39;Has&#39;Code() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -131,8 +134,8 @@ func (o *ProductlistProductListEntity) GetUrlKeyOk() (*ProductlistLocalizedText,
 	return o.UrlKey, true
 }
 
-// HasUrlKey returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) HasUrlKey() bool {
+// &#39;Has&#39;UrlKey returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) &#39;Has&#39;UrlKey() bool {
 	if o != nil && !IsNil(o.UrlKey) {
 		return true
 	}
@@ -163,8 +166,8 @@ func (o *ProductlistProductListEntity) GetEntityTypeOk() (*string, bool) {
 	return o.EntityType, true
 }
 
-// HasEntityType returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) HasEntityType() bool {
+// &#39;Has&#39;EntityType returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) &#39;Has&#39;EntityType() bool {
 	if o != nil && !IsNil(o.EntityType) {
 		return true
 	}
@@ -195,8 +198,8 @@ func (o *ProductlistProductListEntity) GetEntityCodeOk() (*string, bool) {
 	return o.EntityCode, true
 }
 
-// HasEntityCode returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) HasEntityCode() bool {
+// &#39;Has&#39;EntityCode returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) &#39;Has&#39;EntityCode() bool {
 	if o != nil && !IsNil(o.EntityCode) {
 		return true
 	}
@@ -227,8 +230,8 @@ func (o *ProductlistProductListEntity) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// HasCreatedAt returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) HasCreatedAt() bool {
+// &#39;Has&#39;CreatedAt returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) &#39;Has&#39;CreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -259,8 +262,8 @@ func (o *ProductlistProductListEntity) GetUpdatedAtOk() (*time.Time, bool) {
 	return o.UpdatedAt, true
 }
 
-// HasUpdatedAt returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) HasUpdatedAt() bool {
+// &#39;Has&#39;UpdatedAt returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) &#39;Has&#39;UpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
@@ -291,8 +294,8 @@ func (o *ProductlistProductListEntity) GetAttributesOk() (*map[string]ProtobufAn
 	return o.Attributes, true
 }
 
-// HasAttributes returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) HasAttributes() bool {
+// &#39;Has&#39;Attributes returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) &#39;Has&#39;Attributes() bool {
 	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
@@ -323,8 +326,8 @@ func (o *ProductlistProductListEntity) GetCountAssociationsOk() (*int64, bool) {
 	return o.CountAssociations, true
 }
 
-// HasCountAssociations returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) HasCountAssociations() bool {
+// &#39;Has&#39;CountAssociations returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) &#39;Has&#39;CountAssociations() bool {
 	if o != nil && !IsNil(o.CountAssociations) {
 		return true
 	}
@@ -374,9 +377,61 @@ func (o ProductlistProductListEntity) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CountAssociations) {
 		toSerialize["countAssociations"] = o.CountAssociations
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistProductListEntity) UnmarshalJSON(data []byte) (err error) {
+	varProductlistProductListEntity := _ProductlistProductListEntity{}
+
+	err = json.Unmarshal(data, &varProductlistProductListEntity)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistProductListEntity(varProductlistProductListEntity)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "urlKey")
+		delete(additionalProperties, "entityType")
+		delete(additionalProperties, "entityCode")
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "updatedAt")
+		delete(additionalProperties, "attributes")
+		delete(additionalProperties, "countAssociations")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistProductListEntity) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistProductListEntity) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistProductListEntity struct {
 	value *ProductlistProductListEntity
 	isSet bool

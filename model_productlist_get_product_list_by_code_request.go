@@ -22,7 +22,10 @@ var _ MappedNullable = &ProductlistGetProductListByCodeRequest{}
 type ProductlistGetProductListByCodeRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
 	Code *string `json:"code,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistGetProductListByCodeRequest ProductlistGetProductListByCodeRequest
 
 // NewProductlistGetProductListByCodeRequest instantiates a new ProductlistGetProductListByCodeRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -59,8 +62,8 @@ func (o *ProductlistGetProductListByCodeRequest) GetTenantIdOk() (*string, bool)
 	return o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByCodeRequest) HasTenantId() bool {
+// &#39;Has&#39;TenantId returns a boolean if a field has been set.
+func (o *ProductlistGetProductListByCodeRequest) &#39;Has&#39;TenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -91,8 +94,8 @@ func (o *ProductlistGetProductListByCodeRequest) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByCodeRequest) HasCode() bool {
+// &#39;Has&#39;Code returns a boolean if a field has been set.
+func (o *ProductlistGetProductListByCodeRequest) &#39;Has&#39;Code() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -121,9 +124,54 @@ func (o ProductlistGetProductListByCodeRequest) ToMap() (map[string]interface{},
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistGetProductListByCodeRequest) UnmarshalJSON(data []byte) (err error) {
+	varProductlistGetProductListByCodeRequest := _ProductlistGetProductListByCodeRequest{}
+
+	err = json.Unmarshal(data, &varProductlistGetProductListByCodeRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistGetProductListByCodeRequest(varProductlistGetProductListByCodeRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "code")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistGetProductListByCodeRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistGetProductListByCodeRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistGetProductListByCodeRequest struct {
 	value *ProductlistGetProductListByCodeRequest
 	isSet bool

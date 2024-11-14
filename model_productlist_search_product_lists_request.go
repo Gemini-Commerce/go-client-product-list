@@ -24,7 +24,10 @@ type ProductlistSearchProductListsRequest struct {
 	Query *SearchProductListsRequestQuery `json:"query,omitempty"`
 	PageSize *int64 `json:"pageSize,omitempty"`
 	PageNumber *int64 `json:"pageNumber,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistSearchProductListsRequest ProductlistSearchProductListsRequest
 
 // NewProductlistSearchProductListsRequest instantiates a new ProductlistSearchProductListsRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -61,8 +64,8 @@ func (o *ProductlistSearchProductListsRequest) GetTenantIdOk() (*string, bool) {
 	return o.TenantId, true
 }
 
-// HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsRequest) HasTenantId() bool {
+// &#39;Has&#39;TenantId returns a boolean if a field has been set.
+func (o *ProductlistSearchProductListsRequest) &#39;Has&#39;TenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -93,8 +96,8 @@ func (o *ProductlistSearchProductListsRequest) GetQueryOk() (*SearchProductLists
 	return o.Query, true
 }
 
-// HasQuery returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsRequest) HasQuery() bool {
+// &#39;Has&#39;Query returns a boolean if a field has been set.
+func (o *ProductlistSearchProductListsRequest) &#39;Has&#39;Query() bool {
 	if o != nil && !IsNil(o.Query) {
 		return true
 	}
@@ -125,8 +128,8 @@ func (o *ProductlistSearchProductListsRequest) GetPageSizeOk() (*int64, bool) {
 	return o.PageSize, true
 }
 
-// HasPageSize returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsRequest) HasPageSize() bool {
+// &#39;Has&#39;PageSize returns a boolean if a field has been set.
+func (o *ProductlistSearchProductListsRequest) &#39;Has&#39;PageSize() bool {
 	if o != nil && !IsNil(o.PageSize) {
 		return true
 	}
@@ -157,8 +160,8 @@ func (o *ProductlistSearchProductListsRequest) GetPageNumberOk() (*int64, bool) 
 	return o.PageNumber, true
 }
 
-// HasPageNumber returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsRequest) HasPageNumber() bool {
+// &#39;Has&#39;PageNumber returns a boolean if a field has been set.
+func (o *ProductlistSearchProductListsRequest) &#39;Has&#39;PageNumber() bool {
 	if o != nil && !IsNil(o.PageNumber) {
 		return true
 	}
@@ -193,9 +196,56 @@ func (o ProductlistSearchProductListsRequest) ToMap() (map[string]interface{}, e
 	if !IsNil(o.PageNumber) {
 		toSerialize["pageNumber"] = o.PageNumber
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistSearchProductListsRequest) UnmarshalJSON(data []byte) (err error) {
+	varProductlistSearchProductListsRequest := _ProductlistSearchProductListsRequest{}
+
+	err = json.Unmarshal(data, &varProductlistSearchProductListsRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistSearchProductListsRequest(varProductlistSearchProductListsRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "tenantId")
+		delete(additionalProperties, "query")
+		delete(additionalProperties, "pageSize")
+		delete(additionalProperties, "pageNumber")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistSearchProductListsRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistSearchProductListsRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistSearchProductListsRequest struct {
 	value *ProductlistSearchProductListsRequest
 	isSet bool

@@ -21,7 +21,10 @@ var _ MappedNullable = &ProductlistGetProductListAssociationsByProductGrnRespons
 // ProductlistGetProductListAssociationsByProductGrnResponse struct for ProductlistGetProductListAssociationsByProductGrnResponse
 type ProductlistGetProductListAssociationsByProductGrnResponse struct {
 	Associations []ProductlistProductListAssociation `json:"associations,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistGetProductListAssociationsByProductGrnResponse ProductlistGetProductListAssociationsByProductGrnResponse
 
 // NewProductlistGetProductListAssociationsByProductGrnResponse instantiates a new ProductlistGetProductListAssociationsByProductGrnResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -58,8 +61,8 @@ func (o *ProductlistGetProductListAssociationsByProductGrnResponse) GetAssociati
 	return o.Associations, true
 }
 
-// HasAssociations returns a boolean if a field has been set.
-func (o *ProductlistGetProductListAssociationsByProductGrnResponse) HasAssociations() bool {
+// &#39;Has&#39;Associations returns a boolean if a field has been set.
+func (o *ProductlistGetProductListAssociationsByProductGrnResponse) &#39;Has&#39;Associations() bool {
 	if o != nil && !IsNil(o.Associations) {
 		return true
 	}
@@ -85,9 +88,53 @@ func (o ProductlistGetProductListAssociationsByProductGrnResponse) ToMap() (map[
 	if !IsNil(o.Associations) {
 		toSerialize["associations"] = o.Associations
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistGetProductListAssociationsByProductGrnResponse) UnmarshalJSON(data []byte) (err error) {
+	varProductlistGetProductListAssociationsByProductGrnResponse := _ProductlistGetProductListAssociationsByProductGrnResponse{}
+
+	err = json.Unmarshal(data, &varProductlistGetProductListAssociationsByProductGrnResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistGetProductListAssociationsByProductGrnResponse(varProductlistGetProductListAssociationsByProductGrnResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "associations")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistGetProductListAssociationsByProductGrnResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistGetProductListAssociationsByProductGrnResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistGetProductListAssociationsByProductGrnResponse struct {
 	value *ProductlistGetProductListAssociationsByProductGrnResponse
 	isSet bool

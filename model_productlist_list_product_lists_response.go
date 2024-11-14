@@ -22,7 +22,10 @@ var _ MappedNullable = &ProductlistListProductListsResponse{}
 type ProductlistListProductListsResponse struct {
 	Lists []ProductlistProductListEntity `json:"lists,omitempty"`
 	NextPageToken *string `json:"nextPageToken,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProductlistListProductListsResponse ProductlistListProductListsResponse
 
 // NewProductlistListProductListsResponse instantiates a new ProductlistListProductListsResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -59,8 +62,8 @@ func (o *ProductlistListProductListsResponse) GetListsOk() ([]ProductlistProduct
 	return o.Lists, true
 }
 
-// HasLists returns a boolean if a field has been set.
-func (o *ProductlistListProductListsResponse) HasLists() bool {
+// &#39;Has&#39;Lists returns a boolean if a field has been set.
+func (o *ProductlistListProductListsResponse) &#39;Has&#39;Lists() bool {
 	if o != nil && !IsNil(o.Lists) {
 		return true
 	}
@@ -91,8 +94,8 @@ func (o *ProductlistListProductListsResponse) GetNextPageTokenOk() (*string, boo
 	return o.NextPageToken, true
 }
 
-// HasNextPageToken returns a boolean if a field has been set.
-func (o *ProductlistListProductListsResponse) HasNextPageToken() bool {
+// &#39;Has&#39;NextPageToken returns a boolean if a field has been set.
+func (o *ProductlistListProductListsResponse) &#39;Has&#39;NextPageToken() bool {
 	if o != nil && !IsNil(o.NextPageToken) {
 		return true
 	}
@@ -121,9 +124,54 @@ func (o ProductlistListProductListsResponse) ToMap() (map[string]interface{}, er
 	if !IsNil(o.NextPageToken) {
 		toSerialize["nextPageToken"] = o.NextPageToken
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ProductlistListProductListsResponse) UnmarshalJSON(data []byte) (err error) {
+	varProductlistListProductListsResponse := _ProductlistListProductListsResponse{}
+
+	err = json.Unmarshal(data, &varProductlistListProductListsResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProductlistListProductListsResponse(varProductlistListProductListsResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "lists")
+		delete(additionalProperties, "nextPageToken")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ProductlistListProductListsResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ProductlistListProductListsResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableProductlistListProductListsResponse struct {
 	value *ProductlistListProductListsResponse
 	isSet bool
