@@ -63,8 +63,8 @@ func (o *ProductlistGetProductListByUrlKeyRequest) GetTenantIdOk() (*string, boo
 	return o.TenantId, true
 }
 
-// &#39;Has&#39;TenantId returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByUrlKeyRequest) &#39;Has&#39;TenantId() bool {
+// HasTenantId returns a boolean if a field has been set.
+func (o *ProductlistGetProductListByUrlKeyRequest) HasTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *ProductlistGetProductListByUrlKeyRequest) GetUrlKeyOk() (*string, bool)
 	return o.UrlKey, true
 }
 
-// &#39;Has&#39;UrlKey returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByUrlKeyRequest) &#39;Has&#39;UrlKey() bool {
+// HasUrlKey returns a boolean if a field has been set.
+func (o *ProductlistGetProductListByUrlKeyRequest) HasUrlKey() bool {
 	if o != nil && !IsNil(o.UrlKey) {
 		return true
 	}
@@ -127,8 +127,8 @@ func (o *ProductlistGetProductListByUrlKeyRequest) GetLocaleOk() (*string, bool)
 	return o.Locale, true
 }
 
-// &#39;Has&#39;Locale returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByUrlKeyRequest) &#39;Has&#39;Locale() bool {
+// HasLocale returns a boolean if a field has been set.
+func (o *ProductlistGetProductListByUrlKeyRequest) HasLocale() bool {
 	if o != nil && !IsNil(o.Locale) {
 		return true
 	}

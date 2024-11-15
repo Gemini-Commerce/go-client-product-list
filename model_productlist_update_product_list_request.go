@@ -65,8 +65,8 @@ func (o *ProductlistUpdateProductListRequest) GetTenantIdOk() (*string, bool) {
 	return o.TenantId, true
 }
 
-// &#39;Has&#39;TenantId returns a boolean if a field has been set.
-func (o *ProductlistUpdateProductListRequest) &#39;Has&#39;TenantId() bool {
+// HasTenantId returns a boolean if a field has been set.
+func (o *ProductlistUpdateProductListRequest) HasTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -97,8 +97,8 @@ func (o *ProductlistUpdateProductListRequest) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// &#39;Has&#39;Id returns a boolean if a field has been set.
-func (o *ProductlistUpdateProductListRequest) &#39;Has&#39;Id() bool {
+// HasId returns a boolean if a field has been set.
+func (o *ProductlistUpdateProductListRequest) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -129,8 +129,8 @@ func (o *ProductlistUpdateProductListRequest) GetUrlKeyOk() (*ProductlistLocaliz
 	return o.UrlKey, true
 }
 
-// &#39;Has&#39;UrlKey returns a boolean if a field has been set.
-func (o *ProductlistUpdateProductListRequest) &#39;Has&#39;UrlKey() bool {
+// HasUrlKey returns a boolean if a field has been set.
+func (o *ProductlistUpdateProductListRequest) HasUrlKey() bool {
 	if o != nil && !IsNil(o.UrlKey) {
 		return true
 	}
@@ -161,8 +161,8 @@ func (o *ProductlistUpdateProductListRequest) GetAttributesOk() (*map[string]Pro
 	return o.Attributes, true
 }
 
-// &#39;Has&#39;Attributes returns a boolean if a field has been set.
-func (o *ProductlistUpdateProductListRequest) &#39;Has&#39;Attributes() bool {
+// HasAttributes returns a boolean if a field has been set.
+func (o *ProductlistUpdateProductListRequest) HasAttributes() bool {
 	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
@@ -193,8 +193,8 @@ func (o *ProductlistUpdateProductListRequest) GetAttributesMaskOk() (*string, bo
 	return o.AttributesMask, true
 }
 
-// &#39;Has&#39;AttributesMask returns a boolean if a field has been set.
-func (o *ProductlistUpdateProductListRequest) &#39;Has&#39;AttributesMask() bool {
+// HasAttributesMask returns a boolean if a field has been set.
+func (o *ProductlistUpdateProductListRequest) HasAttributesMask() bool {
 	if o != nil && !IsNil(o.AttributesMask) {
 		return true
 	}

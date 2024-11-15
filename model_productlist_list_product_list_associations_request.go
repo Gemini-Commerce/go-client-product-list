@@ -66,8 +66,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetTenantIdOk() (*string
 	return o.TenantId, true
 }
 
-// &#39;Has&#39;TenantId returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;TenantId() bool {
+// HasTenantId returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) HasTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -98,8 +98,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetListIdOk() (*string, 
 	return o.ListId, true
 }
 
-// &#39;Has&#39;ListId returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;ListId() bool {
+// HasListId returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) HasListId() bool {
 	if o != nil && !IsNil(o.ListId) {
 		return true
 	}
@@ -130,8 +130,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetProductGrnOk() (*stri
 	return o.ProductGrn, true
 }
 
-// &#39;Has&#39;ProductGrn returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;ProductGrn() bool {
+// HasProductGrn returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) HasProductGrn() bool {
 	if o != nil && !IsNil(o.ProductGrn) {
 		return true
 	}
@@ -162,8 +162,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetPageSizeOk() (*int64,
 	return o.PageSize, true
 }
 
-// &#39;Has&#39;PageSize returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;PageSize() bool {
+// HasPageSize returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) HasPageSize() bool {
 	if o != nil && !IsNil(o.PageSize) {
 		return true
 	}
@@ -194,8 +194,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetPageTokenOk() (*strin
 	return o.PageToken, true
 }
 
-// &#39;Has&#39;PageToken returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;PageToken() bool {
+// HasPageToken returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) HasPageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}
@@ -226,8 +226,8 @@ func (o *ProductlistListProductListAssociationsRequest) GetOrderByOk() ([]Produc
 	return o.OrderBy, true
 }
 
-// &#39;Has&#39;OrderBy returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) &#39;Has&#39;OrderBy() bool {
+// HasOrderBy returns a boolean if a field has been set.
+func (o *ProductlistListProductListAssociationsRequest) HasOrderBy() bool {
 	if o != nil && !IsNil(o.OrderBy) {
 		return true
 	}

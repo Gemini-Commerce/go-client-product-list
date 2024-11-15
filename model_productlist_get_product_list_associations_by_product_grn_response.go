@@ -61,8 +61,8 @@ func (o *ProductlistGetProductListAssociationsByProductGrnResponse) GetAssociati
 	return o.Associations, true
 }
 
-// &#39;Has&#39;Associations returns a boolean if a field has been set.
-func (o *ProductlistGetProductListAssociationsByProductGrnResponse) &#39;Has&#39;Associations() bool {
+// HasAssociations returns a boolean if a field has been set.
+func (o *ProductlistGetProductListAssociationsByProductGrnResponse) HasAssociations() bool {
 	if o != nil && !IsNil(o.Associations) {
 		return true
 	}

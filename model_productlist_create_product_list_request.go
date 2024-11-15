@@ -66,8 +66,8 @@ func (o *ProductlistCreateProductListRequest) GetTenantIdOk() (*string, bool) {
 	return o.TenantId, true
 }
 
-// &#39;Has&#39;TenantId returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) &#39;Has&#39;TenantId() bool {
+// HasTenantId returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) HasTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -98,8 +98,8 @@ func (o *ProductlistCreateProductListRequest) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// &#39;Has&#39;Code returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) &#39;Has&#39;Code() bool {
+// HasCode returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -130,8 +130,8 @@ func (o *ProductlistCreateProductListRequest) GetUrlKeyOk() (*ProductlistLocaliz
 	return o.UrlKey, true
 }
 
-// &#39;Has&#39;UrlKey returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) &#39;Has&#39;UrlKey() bool {
+// HasUrlKey returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) HasUrlKey() bool {
 	if o != nil && !IsNil(o.UrlKey) {
 		return true
 	}
@@ -162,8 +162,8 @@ func (o *ProductlistCreateProductListRequest) GetEntityTypeOk() (*string, bool) 
 	return o.EntityType, true
 }
 
-// &#39;Has&#39;EntityType returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) &#39;Has&#39;EntityType() bool {
+// HasEntityType returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) HasEntityType() bool {
 	if o != nil && !IsNil(o.EntityType) {
 		return true
 	}
@@ -194,8 +194,8 @@ func (o *ProductlistCreateProductListRequest) GetEntityCodeOk() (*string, bool) 
 	return o.EntityCode, true
 }
 
-// &#39;Has&#39;EntityCode returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) &#39;Has&#39;EntityCode() bool {
+// HasEntityCode returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) HasEntityCode() bool {
 	if o != nil && !IsNil(o.EntityCode) {
 		return true
 	}
@@ -226,8 +226,8 @@ func (o *ProductlistCreateProductListRequest) GetAttributesOk() (*map[string]Pro
 	return o.Attributes, true
 }
 
-// &#39;Has&#39;Attributes returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) &#39;Has&#39;Attributes() bool {
+// HasAttributes returns a boolean if a field has been set.
+func (o *ProductlistCreateProductListRequest) HasAttributes() bool {
 	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}

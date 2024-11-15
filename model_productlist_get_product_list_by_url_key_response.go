@@ -61,8 +61,8 @@ func (o *ProductlistGetProductListByUrlKeyResponse) GetListOk() (*ProductlistPro
 	return o.List, true
 }
 
-// &#39;Has&#39;List returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByUrlKeyResponse) &#39;Has&#39;List() bool {
+// HasList returns a boolean if a field has been set.
+func (o *ProductlistGetProductListByUrlKeyResponse) HasList() bool {
 	if o != nil && !IsNil(o.List) {
 		return true
 	}

@@ -62,8 +62,8 @@ func (o *ProductlistSetProductListAssociationsResponse) GetAssociationsOk() ([]P
 	return o.Associations, true
 }
 
-// &#39;Has&#39;Associations returns a boolean if a field has been set.
-func (o *ProductlistSetProductListAssociationsResponse) &#39;Has&#39;Associations() bool {
+// HasAssociations returns a boolean if a field has been set.
+func (o *ProductlistSetProductListAssociationsResponse) HasAssociations() bool {
 	if o != nil && !IsNil(o.Associations) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *ProductlistSetProductListAssociationsResponse) GetErrorsOk() ([]Product
 	return o.Errors, true
 }
 
-// &#39;Has&#39;Errors returns a boolean if a field has been set.
-func (o *ProductlistSetProductListAssociationsResponse) &#39;Has&#39;Errors() bool {
+// HasErrors returns a boolean if a field has been set.
+func (o *ProductlistSetProductListAssociationsResponse) HasErrors() bool {
 	if o != nil && !IsNil(o.Errors) {
 		return true
 	}

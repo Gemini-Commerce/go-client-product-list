@@ -70,8 +70,8 @@ func (o *ProductlistProductListEntity) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// &#39;Has&#39;Id returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) &#39;Has&#39;Id() bool {
+// HasId returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -102,8 +102,8 @@ func (o *ProductlistProductListEntity) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// &#39;Has&#39;Code returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) &#39;Has&#39;Code() bool {
+// HasCode returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -134,8 +134,8 @@ func (o *ProductlistProductListEntity) GetUrlKeyOk() (*ProductlistLocalizedText,
 	return o.UrlKey, true
 }
 
-// &#39;Has&#39;UrlKey returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) &#39;Has&#39;UrlKey() bool {
+// HasUrlKey returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) HasUrlKey() bool {
 	if o != nil && !IsNil(o.UrlKey) {
 		return true
 	}
@@ -166,8 +166,8 @@ func (o *ProductlistProductListEntity) GetEntityTypeOk() (*string, bool) {
 	return o.EntityType, true
 }
 
-// &#39;Has&#39;EntityType returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) &#39;Has&#39;EntityType() bool {
+// HasEntityType returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) HasEntityType() bool {
 	if o != nil && !IsNil(o.EntityType) {
 		return true
 	}
@@ -198,8 +198,8 @@ func (o *ProductlistProductListEntity) GetEntityCodeOk() (*string, bool) {
 	return o.EntityCode, true
 }
 
-// &#39;Has&#39;EntityCode returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) &#39;Has&#39;EntityCode() bool {
+// HasEntityCode returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) HasEntityCode() bool {
 	if o != nil && !IsNil(o.EntityCode) {
 		return true
 	}
@@ -230,8 +230,8 @@ func (o *ProductlistProductListEntity) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// &#39;Has&#39;CreatedAt returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) &#39;Has&#39;CreatedAt() bool {
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) HasCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -262,8 +262,8 @@ func (o *ProductlistProductListEntity) GetUpdatedAtOk() (*time.Time, bool) {
 	return o.UpdatedAt, true
 }
 
-// &#39;Has&#39;UpdatedAt returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) &#39;Has&#39;UpdatedAt() bool {
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) HasUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
@@ -294,8 +294,8 @@ func (o *ProductlistProductListEntity) GetAttributesOk() (*map[string]ProtobufAn
 	return o.Attributes, true
 }
 
-// &#39;Has&#39;Attributes returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) &#39;Has&#39;Attributes() bool {
+// HasAttributes returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) HasAttributes() bool {
 	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
@@ -326,8 +326,8 @@ func (o *ProductlistProductListEntity) GetCountAssociationsOk() (*int64, bool) {
 	return o.CountAssociations, true
 }
 
-// &#39;Has&#39;CountAssociations returns a boolean if a field has been set.
-func (o *ProductlistProductListEntity) &#39;Has&#39;CountAssociations() bool {
+// HasCountAssociations returns a boolean if a field has been set.
+func (o *ProductlistProductListEntity) HasCountAssociations() bool {
 	if o != nil && !IsNil(o.CountAssociations) {
 		return true
 	}

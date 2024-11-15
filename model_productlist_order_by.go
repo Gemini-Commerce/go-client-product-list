@@ -66,8 +66,8 @@ func (o *ProductlistOrderBy) GetFieldOk() (*string, bool) {
 	return o.Field, true
 }
 
-// &#39;Has&#39;Field returns a boolean if a field has been set.
-func (o *ProductlistOrderBy) &#39;Has&#39;Field() bool {
+// HasField returns a boolean if a field has been set.
+func (o *ProductlistOrderBy) HasField() bool {
 	if o != nil && !IsNil(o.Field) {
 		return true
 	}
@@ -98,8 +98,8 @@ func (o *ProductlistOrderBy) GetDirectionOk() (*OrderByDirection, bool) {
 	return o.Direction, true
 }
 
-// &#39;Has&#39;Direction returns a boolean if a field has been set.
-func (o *ProductlistOrderBy) &#39;Has&#39;Direction() bool {
+// HasDirection returns a boolean if a field has been set.
+func (o *ProductlistOrderBy) HasDirection() bool {
 	if o != nil && !IsNil(o.Direction) {
 		return true
 	}

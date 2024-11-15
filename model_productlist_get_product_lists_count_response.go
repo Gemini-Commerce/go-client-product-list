@@ -61,8 +61,8 @@ func (o *ProductlistGetProductListsCountResponse) GetTotalSizeOk() (*int64, bool
 	return o.TotalSize, true
 }
 
-// &#39;Has&#39;TotalSize returns a boolean if a field has been set.
-func (o *ProductlistGetProductListsCountResponse) &#39;Has&#39;TotalSize() bool {
+// HasTotalSize returns a boolean if a field has been set.
+func (o *ProductlistGetProductListsCountResponse) HasTotalSize() bool {
 	if o != nil && !IsNil(o.TotalSize) {
 		return true
 	}

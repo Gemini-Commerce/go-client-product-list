@@ -62,8 +62,8 @@ func (o *ProductlistProductListAssociationError) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// &#39;Has&#39;Code returns a boolean if a field has been set.
-func (o *ProductlistProductListAssociationError) &#39;Has&#39;Code() bool {
+// HasCode returns a boolean if a field has been set.
+func (o *ProductlistProductListAssociationError) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *ProductlistProductListAssociationError) GetMessageOk() (*string, bool) 
 	return o.Message, true
 }
 
-// &#39;Has&#39;Message returns a boolean if a field has been set.
-func (o *ProductlistProductListAssociationError) &#39;Has&#39;Message() bool {
+// HasMessage returns a boolean if a field has been set.
+func (o *ProductlistProductListAssociationError) HasMessage() bool {
 	if o != nil && !IsNil(o.Message) {
 		return true
 	}
