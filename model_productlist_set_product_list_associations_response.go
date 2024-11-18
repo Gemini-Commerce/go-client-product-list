@@ -20,8 +20,8 @@ var _ MappedNullable = &ProductlistSetProductListAssociationsResponse{}
 
 // ProductlistSetProductListAssociationsResponse struct for ProductlistSetProductListAssociationsResponse
 type ProductlistSetProductListAssociationsResponse struct {
-	Associations []ProductlistProductListAssociation `json:"associations,omitempty"`
-	Errors []ProductlistProductListAssociationError `json:"errors,omitempty"`
+	Associations         []ProductlistProductListAssociation      `json:"associations,omitempty"`
+	Errors               []ProductlistProductListAssociationError `json:"errors,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *ProductlistSetProductListAssociationsResponse) SetErrors(v []Productlis
 }
 
 func (o ProductlistSetProductListAssociationsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -156,22 +156,24 @@ func (o *ProductlistSetProductListAssociationsResponse) UnmarshalJSON(data []byt
 
 // GetValue returns the value of well-known types
 func (o *ProductlistSetProductListAssociationsResponse) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ProductlistSetProductListAssociationsResponse) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableProductlistSetProductListAssociationsResponse struct {
 	value *ProductlistSetProductListAssociationsResponse
 	isSet bool
@@ -207,5 +209,3 @@ func (v *NullableProductlistSetProductListAssociationsResponse) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

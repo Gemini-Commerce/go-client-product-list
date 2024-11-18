@@ -20,7 +20,7 @@ var _ MappedNullable = &ProductlistGetProductListAssociationsByProductGrnRespons
 
 // ProductlistGetProductListAssociationsByProductGrnResponse struct for ProductlistGetProductListAssociationsByProductGrnResponse
 type ProductlistGetProductListAssociationsByProductGrnResponse struct {
-	Associations []ProductlistProductListAssociation `json:"associations,omitempty"`
+	Associations         []ProductlistProductListAssociation `json:"associations,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,7 @@ func (o *ProductlistGetProductListAssociationsByProductGrnResponse) SetAssociati
 }
 
 func (o ProductlistGetProductListAssociationsByProductGrnResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -119,22 +119,24 @@ func (o *ProductlistGetProductListAssociationsByProductGrnResponse) UnmarshalJSO
 
 // GetValue returns the value of well-known types
 func (o *ProductlistGetProductListAssociationsByProductGrnResponse) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ProductlistGetProductListAssociationsByProductGrnResponse) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableProductlistGetProductListAssociationsByProductGrnResponse struct {
 	value *ProductlistGetProductListAssociationsByProductGrnResponse
 	isSet bool
@@ -170,5 +172,3 @@ func (v *NullableProductlistGetProductListAssociationsByProductGrnResponse) Unma
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

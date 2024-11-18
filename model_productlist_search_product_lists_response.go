@@ -20,8 +20,8 @@ var _ MappedNullable = &ProductlistSearchProductListsResponse{}
 
 // ProductlistSearchProductListsResponse struct for ProductlistSearchProductListsResponse
 type ProductlistSearchProductListsResponse struct {
-	Results []ProductlistProductListEntity `json:"results,omitempty"`
-	TotalSize *int64 `json:"totalSize,omitempty"`
+	Results              []ProductlistProductListEntity `json:"results,omitempty"`
+	TotalSize            *int64                         `json:"totalSize,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *ProductlistSearchProductListsResponse) SetTotalSize(v int64) {
 }
 
 func (o ProductlistSearchProductListsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -156,22 +156,24 @@ func (o *ProductlistSearchProductListsResponse) UnmarshalJSON(data []byte) (err 
 
 // GetValue returns the value of well-known types
 func (o *ProductlistSearchProductListsResponse) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ProductlistSearchProductListsResponse) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableProductlistSearchProductListsResponse struct {
 	value *ProductlistSearchProductListsResponse
 	isSet bool
@@ -207,5 +209,3 @@ func (v *NullableProductlistSearchProductListsResponse) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

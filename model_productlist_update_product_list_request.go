@@ -20,11 +20,11 @@ var _ MappedNullable = &ProductlistUpdateProductListRequest{}
 
 // ProductlistUpdateProductListRequest struct for ProductlistUpdateProductListRequest
 type ProductlistUpdateProductListRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	Id *string `json:"id,omitempty"`
-	UrlKey *ProductlistLocalizedText `json:"urlKey,omitempty"`
-	Attributes *map[string]ProtobufAny `json:"attributes,omitempty"`
-	AttributesMask *string `json:"attributesMask,omitempty"`
+	TenantId             *string                   `json:"tenantId,omitempty"`
+	Id                   *string                   `json:"id,omitempty"`
+	UrlKey               *ProductlistLocalizedText `json:"urlKey,omitempty"`
+	Attributes           *map[string]ProtobufAny   `json:"attributes,omitempty"`
+	AttributesMask       *string                   `json:"attributesMask,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -208,7 +208,7 @@ func (o *ProductlistUpdateProductListRequest) SetAttributesMask(v string) {
 }
 
 func (o ProductlistUpdateProductListRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,22 +267,24 @@ func (o *ProductlistUpdateProductListRequest) UnmarshalJSON(data []byte) (err er
 
 // GetValue returns the value of well-known types
 func (o *ProductlistUpdateProductListRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ProductlistUpdateProductListRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableProductlistUpdateProductListRequest struct {
 	value *ProductlistUpdateProductListRequest
 	isSet bool
@@ -318,5 +320,3 @@ func (v *NullableProductlistUpdateProductListRequest) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

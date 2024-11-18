@@ -20,8 +20,8 @@ var _ MappedNullable = &ProductlistListProductListsResponse{}
 
 // ProductlistListProductListsResponse struct for ProductlistListProductListsResponse
 type ProductlistListProductListsResponse struct {
-	Lists []ProductlistProductListEntity `json:"lists,omitempty"`
-	NextPageToken *string `json:"nextPageToken,omitempty"`
+	Lists                []ProductlistProductListEntity `json:"lists,omitempty"`
+	NextPageToken        *string                        `json:"nextPageToken,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *ProductlistListProductListsResponse) SetNextPageToken(v string) {
 }
 
 func (o ProductlistListProductListsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -156,22 +156,24 @@ func (o *ProductlistListProductListsResponse) UnmarshalJSON(data []byte) (err er
 
 // GetValue returns the value of well-known types
 func (o *ProductlistListProductListsResponse) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ProductlistListProductListsResponse) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableProductlistListProductListsResponse struct {
 	value *ProductlistListProductListsResponse
 	isSet bool
@@ -207,5 +209,3 @@ func (v *NullableProductlistListProductListsResponse) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

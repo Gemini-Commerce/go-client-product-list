@@ -21,15 +21,15 @@ var _ MappedNullable = &ProductlistProductListEntity{}
 
 // ProductlistProductListEntity struct for ProductlistProductListEntity
 type ProductlistProductListEntity struct {
-	Id *string `json:"id,omitempty"`
-	Code *string `json:"code,omitempty"`
-	UrlKey *ProductlistLocalizedText `json:"urlKey,omitempty"`
-	EntityType *string `json:"entityType,omitempty"`
-	EntityCode *string `json:"entityCode,omitempty"`
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
-	Attributes *map[string]ProtobufAny `json:"attributes,omitempty"`
-	CountAssociations *int64 `json:"countAssociations,omitempty"`
+	Id                   *string                   `json:"id,omitempty"`
+	Code                 *string                   `json:"code,omitempty"`
+	UrlKey               *ProductlistLocalizedText `json:"urlKey,omitempty"`
+	EntityType           *string                   `json:"entityType,omitempty"`
+	EntityCode           *string                   `json:"entityCode,omitempty"`
+	CreatedAt            *time.Time                `json:"createdAt,omitempty"`
+	UpdatedAt            *time.Time                `json:"updatedAt,omitempty"`
+	Attributes           *map[string]ProtobufAny   `json:"attributes,omitempty"`
+	CountAssociations    *int64                    `json:"countAssociations,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -341,7 +341,7 @@ func (o *ProductlistProductListEntity) SetCountAssociations(v int64) {
 }
 
 func (o ProductlistProductListEntity) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -416,22 +416,24 @@ func (o *ProductlistProductListEntity) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *ProductlistProductListEntity) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ProductlistProductListEntity) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableProductlistProductListEntity struct {
 	value *ProductlistProductListEntity
 	isSet bool
@@ -467,5 +469,3 @@ func (v *NullableProductlistProductListEntity) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

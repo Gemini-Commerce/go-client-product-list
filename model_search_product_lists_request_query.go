@@ -20,8 +20,8 @@ var _ MappedNullable = &SearchProductListsRequestQuery{}
 
 // SearchProductListsRequestQuery struct for SearchProductListsRequestQuery
 type SearchProductListsRequestQuery struct {
-	Attributes []string `json:"attributes,omitempty"`
-	Value *string `json:"value,omitempty"`
+	Attributes           []string `json:"attributes,omitempty"`
+	Value                *string  `json:"value,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *SearchProductListsRequestQuery) SetValue(v string) {
 }
 
 func (o SearchProductListsRequestQuery) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -154,24 +154,6 @@ func (o *SearchProductListsRequestQuery) UnmarshalJSON(data []byte) (err error) 
 	return err
 }
 
-// GetValue returns the value of well-known types
-func (o *SearchProductListsRequestQuery) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
-		return nil
-	}
-	return o.AdditionalProperties["value"]
-}
-// SetValue populate the value of well-known types
-func (o *SearchProductListsRequestQuery) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
-		return
-	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
-	o.AdditionalProperties["value"] = value
-	return
-}
 type NullableSearchProductListsRequestQuery struct {
 	value *SearchProductListsRequestQuery
 	isSet bool
@@ -207,5 +189,3 @@ func (v *NullableSearchProductListsRequestQuery) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

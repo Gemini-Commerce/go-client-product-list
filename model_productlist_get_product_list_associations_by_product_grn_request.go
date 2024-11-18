@@ -20,8 +20,8 @@ var _ MappedNullable = &ProductlistGetProductListAssociationsByProductGrnRequest
 
 // ProductlistGetProductListAssociationsByProductGrnRequest struct for ProductlistGetProductListAssociationsByProductGrnRequest
 type ProductlistGetProductListAssociationsByProductGrnRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	ProductGrn *string `json:"productGrn,omitempty"`
+	TenantId             *string `json:"tenantId,omitempty"`
+	ProductGrn           *string `json:"productGrn,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *ProductlistGetProductListAssociationsByProductGrnRequest) SetProductGrn
 }
 
 func (o ProductlistGetProductListAssociationsByProductGrnRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -156,22 +156,24 @@ func (o *ProductlistGetProductListAssociationsByProductGrnRequest) UnmarshalJSON
 
 // GetValue returns the value of well-known types
 func (o *ProductlistGetProductListAssociationsByProductGrnRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ProductlistGetProductListAssociationsByProductGrnRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableProductlistGetProductListAssociationsByProductGrnRequest struct {
 	value *ProductlistGetProductListAssociationsByProductGrnRequest
 	isSet bool
@@ -207,5 +209,3 @@ func (v *NullableProductlistGetProductListAssociationsByProductGrnRequest) Unmar
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

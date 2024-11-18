@@ -20,8 +20,8 @@ var _ MappedNullable = &ProductlistDeleteProductListResponse{}
 
 // ProductlistDeleteProductListResponse struct for ProductlistDeleteProductListResponse
 type ProductlistDeleteProductListResponse struct {
-	List *ProductlistProductListEntity `json:"list,omitempty"`
-	Errors []ProductlistProductListError `json:"errors,omitempty"`
+	List                 *ProductlistProductListEntity `json:"list,omitempty"`
+	Errors               []ProductlistProductListError `json:"errors,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *ProductlistDeleteProductListResponse) SetErrors(v []ProductlistProductL
 }
 
 func (o ProductlistDeleteProductListResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -156,22 +156,24 @@ func (o *ProductlistDeleteProductListResponse) UnmarshalJSON(data []byte) (err e
 
 // GetValue returns the value of well-known types
 func (o *ProductlistDeleteProductListResponse) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ProductlistDeleteProductListResponse) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableProductlistDeleteProductListResponse struct {
 	value *ProductlistDeleteProductListResponse
 	isSet bool
@@ -207,5 +209,3 @@ func (v *NullableProductlistDeleteProductListResponse) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

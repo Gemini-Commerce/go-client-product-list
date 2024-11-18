@@ -19,14 +19,238 @@ import (
 	"net/url"
 )
 
+type ProductListAPI interface {
+
+	/*
+		CreateProductList Create Collection
+
+		The CreateProductList endpoint is used to create a new collection of products within the system. This endpoint allows users to define the details and attributes of the collection.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCreateProductListRequest
+	*/
+	CreateProductList(ctx context.Context) ApiCreateProductListRequest
+
+	// CreateProductListExecute executes the request
+	//  @return ProductlistCreateProductListResponse
+	CreateProductListExecute(r ApiCreateProductListRequest) (*ProductlistCreateProductListResponse, *http.Response, error)
+
+	/*
+		CreateProductListAssociation Create Collection/Product Association
+
+		The CreateProductListAssociation endpoint is used to create an association between a collection and a product.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCreateProductListAssociationRequest
+	*/
+	CreateProductListAssociation(ctx context.Context) ApiCreateProductListAssociationRequest
+
+	// CreateProductListAssociationExecute executes the request
+	//  @return ProductlistCreateProductListAssociationResponse
+	CreateProductListAssociationExecute(r ApiCreateProductListAssociationRequest) (*ProductlistCreateProductListAssociationResponse, *http.Response, error)
+
+	/*
+		DeleteProductList Delete Collection
+
+		The DeleteProductList endpoint is used to delete an existing collection of products within the system.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiDeleteProductListRequest
+	*/
+	DeleteProductList(ctx context.Context) ApiDeleteProductListRequest
+
+	// DeleteProductListExecute executes the request
+	//  @return ProductlistDeleteProductListResponse
+	DeleteProductListExecute(r ApiDeleteProductListRequest) (*ProductlistDeleteProductListResponse, *http.Response, error)
+
+	/*
+		DeleteProductListAssociation Delete Collection/Product Association
+
+		The DeleteProductListAssociation endpoint is used to delete an association between a collection and a product.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiDeleteProductListAssociationRequest
+	*/
+	DeleteProductListAssociation(ctx context.Context) ApiDeleteProductListAssociationRequest
+
+	// DeleteProductListAssociationExecute executes the request
+	//  @return ProductlistDeleteProductListAssociationResponse
+	DeleteProductListAssociationExecute(r ApiDeleteProductListAssociationRequest) (*ProductlistDeleteProductListAssociationResponse, *http.Response, error)
+
+	/*
+		GetProductListAssociationsByProductGrn Get Collection/Product Associations by Product GRN
+
+		The GetProductListAssociationsByProductGrn endpoint is used to get the associations between a collection and a list of products by product GRN.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetProductListAssociationsByProductGrnRequest
+	*/
+	GetProductListAssociationsByProductGrn(ctx context.Context) ApiGetProductListAssociationsByProductGrnRequest
+
+	// GetProductListAssociationsByProductGrnExecute executes the request
+	//  @return ProductlistGetProductListAssociationsByProductGrnResponse
+	GetProductListAssociationsByProductGrnExecute(r ApiGetProductListAssociationsByProductGrnRequest) (*ProductlistGetProductListAssociationsByProductGrnResponse, *http.Response, error)
+
+	/*
+		GetProductListByCode Get Collection by Code
+
+		The GetProductListByCode endpoint is used to retrieve an existing collection of products within the system.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetProductListByCodeRequest
+	*/
+	GetProductListByCode(ctx context.Context) ApiGetProductListByCodeRequest
+
+	// GetProductListByCodeExecute executes the request
+	//  @return ProductlistGetProductListByCodeResponse
+	GetProductListByCodeExecute(r ApiGetProductListByCodeRequest) (*ProductlistGetProductListByCodeResponse, *http.Response, error)
+
+	/*
+		GetProductListById Get Collection by Id
+
+		The GetProductListById endpoint is used to retrieve an existing collection of products within the system.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetProductListByIdRequest
+	*/
+	GetProductListById(ctx context.Context) ApiGetProductListByIdRequest
+
+	// GetProductListByIdExecute executes the request
+	//  @return ProductlistGetProductListByIdResponse
+	GetProductListByIdExecute(r ApiGetProductListByIdRequest) (*ProductlistGetProductListByIdResponse, *http.Response, error)
+
+	/*
+		GetProductListByUrlKey Get Collection by Url Key
+
+		The GetProductListByUrlKey endpoint is used to retrieve an existing collection of products within the system.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetProductListByUrlKeyRequest
+	*/
+	GetProductListByUrlKey(ctx context.Context) ApiGetProductListByUrlKeyRequest
+
+	// GetProductListByUrlKeyExecute executes the request
+	//  @return ProductlistGetProductListByUrlKeyResponse
+	GetProductListByUrlKeyExecute(r ApiGetProductListByUrlKeyRequest) (*ProductlistGetProductListByUrlKeyResponse, *http.Response, error)
+
+	/*
+		GetProductListsCount Get Collection Product Count
+
+		The GetProductListsCount endpoint is used to get the number of products associated with a collection.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiGetProductListsCountRequest
+	*/
+	GetProductListsCount(ctx context.Context) ApiGetProductListsCountRequest
+
+	// GetProductListsCountExecute executes the request
+	//  @return ProductlistGetProductListsCountResponse
+	GetProductListsCountExecute(r ApiGetProductListsCountRequest) (*ProductlistGetProductListsCountResponse, *http.Response, error)
+
+	/*
+		ListProductListAssociations List Collection/Product Associations
+
+		The ListProductListAssociations endpoint is used to list the associations between a collection and a list of products.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiListProductListAssociationsRequest
+	*/
+	ListProductListAssociations(ctx context.Context) ApiListProductListAssociationsRequest
+
+	// ListProductListAssociationsExecute executes the request
+	//  @return ProductlistListProductListAssociationsResponse
+	ListProductListAssociationsExecute(r ApiListProductListAssociationsRequest) (*ProductlistListProductListAssociationsResponse, *http.Response, error)
+
+	/*
+		ListProductLists List Collections
+
+		The ListProductLists endpoint is used to retrieve a list of existing collections of products within the system.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiListProductListsRequest
+	*/
+	ListProductLists(ctx context.Context) ApiListProductListsRequest
+
+	// ListProductListsExecute executes the request
+	//  @return ProductlistListProductListsResponse
+	ListProductListsExecute(r ApiListProductListsRequest) (*ProductlistListProductListsResponse, *http.Response, error)
+
+	/*
+		ProductListBulkUpdateProductListAssociations Method for ProductListBulkUpdateProductListAssociations
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiProductListBulkUpdateProductListAssociationsRequest
+	*/
+	ProductListBulkUpdateProductListAssociations(ctx context.Context) ApiProductListBulkUpdateProductListAssociationsRequest
+
+	// ProductListBulkUpdateProductListAssociationsExecute executes the request
+	//  @return map[string]interface{}
+	ProductListBulkUpdateProductListAssociationsExecute(r ApiProductListBulkUpdateProductListAssociationsRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+		SearchProductLists Search Collections
+
+		The SearchProductLists endpoint is used to retrieve a list of existing collections of products within the system.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSearchProductListsRequest
+	*/
+	SearchProductLists(ctx context.Context) ApiSearchProductListsRequest
+
+	// SearchProductListsExecute executes the request
+	//  @return ProductlistSearchProductListsResponse
+	SearchProductListsExecute(r ApiSearchProductListsRequest) (*ProductlistSearchProductListsResponse, *http.Response, error)
+
+	/*
+		SearchProductListsByIds Search Collections by Ids
+
+		The SearchProductListsByIds endpoint is used to retrieve a list of existing collections of products within the system.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSearchProductListsByIdsRequest
+	*/
+	SearchProductListsByIds(ctx context.Context) ApiSearchProductListsByIdsRequest
+
+	// SearchProductListsByIdsExecute executes the request
+	//  @return ProductlistSearchProductListsByIdsResponse
+	SearchProductListsByIdsExecute(r ApiSearchProductListsByIdsRequest) (*ProductlistSearchProductListsByIdsResponse, *http.Response, error)
+
+	/*
+		SetProductListAssociations Set Collection/Product Associations
+
+		The SetProductListAssociations endpoint is used to set the associations between a collection and a list of products.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiSetProductListAssociationsRequest
+	*/
+	SetProductListAssociations(ctx context.Context) ApiSetProductListAssociationsRequest
+
+	// SetProductListAssociationsExecute executes the request
+	//  @return ProductlistSetProductListAssociationsResponse
+	SetProductListAssociationsExecute(r ApiSetProductListAssociationsRequest) (*ProductlistSetProductListAssociationsResponse, *http.Response, error)
+
+	/*
+		UpdateProductList Update Collection
+
+		The UpdateProductList endpoint is used to update an existing collection of products within the system.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiUpdateProductListRequest
+	*/
+	UpdateProductList(ctx context.Context) ApiUpdateProductListRequest
+
+	// UpdateProductListExecute executes the request
+	//  @return ProductlistUpdateProductListResponse
+	UpdateProductListExecute(r ApiUpdateProductListRequest) (*ProductlistUpdateProductListResponse, *http.Response, error)
+}
 
 // ProductListAPIService ProductListAPI service
 type ProductListAPIService service
 
 type ApiCreateProductListRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistCreateProductListRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistCreateProductListRequest
 }
 
 func (r ApiCreateProductListRequest) Body(body ProductlistCreateProductListRequest) ApiCreateProductListRequest {
@@ -43,24 +267,25 @@ CreateProductList Create Collection
 
 The CreateProductList endpoint is used to create a new collection of products within the system. This endpoint allows users to define the details and attributes of the collection.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateProductListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateProductListRequest
 */
 func (a *ProductListAPIService) CreateProductList(ctx context.Context) ApiCreateProductListRequest {
 	return ApiCreateProductListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistCreateProductListResponse
+//
+//	@return ProductlistCreateProductListResponse
 func (a *ProductListAPIService) CreateProductListExecute(r ApiCreateProductListRequest) (*ProductlistCreateProductListResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistCreateProductListResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistCreateProductListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.CreateProductList")
@@ -139,8 +364,8 @@ func (a *ProductListAPIService) CreateProductListExecute(r ApiCreateProductListR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -150,18 +375,18 @@ func (a *ProductListAPIService) CreateProductListExecute(r ApiCreateProductListR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -178,9 +403,9 @@ func (a *ProductListAPIService) CreateProductListExecute(r ApiCreateProductListR
 }
 
 type ApiCreateProductListAssociationRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistCreateProductListAssociationRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistCreateProductListAssociationRequest
 }
 
 func (r ApiCreateProductListAssociationRequest) Body(body ProductlistCreateProductListAssociationRequest) ApiCreateProductListAssociationRequest {
@@ -197,24 +422,25 @@ CreateProductListAssociation Create Collection/Product Association
 
 The CreateProductListAssociation endpoint is used to create an association between a collection and a product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateProductListAssociationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateProductListAssociationRequest
 */
 func (a *ProductListAPIService) CreateProductListAssociation(ctx context.Context) ApiCreateProductListAssociationRequest {
 	return ApiCreateProductListAssociationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistCreateProductListAssociationResponse
+//
+//	@return ProductlistCreateProductListAssociationResponse
 func (a *ProductListAPIService) CreateProductListAssociationExecute(r ApiCreateProductListAssociationRequest) (*ProductlistCreateProductListAssociationResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistCreateProductListAssociationResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistCreateProductListAssociationResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.CreateProductListAssociation")
@@ -293,8 +519,8 @@ func (a *ProductListAPIService) CreateProductListAssociationExecute(r ApiCreateP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -304,18 +530,18 @@ func (a *ProductListAPIService) CreateProductListAssociationExecute(r ApiCreateP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -332,9 +558,9 @@ func (a *ProductListAPIService) CreateProductListAssociationExecute(r ApiCreateP
 }
 
 type ApiDeleteProductListRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistDeleteProductListRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistDeleteProductListRequest
 }
 
 func (r ApiDeleteProductListRequest) Body(body ProductlistDeleteProductListRequest) ApiDeleteProductListRequest {
@@ -351,24 +577,25 @@ DeleteProductList Delete Collection
 
 The DeleteProductList endpoint is used to delete an existing collection of products within the system.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeleteProductListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteProductListRequest
 */
 func (a *ProductListAPIService) DeleteProductList(ctx context.Context) ApiDeleteProductListRequest {
 	return ApiDeleteProductListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistDeleteProductListResponse
+//
+//	@return ProductlistDeleteProductListResponse
 func (a *ProductListAPIService) DeleteProductListExecute(r ApiDeleteProductListRequest) (*ProductlistDeleteProductListResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistDeleteProductListResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistDeleteProductListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.DeleteProductList")
@@ -447,8 +674,8 @@ func (a *ProductListAPIService) DeleteProductListExecute(r ApiDeleteProductListR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -458,18 +685,18 @@ func (a *ProductListAPIService) DeleteProductListExecute(r ApiDeleteProductListR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -486,9 +713,9 @@ func (a *ProductListAPIService) DeleteProductListExecute(r ApiDeleteProductListR
 }
 
 type ApiDeleteProductListAssociationRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistDeleteProductListAssociationRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistDeleteProductListAssociationRequest
 }
 
 func (r ApiDeleteProductListAssociationRequest) Body(body ProductlistDeleteProductListAssociationRequest) ApiDeleteProductListAssociationRequest {
@@ -505,24 +732,25 @@ DeleteProductListAssociation Delete Collection/Product Association
 
 The DeleteProductListAssociation endpoint is used to delete an association between a collection and a product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeleteProductListAssociationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteProductListAssociationRequest
 */
 func (a *ProductListAPIService) DeleteProductListAssociation(ctx context.Context) ApiDeleteProductListAssociationRequest {
 	return ApiDeleteProductListAssociationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistDeleteProductListAssociationResponse
+//
+//	@return ProductlistDeleteProductListAssociationResponse
 func (a *ProductListAPIService) DeleteProductListAssociationExecute(r ApiDeleteProductListAssociationRequest) (*ProductlistDeleteProductListAssociationResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistDeleteProductListAssociationResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistDeleteProductListAssociationResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.DeleteProductListAssociation")
@@ -601,8 +829,8 @@ func (a *ProductListAPIService) DeleteProductListAssociationExecute(r ApiDeleteP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -612,18 +840,18 @@ func (a *ProductListAPIService) DeleteProductListAssociationExecute(r ApiDeleteP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -640,9 +868,9 @@ func (a *ProductListAPIService) DeleteProductListAssociationExecute(r ApiDeleteP
 }
 
 type ApiGetProductListAssociationsByProductGrnRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistGetProductListAssociationsByProductGrnRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistGetProductListAssociationsByProductGrnRequest
 }
 
 func (r ApiGetProductListAssociationsByProductGrnRequest) Body(body ProductlistGetProductListAssociationsByProductGrnRequest) ApiGetProductListAssociationsByProductGrnRequest {
@@ -659,24 +887,25 @@ GetProductListAssociationsByProductGrn Get Collection/Product Associations by Pr
 
 The GetProductListAssociationsByProductGrn endpoint is used to get the associations between a collection and a list of products by product GRN.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProductListAssociationsByProductGrnRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetProductListAssociationsByProductGrnRequest
 */
 func (a *ProductListAPIService) GetProductListAssociationsByProductGrn(ctx context.Context) ApiGetProductListAssociationsByProductGrnRequest {
 	return ApiGetProductListAssociationsByProductGrnRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistGetProductListAssociationsByProductGrnResponse
+//
+//	@return ProductlistGetProductListAssociationsByProductGrnResponse
 func (a *ProductListAPIService) GetProductListAssociationsByProductGrnExecute(r ApiGetProductListAssociationsByProductGrnRequest) (*ProductlistGetProductListAssociationsByProductGrnResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistGetProductListAssociationsByProductGrnResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistGetProductListAssociationsByProductGrnResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.GetProductListAssociationsByProductGrn")
@@ -755,8 +984,8 @@ func (a *ProductListAPIService) GetProductListAssociationsByProductGrnExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -766,18 +995,18 @@ func (a *ProductListAPIService) GetProductListAssociationsByProductGrnExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -794,9 +1023,9 @@ func (a *ProductListAPIService) GetProductListAssociationsByProductGrnExecute(r 
 }
 
 type ApiGetProductListByCodeRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistGetProductListByCodeRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistGetProductListByCodeRequest
 }
 
 func (r ApiGetProductListByCodeRequest) Body(body ProductlistGetProductListByCodeRequest) ApiGetProductListByCodeRequest {
@@ -813,24 +1042,25 @@ GetProductListByCode Get Collection by Code
 
 The GetProductListByCode endpoint is used to retrieve an existing collection of products within the system.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProductListByCodeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetProductListByCodeRequest
 */
 func (a *ProductListAPIService) GetProductListByCode(ctx context.Context) ApiGetProductListByCodeRequest {
 	return ApiGetProductListByCodeRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistGetProductListByCodeResponse
+//
+//	@return ProductlistGetProductListByCodeResponse
 func (a *ProductListAPIService) GetProductListByCodeExecute(r ApiGetProductListByCodeRequest) (*ProductlistGetProductListByCodeResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistGetProductListByCodeResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistGetProductListByCodeResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.GetProductListByCode")
@@ -909,8 +1139,8 @@ func (a *ProductListAPIService) GetProductListByCodeExecute(r ApiGetProductListB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -920,18 +1150,18 @@ func (a *ProductListAPIService) GetProductListByCodeExecute(r ApiGetProductListB
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -948,9 +1178,9 @@ func (a *ProductListAPIService) GetProductListByCodeExecute(r ApiGetProductListB
 }
 
 type ApiGetProductListByIdRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistGetProductListByIdRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistGetProductListByIdRequest
 }
 
 func (r ApiGetProductListByIdRequest) Body(body ProductlistGetProductListByIdRequest) ApiGetProductListByIdRequest {
@@ -967,24 +1197,25 @@ GetProductListById Get Collection by Id
 
 The GetProductListById endpoint is used to retrieve an existing collection of products within the system.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProductListByIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetProductListByIdRequest
 */
 func (a *ProductListAPIService) GetProductListById(ctx context.Context) ApiGetProductListByIdRequest {
 	return ApiGetProductListByIdRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistGetProductListByIdResponse
+//
+//	@return ProductlistGetProductListByIdResponse
 func (a *ProductListAPIService) GetProductListByIdExecute(r ApiGetProductListByIdRequest) (*ProductlistGetProductListByIdResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistGetProductListByIdResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistGetProductListByIdResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.GetProductListById")
@@ -1063,8 +1294,8 @@ func (a *ProductListAPIService) GetProductListByIdExecute(r ApiGetProductListByI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1074,18 +1305,18 @@ func (a *ProductListAPIService) GetProductListByIdExecute(r ApiGetProductListByI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1102,9 +1333,9 @@ func (a *ProductListAPIService) GetProductListByIdExecute(r ApiGetProductListByI
 }
 
 type ApiGetProductListByUrlKeyRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistGetProductListByUrlKeyRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistGetProductListByUrlKeyRequest
 }
 
 func (r ApiGetProductListByUrlKeyRequest) Body(body ProductlistGetProductListByUrlKeyRequest) ApiGetProductListByUrlKeyRequest {
@@ -1121,24 +1352,25 @@ GetProductListByUrlKey Get Collection by Url Key
 
 The GetProductListByUrlKey endpoint is used to retrieve an existing collection of products within the system.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProductListByUrlKeyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetProductListByUrlKeyRequest
 */
 func (a *ProductListAPIService) GetProductListByUrlKey(ctx context.Context) ApiGetProductListByUrlKeyRequest {
 	return ApiGetProductListByUrlKeyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistGetProductListByUrlKeyResponse
+//
+//	@return ProductlistGetProductListByUrlKeyResponse
 func (a *ProductListAPIService) GetProductListByUrlKeyExecute(r ApiGetProductListByUrlKeyRequest) (*ProductlistGetProductListByUrlKeyResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistGetProductListByUrlKeyResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistGetProductListByUrlKeyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.GetProductListByUrlKey")
@@ -1217,8 +1449,8 @@ func (a *ProductListAPIService) GetProductListByUrlKeyExecute(r ApiGetProductLis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1228,18 +1460,18 @@ func (a *ProductListAPIService) GetProductListByUrlKeyExecute(r ApiGetProductLis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1256,9 +1488,9 @@ func (a *ProductListAPIService) GetProductListByUrlKeyExecute(r ApiGetProductLis
 }
 
 type ApiGetProductListsCountRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistGetProductListsCountRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistGetProductListsCountRequest
 }
 
 func (r ApiGetProductListsCountRequest) Body(body ProductlistGetProductListsCountRequest) ApiGetProductListsCountRequest {
@@ -1275,24 +1507,25 @@ GetProductListsCount Get Collection Product Count
 
 The GetProductListsCount endpoint is used to get the number of products associated with a collection.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProductListsCountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetProductListsCountRequest
 */
 func (a *ProductListAPIService) GetProductListsCount(ctx context.Context) ApiGetProductListsCountRequest {
 	return ApiGetProductListsCountRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistGetProductListsCountResponse
+//
+//	@return ProductlistGetProductListsCountResponse
 func (a *ProductListAPIService) GetProductListsCountExecute(r ApiGetProductListsCountRequest) (*ProductlistGetProductListsCountResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistGetProductListsCountResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistGetProductListsCountResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.GetProductListsCount")
@@ -1371,8 +1604,8 @@ func (a *ProductListAPIService) GetProductListsCountExecute(r ApiGetProductLists
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1382,18 +1615,18 @@ func (a *ProductListAPIService) GetProductListsCountExecute(r ApiGetProductLists
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1410,9 +1643,9 @@ func (a *ProductListAPIService) GetProductListsCountExecute(r ApiGetProductLists
 }
 
 type ApiListProductListAssociationsRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistListProductListAssociationsRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistListProductListAssociationsRequest
 }
 
 func (r ApiListProductListAssociationsRequest) Body(body ProductlistListProductListAssociationsRequest) ApiListProductListAssociationsRequest {
@@ -1429,24 +1662,25 @@ ListProductListAssociations List Collection/Product Associations
 
 The ListProductListAssociations endpoint is used to list the associations between a collection and a list of products.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListProductListAssociationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListProductListAssociationsRequest
 */
 func (a *ProductListAPIService) ListProductListAssociations(ctx context.Context) ApiListProductListAssociationsRequest {
 	return ApiListProductListAssociationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistListProductListAssociationsResponse
+//
+//	@return ProductlistListProductListAssociationsResponse
 func (a *ProductListAPIService) ListProductListAssociationsExecute(r ApiListProductListAssociationsRequest) (*ProductlistListProductListAssociationsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistListProductListAssociationsResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistListProductListAssociationsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.ListProductListAssociations")
@@ -1525,8 +1759,8 @@ func (a *ProductListAPIService) ListProductListAssociationsExecute(r ApiListProd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1536,18 +1770,18 @@ func (a *ProductListAPIService) ListProductListAssociationsExecute(r ApiListProd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1564,9 +1798,9 @@ func (a *ProductListAPIService) ListProductListAssociationsExecute(r ApiListProd
 }
 
 type ApiListProductListsRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistListProductListsRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistListProductListsRequest
 }
 
 func (r ApiListProductListsRequest) Body(body ProductlistListProductListsRequest) ApiListProductListsRequest {
@@ -1583,24 +1817,25 @@ ListProductLists List Collections
 
 The ListProductLists endpoint is used to retrieve a list of existing collections of products within the system.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListProductListsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListProductListsRequest
 */
 func (a *ProductListAPIService) ListProductLists(ctx context.Context) ApiListProductListsRequest {
 	return ApiListProductListsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistListProductListsResponse
+//
+//	@return ProductlistListProductListsResponse
 func (a *ProductListAPIService) ListProductListsExecute(r ApiListProductListsRequest) (*ProductlistListProductListsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistListProductListsResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistListProductListsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.ListProductLists")
@@ -1679,8 +1914,8 @@ func (a *ProductListAPIService) ListProductListsExecute(r ApiListProductListsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1690,18 +1925,18 @@ func (a *ProductListAPIService) ListProductListsExecute(r ApiListProductListsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1718,9 +1953,9 @@ func (a *ProductListAPIService) ListProductListsExecute(r ApiListProductListsReq
 }
 
 type ApiProductListBulkUpdateProductListAssociationsRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistBulkUpdateProductListAssociationsRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistBulkUpdateProductListAssociationsRequest
 }
 
 func (r ApiProductListBulkUpdateProductListAssociationsRequest) Body(body ProductlistBulkUpdateProductListAssociationsRequest) ApiProductListBulkUpdateProductListAssociationsRequest {
@@ -1735,24 +1970,25 @@ func (r ApiProductListBulkUpdateProductListAssociationsRequest) Execute() (map[s
 /*
 ProductListBulkUpdateProductListAssociations Method for ProductListBulkUpdateProductListAssociations
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiProductListBulkUpdateProductListAssociationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiProductListBulkUpdateProductListAssociationsRequest
 */
 func (a *ProductListAPIService) ProductListBulkUpdateProductListAssociations(ctx context.Context) ApiProductListBulkUpdateProductListAssociationsRequest {
 	return ApiProductListBulkUpdateProductListAssociationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
+//
+//	@return map[string]interface{}
 func (a *ProductListAPIService) ProductListBulkUpdateProductListAssociationsExecute(r ApiProductListBulkUpdateProductListAssociationsRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.ProductListBulkUpdateProductListAssociations")
@@ -1824,14 +2060,14 @@ func (a *ProductListAPIService) ProductListBulkUpdateProductListAssociationsExec
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1848,9 +2084,9 @@ func (a *ProductListAPIService) ProductListBulkUpdateProductListAssociationsExec
 }
 
 type ApiSearchProductListsRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistSearchProductListsRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistSearchProductListsRequest
 }
 
 func (r ApiSearchProductListsRequest) Body(body ProductlistSearchProductListsRequest) ApiSearchProductListsRequest {
@@ -1867,24 +2103,25 @@ SearchProductLists Search Collections
 
 The SearchProductLists endpoint is used to retrieve a list of existing collections of products within the system.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchProductListsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSearchProductListsRequest
 */
 func (a *ProductListAPIService) SearchProductLists(ctx context.Context) ApiSearchProductListsRequest {
 	return ApiSearchProductListsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistSearchProductListsResponse
+//
+//	@return ProductlistSearchProductListsResponse
 func (a *ProductListAPIService) SearchProductListsExecute(r ApiSearchProductListsRequest) (*ProductlistSearchProductListsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistSearchProductListsResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistSearchProductListsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.SearchProductLists")
@@ -1963,8 +2200,8 @@ func (a *ProductListAPIService) SearchProductListsExecute(r ApiSearchProductList
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1974,18 +2211,18 @@ func (a *ProductListAPIService) SearchProductListsExecute(r ApiSearchProductList
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2002,9 +2239,9 @@ func (a *ProductListAPIService) SearchProductListsExecute(r ApiSearchProductList
 }
 
 type ApiSearchProductListsByIdsRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistSearchProductListsByIdsRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistSearchProductListsByIdsRequest
 }
 
 func (r ApiSearchProductListsByIdsRequest) Body(body ProductlistSearchProductListsByIdsRequest) ApiSearchProductListsByIdsRequest {
@@ -2021,24 +2258,25 @@ SearchProductListsByIds Search Collections by Ids
 
 The SearchProductListsByIds endpoint is used to retrieve a list of existing collections of products within the system.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchProductListsByIdsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSearchProductListsByIdsRequest
 */
 func (a *ProductListAPIService) SearchProductListsByIds(ctx context.Context) ApiSearchProductListsByIdsRequest {
 	return ApiSearchProductListsByIdsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistSearchProductListsByIdsResponse
+//
+//	@return ProductlistSearchProductListsByIdsResponse
 func (a *ProductListAPIService) SearchProductListsByIdsExecute(r ApiSearchProductListsByIdsRequest) (*ProductlistSearchProductListsByIdsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistSearchProductListsByIdsResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistSearchProductListsByIdsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.SearchProductListsByIds")
@@ -2117,8 +2355,8 @@ func (a *ProductListAPIService) SearchProductListsByIdsExecute(r ApiSearchProduc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2128,18 +2366,18 @@ func (a *ProductListAPIService) SearchProductListsByIdsExecute(r ApiSearchProduc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2156,9 +2394,9 @@ func (a *ProductListAPIService) SearchProductListsByIdsExecute(r ApiSearchProduc
 }
 
 type ApiSetProductListAssociationsRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistSetProductListAssociationsRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistSetProductListAssociationsRequest
 }
 
 func (r ApiSetProductListAssociationsRequest) Body(body ProductlistSetProductListAssociationsRequest) ApiSetProductListAssociationsRequest {
@@ -2175,24 +2413,25 @@ SetProductListAssociations Set Collection/Product Associations
 
 The SetProductListAssociations endpoint is used to set the associations between a collection and a list of products.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSetProductListAssociationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSetProductListAssociationsRequest
 */
 func (a *ProductListAPIService) SetProductListAssociations(ctx context.Context) ApiSetProductListAssociationsRequest {
 	return ApiSetProductListAssociationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistSetProductListAssociationsResponse
+//
+//	@return ProductlistSetProductListAssociationsResponse
 func (a *ProductListAPIService) SetProductListAssociationsExecute(r ApiSetProductListAssociationsRequest) (*ProductlistSetProductListAssociationsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistSetProductListAssociationsResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistSetProductListAssociationsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.SetProductListAssociations")
@@ -2271,8 +2510,8 @@ func (a *ProductListAPIService) SetProductListAssociationsExecute(r ApiSetProduc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2282,18 +2521,18 @@ func (a *ProductListAPIService) SetProductListAssociationsExecute(r ApiSetProduc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2310,9 +2549,9 @@ func (a *ProductListAPIService) SetProductListAssociationsExecute(r ApiSetProduc
 }
 
 type ApiUpdateProductListRequest struct {
-	ctx context.Context
-	ApiService *ProductListAPIService
-	body *ProductlistUpdateProductListRequest
+	ctx        context.Context
+	ApiService ProductListAPI
+	body       *ProductlistUpdateProductListRequest
 }
 
 func (r ApiUpdateProductListRequest) Body(body ProductlistUpdateProductListRequest) ApiUpdateProductListRequest {
@@ -2329,24 +2568,25 @@ UpdateProductList Update Collection
 
 The UpdateProductList endpoint is used to update an existing collection of products within the system.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUpdateProductListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUpdateProductListRequest
 */
 func (a *ProductListAPIService) UpdateProductList(ctx context.Context) ApiUpdateProductListRequest {
 	return ApiUpdateProductListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductlistUpdateProductListResponse
+//
+//	@return ProductlistUpdateProductListResponse
 func (a *ProductListAPIService) UpdateProductListExecute(r ApiUpdateProductListRequest) (*ProductlistUpdateProductListResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductlistUpdateProductListResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductlistUpdateProductListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductListAPIService.UpdateProductList")
@@ -2425,8 +2665,8 @@ func (a *ProductListAPIService) UpdateProductListExecute(r ApiUpdateProductListR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2436,18 +2676,18 @@ func (a *ProductListAPIService) UpdateProductListExecute(r ApiUpdateProductListR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

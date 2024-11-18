@@ -20,10 +20,10 @@ var _ MappedNullable = &ProductlistSearchProductListsRequest{}
 
 // ProductlistSearchProductListsRequest struct for ProductlistSearchProductListsRequest
 type ProductlistSearchProductListsRequest struct {
-	TenantId *string `json:"tenantId,omitempty"`
-	Query *SearchProductListsRequestQuery `json:"query,omitempty"`
-	PageSize *int64 `json:"pageSize,omitempty"`
-	PageNumber *int64 `json:"pageNumber,omitempty"`
+	TenantId             *string                         `json:"tenantId,omitempty"`
+	Query                *SearchProductListsRequestQuery `json:"query,omitempty"`
+	PageSize             *int64                          `json:"pageSize,omitempty"`
+	PageNumber           *int64                          `json:"pageNumber,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -175,7 +175,7 @@ func (o *ProductlistSearchProductListsRequest) SetPageNumber(v int64) {
 }
 
 func (o ProductlistSearchProductListsRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,22 +230,24 @@ func (o *ProductlistSearchProductListsRequest) UnmarshalJSON(data []byte) (err e
 
 // GetValue returns the value of well-known types
 func (o *ProductlistSearchProductListsRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ProductlistSearchProductListsRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableProductlistSearchProductListsRequest struct {
 	value *ProductlistSearchProductListsRequest
 	isSet bool
@@ -281,5 +283,3 @@ func (v *NullableProductlistSearchProductListsRequest) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

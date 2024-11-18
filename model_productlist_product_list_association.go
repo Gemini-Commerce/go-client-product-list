@@ -20,10 +20,10 @@ var _ MappedNullable = &ProductlistProductListAssociation{}
 
 // ProductlistProductListAssociation struct for ProductlistProductListAssociation
 type ProductlistProductListAssociation struct {
-	Id *string `json:"id,omitempty"`
-	ListId *string `json:"listId,omitempty"`
-	Position *int32 `json:"position,omitempty"`
-	ProductGrn *string `json:"productGrn,omitempty"`
+	Id                   *string `json:"id,omitempty"`
+	ListId               *string `json:"listId,omitempty"`
+	Position             *int32  `json:"position,omitempty"`
+	ProductGrn           *string `json:"productGrn,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -175,7 +175,7 @@ func (o *ProductlistProductListAssociation) SetProductGrn(v string) {
 }
 
 func (o ProductlistProductListAssociation) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,22 +230,24 @@ func (o *ProductlistProductListAssociation) UnmarshalJSON(data []byte) (err erro
 
 // GetValue returns the value of well-known types
 func (o *ProductlistProductListAssociation) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ProductlistProductListAssociation) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableProductlistProductListAssociation struct {
 	value *ProductlistProductListAssociation
 	isSet bool
@@ -281,5 +283,3 @@ func (v *NullableProductlistProductListAssociation) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

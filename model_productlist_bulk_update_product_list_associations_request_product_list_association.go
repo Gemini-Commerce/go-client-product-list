@@ -20,8 +20,8 @@ var _ MappedNullable = &ProductlistBulkUpdateProductListAssociationsRequestProdu
 
 // ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation struct for ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation
 type ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation struct {
-	Id *string `json:"id,omitempty"`
-	Position *int32 `json:"position,omitempty"`
+	Id                   *string `json:"id,omitempty"`
+	Position             *int32  `json:"position,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociati
 }
 
 func (o ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -156,22 +156,24 @@ func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociati
 
 // GetValue returns the value of well-known types
 func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableProductlistBulkUpdateProductListAssociationsRequestProductListAssociation struct {
 	value *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation
 	isSet bool
@@ -207,5 +209,3 @@ func (v *NullableProductlistBulkUpdateProductListAssociationsRequestProductListA
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
