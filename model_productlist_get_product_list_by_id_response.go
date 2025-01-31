@@ -62,7 +62,7 @@ func (o *ProductlistGetProductListByIdResponse) GetListOk() (*ProductlistProduct
 }
 
 // HasList returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByIdResponse) HasList() bool {
+func (o *ProductlistGetProductListByIdResponse) IsSetList() bool {
 	if o != nil && !IsNil(o.List) {
 		return true
 	}

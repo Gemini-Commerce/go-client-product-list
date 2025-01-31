@@ -65,7 +65,7 @@ func (o *ProductlistDeleteProductListAssociationRequest) GetTenantIdOk() (*strin
 }
 
 // HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistDeleteProductListAssociationRequest) HasTenantId() bool {
+func (o *ProductlistDeleteProductListAssociationRequest) IsSetTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -97,7 +97,7 @@ func (o *ProductlistDeleteProductListAssociationRequest) GetIdOk() (*string, boo
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ProductlistDeleteProductListAssociationRequest) HasId() bool {
+func (o *ProductlistDeleteProductListAssociationRequest) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}

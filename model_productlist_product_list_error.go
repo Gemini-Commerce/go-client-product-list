@@ -65,7 +65,7 @@ func (o *ProductlistProductListError) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *ProductlistProductListError) HasCode() bool {
+func (o *ProductlistProductListError) IsSetCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -97,7 +97,7 @@ func (o *ProductlistProductListError) GetMessageOk() (*string, bool) {
 }
 
 // HasMessage returns a boolean if a field has been set.
-func (o *ProductlistProductListError) HasMessage() bool {
+func (o *ProductlistProductListError) IsSetMessage() bool {
 	if o != nil && !IsNil(o.Message) {
 		return true
 	}

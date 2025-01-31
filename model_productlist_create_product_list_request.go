@@ -72,7 +72,7 @@ func (o *ProductlistCreateProductListRequest) GetTenantIdOk() (*string, bool) {
 }
 
 // HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasTenantId() bool {
+func (o *ProductlistCreateProductListRequest) IsSetTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -104,7 +104,7 @@ func (o *ProductlistCreateProductListRequest) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasCode() bool {
+func (o *ProductlistCreateProductListRequest) IsSetCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -136,7 +136,7 @@ func (o *ProductlistCreateProductListRequest) GetUrlKeyOk() (*ProductlistLocaliz
 }
 
 // HasUrlKey returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasUrlKey() bool {
+func (o *ProductlistCreateProductListRequest) IsSetUrlKey() bool {
 	if o != nil && !IsNil(o.UrlKey) {
 		return true
 	}
@@ -168,7 +168,7 @@ func (o *ProductlistCreateProductListRequest) GetEntityTypeOk() (*string, bool) 
 }
 
 // HasEntityType returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasEntityType() bool {
+func (o *ProductlistCreateProductListRequest) IsSetEntityType() bool {
 	if o != nil && !IsNil(o.EntityType) {
 		return true
 	}
@@ -200,7 +200,7 @@ func (o *ProductlistCreateProductListRequest) GetEntityCodeOk() (*string, bool) 
 }
 
 // HasEntityCode returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasEntityCode() bool {
+func (o *ProductlistCreateProductListRequest) IsSetEntityCode() bool {
 	if o != nil && !IsNil(o.EntityCode) {
 		return true
 	}
@@ -232,7 +232,7 @@ func (o *ProductlistCreateProductListRequest) GetAttributesOk() (*map[string]Pro
 }
 
 // HasAttributes returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListRequest) HasAttributes() bool {
+func (o *ProductlistCreateProductListRequest) IsSetAttributes() bool {
 	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}

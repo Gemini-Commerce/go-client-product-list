@@ -63,7 +63,7 @@ func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociati
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) HasId() bool {
+func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -95,7 +95,7 @@ func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociati
 }
 
 // HasPosition returns a boolean if a field has been set.
-func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) HasPosition() bool {
+func (o *ProductlistBulkUpdateProductListAssociationsRequestProductListAssociation) IsSetPosition() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}

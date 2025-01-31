@@ -65,7 +65,7 @@ func (o *ProductlistGetProductListByCodeRequest) GetTenantIdOk() (*string, bool)
 }
 
 // HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByCodeRequest) HasTenantId() bool {
+func (o *ProductlistGetProductListByCodeRequest) IsSetTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -97,7 +97,7 @@ func (o *ProductlistGetProductListByCodeRequest) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *ProductlistGetProductListByCodeRequest) HasCode() bool {
+func (o *ProductlistGetProductListByCodeRequest) IsSetCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}

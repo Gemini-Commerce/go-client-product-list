@@ -65,7 +65,7 @@ func (o *ProductlistSearchProductListsResponse) GetResultsOk() ([]ProductlistPro
 }
 
 // HasResults returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsResponse) HasResults() bool {
+func (o *ProductlistSearchProductListsResponse) IsSetResults() bool {
 	if o != nil && !IsNil(o.Results) {
 		return true
 	}
@@ -97,7 +97,7 @@ func (o *ProductlistSearchProductListsResponse) GetTotalSizeOk() (*int64, bool) 
 }
 
 // HasTotalSize returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsResponse) HasTotalSize() bool {
+func (o *ProductlistSearchProductListsResponse) IsSetTotalSize() bool {
 	if o != nil && !IsNil(o.TotalSize) {
 		return true
 	}

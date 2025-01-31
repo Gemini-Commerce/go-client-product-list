@@ -69,7 +69,7 @@ func (o *ProductlistSearchProductListsByIdsRequest) GetTenantIdOk() (*string, bo
 }
 
 // HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsByIdsRequest) HasTenantId() bool {
+func (o *ProductlistSearchProductListsByIdsRequest) IsSetTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -101,7 +101,7 @@ func (o *ProductlistSearchProductListsByIdsRequest) GetIdsOk() ([]string, bool) 
 }
 
 // HasIds returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsByIdsRequest) HasIds() bool {
+func (o *ProductlistSearchProductListsByIdsRequest) IsSetIds() bool {
 	if o != nil && !IsNil(o.Ids) {
 		return true
 	}
@@ -133,7 +133,7 @@ func (o *ProductlistSearchProductListsByIdsRequest) GetPageSizeOk() (*int64, boo
 }
 
 // HasPageSize returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsByIdsRequest) HasPageSize() bool {
+func (o *ProductlistSearchProductListsByIdsRequest) IsSetPageSize() bool {
 	if o != nil && !IsNil(o.PageSize) {
 		return true
 	}
@@ -165,7 +165,7 @@ func (o *ProductlistSearchProductListsByIdsRequest) GetPageNumberOk() (*int64, b
 }
 
 // HasPageNumber returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsByIdsRequest) HasPageNumber() bool {
+func (o *ProductlistSearchProductListsByIdsRequest) IsSetPageNumber() bool {
 	if o != nil && !IsNil(o.PageNumber) {
 		return true
 	}

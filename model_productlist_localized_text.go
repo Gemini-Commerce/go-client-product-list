@@ -63,7 +63,7 @@ func (o *ProductlistLocalizedText) GetValueOk() (*map[string]string, bool) {
 }
 
 // HasValue returns a boolean if a field has been set.
-func (o *ProductlistLocalizedText) HasValue() bool {
+func (o *ProductlistLocalizedText) IsSetValue() bool {
 	if o != nil && !IsNil(o.Value) {
 		return true
 	}

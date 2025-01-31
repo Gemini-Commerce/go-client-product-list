@@ -63,7 +63,7 @@ func (o *SearchProductListsRequestQuery) GetAttributesOk() ([]string, bool) {
 }
 
 // HasAttributes returns a boolean if a field has been set.
-func (o *SearchProductListsRequestQuery) HasAttributes() bool {
+func (o *SearchProductListsRequestQuery) IsSetAttributes() bool {
 	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
@@ -95,7 +95,7 @@ func (o *SearchProductListsRequestQuery) GetValueOk() (*string, bool) {
 }
 
 // HasValue returns a boolean if a field has been set.
-func (o *SearchProductListsRequestQuery) HasValue() bool {
+func (o *SearchProductListsRequestQuery) IsSetValue() bool {
 	if o != nil && !IsNil(o.Value) {
 		return true
 	}

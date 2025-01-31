@@ -69,7 +69,7 @@ func (o *ProductlistCreateProductListAssociationRequest) GetTenantIdOk() (*strin
 }
 
 // HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListAssociationRequest) HasTenantId() bool {
+func (o *ProductlistCreateProductListAssociationRequest) IsSetTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -101,7 +101,7 @@ func (o *ProductlistCreateProductListAssociationRequest) GetListIdOk() (*string,
 }
 
 // HasListId returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListAssociationRequest) HasListId() bool {
+func (o *ProductlistCreateProductListAssociationRequest) IsSetListId() bool {
 	if o != nil && !IsNil(o.ListId) {
 		return true
 	}
@@ -133,7 +133,7 @@ func (o *ProductlistCreateProductListAssociationRequest) GetPositionOk() (*int32
 }
 
 // HasPosition returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListAssociationRequest) HasPosition() bool {
+func (o *ProductlistCreateProductListAssociationRequest) IsSetPosition() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -165,7 +165,7 @@ func (o *ProductlistCreateProductListAssociationRequest) GetProductGrnOk() (*str
 }
 
 // HasProductGrn returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListAssociationRequest) HasProductGrn() bool {
+func (o *ProductlistCreateProductListAssociationRequest) IsSetProductGrn() bool {
 	if o != nil && !IsNil(o.ProductGrn) {
 		return true
 	}

@@ -64,7 +64,7 @@ func (o *ProductlistBulkUpdateProductListAssociationsRequest) GetTenantIdOk() (*
 }
 
 // HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistBulkUpdateProductListAssociationsRequest) HasTenantId() bool {
+func (o *ProductlistBulkUpdateProductListAssociationsRequest) IsSetTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -96,7 +96,7 @@ func (o *ProductlistBulkUpdateProductListAssociationsRequest) GetProductListAsso
 }
 
 // HasProductListAssociations returns a boolean if a field has been set.
-func (o *ProductlistBulkUpdateProductListAssociationsRequest) HasProductListAssociations() bool {
+func (o *ProductlistBulkUpdateProductListAssociationsRequest) IsSetProductListAssociations() bool {
 	if o != nil && !IsNil(o.ProductListAssociations) {
 		return true
 	}

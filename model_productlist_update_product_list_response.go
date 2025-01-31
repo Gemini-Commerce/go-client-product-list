@@ -64,7 +64,7 @@ func (o *ProductlistUpdateProductListResponse) GetListOk() (*ProductlistProductL
 }
 
 // HasList returns a boolean if a field has been set.
-func (o *ProductlistUpdateProductListResponse) HasList() bool {
+func (o *ProductlistUpdateProductListResponse) IsSetList() bool {
 	if o != nil && !IsNil(o.List) {
 		return true
 	}
@@ -96,7 +96,7 @@ func (o *ProductlistUpdateProductListResponse) GetErrorsOk() ([]ProductlistProdu
 }
 
 // HasErrors returns a boolean if a field has been set.
-func (o *ProductlistUpdateProductListResponse) HasErrors() bool {
+func (o *ProductlistUpdateProductListResponse) IsSetErrors() bool {
 	if o != nil && !IsNil(o.Errors) {
 		return true
 	}

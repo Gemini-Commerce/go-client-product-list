@@ -73,7 +73,7 @@ func (o *ProductlistListProductListAssociationsRequest) GetTenantIdOk() (*string
 }
 
 // HasTenantId returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasTenantId() bool {
+func (o *ProductlistListProductListAssociationsRequest) IsSetTenantId() bool {
 	if o != nil && !IsNil(o.TenantId) {
 		return true
 	}
@@ -105,7 +105,7 @@ func (o *ProductlistListProductListAssociationsRequest) GetListIdOk() (*string, 
 }
 
 // HasListId returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasListId() bool {
+func (o *ProductlistListProductListAssociationsRequest) IsSetListId() bool {
 	if o != nil && !IsNil(o.ListId) {
 		return true
 	}
@@ -137,7 +137,7 @@ func (o *ProductlistListProductListAssociationsRequest) GetProductGrnOk() (*stri
 }
 
 // HasProductGrn returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasProductGrn() bool {
+func (o *ProductlistListProductListAssociationsRequest) IsSetProductGrn() bool {
 	if o != nil && !IsNil(o.ProductGrn) {
 		return true
 	}
@@ -169,7 +169,7 @@ func (o *ProductlistListProductListAssociationsRequest) GetPageSizeOk() (*int64,
 }
 
 // HasPageSize returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasPageSize() bool {
+func (o *ProductlistListProductListAssociationsRequest) IsSetPageSize() bool {
 	if o != nil && !IsNil(o.PageSize) {
 		return true
 	}
@@ -201,7 +201,7 @@ func (o *ProductlistListProductListAssociationsRequest) GetPageTokenOk() (*strin
 }
 
 // HasPageToken returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasPageToken() bool {
+func (o *ProductlistListProductListAssociationsRequest) IsSetPageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}
@@ -233,7 +233,7 @@ func (o *ProductlistListProductListAssociationsRequest) GetOrderByOk() ([]Produc
 }
 
 // HasOrderBy returns a boolean if a field has been set.
-func (o *ProductlistListProductListAssociationsRequest) HasOrderBy() bool {
+func (o *ProductlistListProductListAssociationsRequest) IsSetOrderBy() bool {
 	if o != nil && !IsNil(o.OrderBy) {
 		return true
 	}

@@ -65,7 +65,7 @@ func (o *ProductlistListProductListsResponse) GetListsOk() ([]ProductlistProduct
 }
 
 // HasLists returns a boolean if a field has been set.
-func (o *ProductlistListProductListsResponse) HasLists() bool {
+func (o *ProductlistListProductListsResponse) IsSetLists() bool {
 	if o != nil && !IsNil(o.Lists) {
 		return true
 	}
@@ -97,7 +97,7 @@ func (o *ProductlistListProductListsResponse) GetNextPageTokenOk() (*string, boo
 }
 
 // HasNextPageToken returns a boolean if a field has been set.
-func (o *ProductlistListProductListsResponse) HasNextPageToken() bool {
+func (o *ProductlistListProductListsResponse) IsSetNextPageToken() bool {
 	if o != nil && !IsNil(o.NextPageToken) {
 		return true
 	}

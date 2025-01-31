@@ -63,7 +63,7 @@ func (o *ProductlistSearchProductListsByIdsResponse) GetResultsOk() ([]Productli
 }
 
 // HasResults returns a boolean if a field has been set.
-func (o *ProductlistSearchProductListsByIdsResponse) HasResults() bool {
+func (o *ProductlistSearchProductListsByIdsResponse) IsSetResults() bool {
 	if o != nil && !IsNil(o.Results) {
 		return true
 	}

@@ -64,7 +64,7 @@ func (o *ProductlistCreateProductListAssociationResponse) GetAssociationOk() (*P
 }
 
 // HasAssociation returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListAssociationResponse) HasAssociation() bool {
+func (o *ProductlistCreateProductListAssociationResponse) IsSetAssociation() bool {
 	if o != nil && !IsNil(o.Association) {
 		return true
 	}
@@ -96,7 +96,7 @@ func (o *ProductlistCreateProductListAssociationResponse) GetErrorsOk() ([]Produ
 }
 
 // HasErrors returns a boolean if a field has been set.
-func (o *ProductlistCreateProductListAssociationResponse) HasErrors() bool {
+func (o *ProductlistCreateProductListAssociationResponse) IsSetErrors() bool {
 	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
