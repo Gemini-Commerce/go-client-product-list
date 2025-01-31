@@ -4,23 +4,88 @@ All URIs are relative to *https://product-list.api.gogemini.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**BulkUpdateProductListAssociations**](ProductListAPI.md#BulkUpdateProductListAssociations) | **Post** /productlist.ProductList/BulkUpdateProductListAssociations | Bulk Update Product-Collection Associations
 [**CreateProductList**](ProductListAPI.md#CreateProductList) | **Post** /productlist.ProductList/CreateProductList | Create Collection
-[**CreateProductListAssociation**](ProductListAPI.md#CreateProductListAssociation) | **Post** /productlist.ProductList/CreateProductListAssociation | Create Collection/Product Association
+[**CreateProductListAssociation**](ProductListAPI.md#CreateProductListAssociation) | **Post** /productlist.ProductList/CreateProductListAssociation | Create Product-Collection Association
 [**DeleteProductList**](ProductListAPI.md#DeleteProductList) | **Post** /productlist.ProductList/DeleteProductList | Delete Collection
-[**DeleteProductListAssociation**](ProductListAPI.md#DeleteProductListAssociation) | **Post** /productlist.ProductList/DeleteProductListAssociation | Delete Collection/Product Association
-[**GetProductListAssociationsByProductGrn**](ProductListAPI.md#GetProductListAssociationsByProductGrn) | **Post** /productlist.ProductList/GetProductListAssociationsByProductGrn | Get Collection/Product Associations by Product GRN
-[**GetProductListByCode**](ProductListAPI.md#GetProductListByCode) | **Post** /productlist.ProductList/GetProductListByCode | Get Collection by Code
-[**GetProductListById**](ProductListAPI.md#GetProductListById) | **Post** /productlist.ProductList/GetProductListById | Get Collection by Id
-[**GetProductListByUrlKey**](ProductListAPI.md#GetProductListByUrlKey) | **Post** /productlist.ProductList/GetProductListByUrlKey | Get Collection by Url Key
+[**DeleteProductListAssociation**](ProductListAPI.md#DeleteProductListAssociation) | **Post** /productlist.ProductList/DeleteProductListAssociation | Delete Product-Collection Association
+[**GetProductListAssociationsByProductGrn**](ProductListAPI.md#GetProductListAssociationsByProductGrn) | **Post** /productlist.ProductList/GetProductListAssociationsByProductGrn | Retrieve Collections for Product by GRN
+[**GetProductListByCode**](ProductListAPI.md#GetProductListByCode) | **Post** /productlist.ProductList/GetProductListByCode | Retrieve Collection by Code
+[**GetProductListById**](ProductListAPI.md#GetProductListById) | **Post** /productlist.ProductList/GetProductListById | Retrieve Collection by ID
+[**GetProductListByUrlKey**](ProductListAPI.md#GetProductListByUrlKey) | **Post** /productlist.ProductList/GetProductListByUrlKey | Retrieve Collection by URL Key
 [**GetProductListsCount**](ProductListAPI.md#GetProductListsCount) | **Post** /productlist.ProductList/GetProductListsCount | Get Collection Product Count
-[**ListProductListAssociations**](ProductListAPI.md#ListProductListAssociations) | **Post** /productlist.ProductList/ListProductListAssociations | List Collection/Product Associations
-[**ListProductLists**](ProductListAPI.md#ListProductLists) | **Post** /productlist.ProductList/ListProductLists | List Collections
-[**ProductListBulkUpdateProductListAssociations**](ProductListAPI.md#ProductListBulkUpdateProductListAssociations) | **Post** /productlist.ProductList/BulkUpdateProductListAssociations | 
+[**ListProductListAssociations**](ProductListAPI.md#ListProductListAssociations) | **Post** /productlist.ProductList/ListProductListAssociations | List Product Associations in Collection
+[**ListProductLists**](ProductListAPI.md#ListProductLists) | **Post** /productlist.ProductList/ListProductLists | List All Collections
 [**SearchProductLists**](ProductListAPI.md#SearchProductLists) | **Post** /productlist.ProductList/SearchProductLists | Search Collections
-[**SearchProductListsByIds**](ProductListAPI.md#SearchProductListsByIds) | **Post** /productlist.ProductList/SearchProductListsByIds | Search Collections by Ids
-[**SetProductListAssociations**](ProductListAPI.md#SetProductListAssociations) | **Post** /productlist.ProductList/SetProductListAssociations | Set Collection/Product Associations
+[**SearchProductListsByIds**](ProductListAPI.md#SearchProductListsByIds) | **Post** /productlist.ProductList/SearchProductListsByIds | Search Collections by IDs
 [**UpdateProductList**](ProductListAPI.md#UpdateProductList) | **Post** /productlist.ProductList/UpdateProductList | Update Collection
 
+
+
+## BulkUpdateProductListAssociations
+
+> RpcStatus BulkUpdateProductListAssociations(ctx).Body(body).Execute()
+
+Bulk Update Product-Collection Associations
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-list"
+)
+
+func main() {
+	body := *openapiclient.NewProductlistBulkUpdateProductListAssociationsRequest() // ProductlistBulkUpdateProductListAssociationsRequest | Used to perform bulk updates of product associations within a collection, such as modifying their positions.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductListAPI.BulkUpdateProductListAssociations(context.Background()).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductListAPI.BulkUpdateProductListAssociations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BulkUpdateProductListAssociations`: RpcStatus
+	fmt.Fprintf(os.Stdout, "Response from `ProductListAPI.BulkUpdateProductListAssociations`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBulkUpdateProductListAssociationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ProductlistBulkUpdateProductListAssociationsRequest**](ProductlistBulkUpdateProductListAssociationsRequest.md) | Used to perform bulk updates of product associations within a collection, such as modifying their positions. | 
+
+### Return type
+
+[**RpcStatus**](RpcStatus.md)
+
+### Authorization
+
+[standardAuthorization](../README.md#standardAuthorization)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CreateProductList
@@ -44,7 +109,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistCreateProductListRequest() // ProductlistCreateProductListRequest | 
+	body := *openapiclient.NewProductlistCreateProductListRequest() // ProductlistCreateProductListRequest | Used to create a new product collection with details like code, URL key, and attributes.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -69,7 +134,7 @@ Other parameters are passed through a pointer to a apiCreateProductListRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistCreateProductListRequest**](ProductlistCreateProductListRequest.md) |  | 
+ **body** | [**ProductlistCreateProductListRequest**](ProductlistCreateProductListRequest.md) | Used to create a new product collection with details like code, URL key, and attributes. | 
 
 ### Return type
 
@@ -77,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -93,7 +158,7 @@ Name | Type | Description  | Notes
 
 > ProductlistCreateProductListAssociationResponse CreateProductListAssociation(ctx).Body(body).Execute()
 
-Create Collection/Product Association
+Create Product-Collection Association
 
 
 
@@ -110,7 +175,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistCreateProductListAssociationRequest() // ProductlistCreateProductListAssociationRequest | 
+	body := *openapiclient.NewProductlistCreateProductListAssociationRequest() // ProductlistCreateProductListAssociationRequest | Used to associate a product with a collection, specifying details like position and GRN.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -135,7 +200,7 @@ Other parameters are passed through a pointer to a apiCreateProductListAssociati
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistCreateProductListAssociationRequest**](ProductlistCreateProductListAssociationRequest.md) |  | 
+ **body** | [**ProductlistCreateProductListAssociationRequest**](ProductlistCreateProductListAssociationRequest.md) | Used to associate a product with a collection, specifying details like position and GRN. | 
 
 ### Return type
 
@@ -143,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -176,7 +241,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistDeleteProductListRequest() // ProductlistDeleteProductListRequest | 
+	body := *openapiclient.NewProductlistDeleteProductListRequest() // ProductlistDeleteProductListRequest | Defines the structure for DeleteProductListRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -201,7 +266,7 @@ Other parameters are passed through a pointer to a apiDeleteProductListRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistDeleteProductListRequest**](ProductlistDeleteProductListRequest.md) |  | 
+ **body** | [**ProductlistDeleteProductListRequest**](ProductlistDeleteProductListRequest.md) | Defines the structure for DeleteProductListRequest. | 
 
 ### Return type
 
@@ -209,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -225,7 +290,7 @@ Name | Type | Description  | Notes
 
 > ProductlistDeleteProductListAssociationResponse DeleteProductListAssociation(ctx).Body(body).Execute()
 
-Delete Collection/Product Association
+Delete Product-Collection Association
 
 
 
@@ -242,7 +307,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistDeleteProductListAssociationRequest() // ProductlistDeleteProductListAssociationRequest | 
+	body := *openapiclient.NewProductlistDeleteProductListAssociationRequest() // ProductlistDeleteProductListAssociationRequest | Defines the structure for DeleteProductListAssociationRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -267,7 +332,7 @@ Other parameters are passed through a pointer to a apiDeleteProductListAssociati
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistDeleteProductListAssociationRequest**](ProductlistDeleteProductListAssociationRequest.md) |  | 
+ **body** | [**ProductlistDeleteProductListAssociationRequest**](ProductlistDeleteProductListAssociationRequest.md) | Defines the structure for DeleteProductListAssociationRequest. | 
 
 ### Return type
 
@@ -275,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -291,7 +356,7 @@ Name | Type | Description  | Notes
 
 > ProductlistGetProductListAssociationsByProductGrnResponse GetProductListAssociationsByProductGrn(ctx).Body(body).Execute()
 
-Get Collection/Product Associations by Product GRN
+Retrieve Collections for Product by GRN
 
 
 
@@ -308,7 +373,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistGetProductListAssociationsByProductGrnRequest() // ProductlistGetProductListAssociationsByProductGrnRequest | 
+	body := *openapiclient.NewProductlistGetProductListAssociationsByProductGrnRequest() // ProductlistGetProductListAssociationsByProductGrnRequest | Defines the structure for GetProductListAssociationsByProductGrnRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -333,7 +398,7 @@ Other parameters are passed through a pointer to a apiGetProductListAssociations
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistGetProductListAssociationsByProductGrnRequest**](ProductlistGetProductListAssociationsByProductGrnRequest.md) |  | 
+ **body** | [**ProductlistGetProductListAssociationsByProductGrnRequest**](ProductlistGetProductListAssociationsByProductGrnRequest.md) | Defines the structure for GetProductListAssociationsByProductGrnRequest. | 
 
 ### Return type
 
@@ -341,7 +406,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -357,7 +422,7 @@ Name | Type | Description  | Notes
 
 > ProductlistGetProductListByCodeResponse GetProductListByCode(ctx).Body(body).Execute()
 
-Get Collection by Code
+Retrieve Collection by Code
 
 
 
@@ -374,7 +439,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistGetProductListByCodeRequest() // ProductlistGetProductListByCodeRequest | 
+	body := *openapiclient.NewProductlistGetProductListByCodeRequest() // ProductlistGetProductListByCodeRequest | Defines the structure for GetProductListByCodeRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -399,7 +464,7 @@ Other parameters are passed through a pointer to a apiGetProductListByCodeReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistGetProductListByCodeRequest**](ProductlistGetProductListByCodeRequest.md) |  | 
+ **body** | [**ProductlistGetProductListByCodeRequest**](ProductlistGetProductListByCodeRequest.md) | Defines the structure for GetProductListByCodeRequest. | 
 
 ### Return type
 
@@ -407,7 +472,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -423,7 +488,7 @@ Name | Type | Description  | Notes
 
 > ProductlistGetProductListByIdResponse GetProductListById(ctx).Body(body).Execute()
 
-Get Collection by Id
+Retrieve Collection by ID
 
 
 
@@ -440,7 +505,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistGetProductListByIdRequest() // ProductlistGetProductListByIdRequest | 
+	body := *openapiclient.NewProductlistGetProductListByIdRequest() // ProductlistGetProductListByIdRequest | Defines the structure for GetProductListByIdRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -465,7 +530,7 @@ Other parameters are passed through a pointer to a apiGetProductListByIdRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistGetProductListByIdRequest**](ProductlistGetProductListByIdRequest.md) |  | 
+ **body** | [**ProductlistGetProductListByIdRequest**](ProductlistGetProductListByIdRequest.md) | Defines the structure for GetProductListByIdRequest. | 
 
 ### Return type
 
@@ -473,7 +538,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -489,7 +554,7 @@ Name | Type | Description  | Notes
 
 > ProductlistGetProductListByUrlKeyResponse GetProductListByUrlKey(ctx).Body(body).Execute()
 
-Get Collection by Url Key
+Retrieve Collection by URL Key
 
 
 
@@ -506,7 +571,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistGetProductListByUrlKeyRequest() // ProductlistGetProductListByUrlKeyRequest | 
+	body := *openapiclient.NewProductlistGetProductListByUrlKeyRequest() // ProductlistGetProductListByUrlKeyRequest | Defines the structure for GetProductListByUrlKeyRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -531,7 +596,7 @@ Other parameters are passed through a pointer to a apiGetProductListByUrlKeyRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistGetProductListByUrlKeyRequest**](ProductlistGetProductListByUrlKeyRequest.md) |  | 
+ **body** | [**ProductlistGetProductListByUrlKeyRequest**](ProductlistGetProductListByUrlKeyRequest.md) | Defines the structure for GetProductListByUrlKeyRequest. | 
 
 ### Return type
 
@@ -539,7 +604,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -572,7 +637,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistGetProductListsCountRequest() // ProductlistGetProductListsCountRequest | 
+	body := *openapiclient.NewProductlistGetProductListsCountRequest() // ProductlistGetProductListsCountRequest | Defines the structure for GetProductListsCountRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -597,7 +662,7 @@ Other parameters are passed through a pointer to a apiGetProductListsCountReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistGetProductListsCountRequest**](ProductlistGetProductListsCountRequest.md) |  | 
+ **body** | [**ProductlistGetProductListsCountRequest**](ProductlistGetProductListsCountRequest.md) | Defines the structure for GetProductListsCountRequest. | 
 
 ### Return type
 
@@ -605,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -621,7 +686,7 @@ Name | Type | Description  | Notes
 
 > ProductlistListProductListAssociationsResponse ListProductListAssociations(ctx).Body(body).Execute()
 
-List Collection/Product Associations
+List Product Associations in Collection
 
 
 
@@ -638,7 +703,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistListProductListAssociationsRequest() // ProductlistListProductListAssociationsRequest | 
+	body := *openapiclient.NewProductlistListProductListAssociationsRequest() // ProductlistListProductListAssociationsRequest | Defines the structure for ListProductListAssociationsRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -663,7 +728,7 @@ Other parameters are passed through a pointer to a apiListProductListAssociation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistListProductListAssociationsRequest**](ProductlistListProductListAssociationsRequest.md) |  | 
+ **body** | [**ProductlistListProductListAssociationsRequest**](ProductlistListProductListAssociationsRequest.md) | Defines the structure for ListProductListAssociationsRequest. | 
 
 ### Return type
 
@@ -671,7 +736,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -687,7 +752,7 @@ Name | Type | Description  | Notes
 
 > ProductlistListProductListsResponse ListProductLists(ctx).Body(body).Execute()
 
-List Collections
+List All Collections
 
 
 
@@ -704,7 +769,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistListProductListsRequest() // ProductlistListProductListsRequest | 
+	body := *openapiclient.NewProductlistListProductListsRequest() // ProductlistListProductListsRequest | Defines the structure for ListProductListsRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -729,7 +794,7 @@ Other parameters are passed through a pointer to a apiListProductListsRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistListProductListsRequest**](ProductlistListProductListsRequest.md) |  | 
+ **body** | [**ProductlistListProductListsRequest**](ProductlistListProductListsRequest.md) | Defines the structure for ListProductListsRequest. | 
 
 ### Return type
 
@@ -737,71 +802,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ProductListBulkUpdateProductListAssociations
-
-> map[string]interface{} ProductListBulkUpdateProductListAssociations(ctx).Body(body).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/Gemini-Commerce/go-client-product-list"
-)
-
-func main() {
-	body := *openapiclient.NewProductlistBulkUpdateProductListAssociationsRequest() // ProductlistBulkUpdateProductListAssociationsRequest | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductListAPI.ProductListBulkUpdateProductListAssociations(context.Background()).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProductListAPI.ProductListBulkUpdateProductListAssociations``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ProductListBulkUpdateProductListAssociations`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `ProductListAPI.ProductListBulkUpdateProductListAssociations`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiProductListBulkUpdateProductListAssociationsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistBulkUpdateProductListAssociationsRequest**](ProductlistBulkUpdateProductListAssociationsRequest.md) |  | 
-
-### Return type
-
-**map[string]interface{}**
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -834,7 +835,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistSearchProductListsRequest() // ProductlistSearchProductListsRequest | 
+	body := *openapiclient.NewProductlistSearchProductListsRequest() // ProductlistSearchProductListsRequest | Defines the structure for SearchProductListsRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -859,7 +860,7 @@ Other parameters are passed through a pointer to a apiSearchProductListsRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistSearchProductListsRequest**](ProductlistSearchProductListsRequest.md) |  | 
+ **body** | [**ProductlistSearchProductListsRequest**](ProductlistSearchProductListsRequest.md) | Defines the structure for SearchProductListsRequest. | 
 
 ### Return type
 
@@ -867,7 +868,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -883,7 +884,7 @@ Name | Type | Description  | Notes
 
 > ProductlistSearchProductListsByIdsResponse SearchProductListsByIds(ctx).Body(body).Execute()
 
-Search Collections by Ids
+Search Collections by IDs
 
 
 
@@ -900,7 +901,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistSearchProductListsByIdsRequest() // ProductlistSearchProductListsByIdsRequest | 
+	body := *openapiclient.NewProductlistSearchProductListsByIdsRequest() // ProductlistSearchProductListsByIdsRequest | Defines the structure for SearchProductListsByIdsRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -925,7 +926,7 @@ Other parameters are passed through a pointer to a apiSearchProductListsByIdsReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistSearchProductListsByIdsRequest**](ProductlistSearchProductListsByIdsRequest.md) |  | 
+ **body** | [**ProductlistSearchProductListsByIdsRequest**](ProductlistSearchProductListsByIdsRequest.md) | Defines the structure for SearchProductListsByIdsRequest. | 
 
 ### Return type
 
@@ -933,73 +934,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SetProductListAssociations
-
-> ProductlistSetProductListAssociationsResponse SetProductListAssociations(ctx).Body(body).Execute()
-
-Set Collection/Product Associations
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/Gemini-Commerce/go-client-product-list"
-)
-
-func main() {
-	body := *openapiclient.NewProductlistSetProductListAssociationsRequest() // ProductlistSetProductListAssociationsRequest | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProductListAPI.SetProductListAssociations(context.Background()).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProductListAPI.SetProductListAssociations``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SetProductListAssociations`: ProductlistSetProductListAssociationsResponse
-	fmt.Fprintf(os.Stdout, "Response from `ProductListAPI.SetProductListAssociations`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSetProductListAssociationsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistSetProductListAssociationsRequest**](ProductlistSetProductListAssociationsRequest.md) |  | 
-
-### Return type
-
-[**ProductlistSetProductListAssociationsResponse**](ProductlistSetProductListAssociationsResponse.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 
@@ -1032,7 +967,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewProductlistUpdateProductListRequest() // ProductlistUpdateProductListRequest | 
+	body := *openapiclient.NewProductlistUpdateProductListRequest() // ProductlistUpdateProductListRequest | Defines the structure for UpdateProductListRequest.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1057,7 +992,7 @@ Other parameters are passed through a pointer to a apiUpdateProductListRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ProductlistUpdateProductListRequest**](ProductlistUpdateProductListRequest.md) |  | 
+ **body** | [**ProductlistUpdateProductListRequest**](ProductlistUpdateProductListRequest.md) | Defines the structure for UpdateProductListRequest. | 
 
 ### Return type
 
@@ -1065,7 +1000,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Authorization](../README.md#Authorization)
+[standardAuthorization](../README.md#standardAuthorization)
 
 ### HTTP request headers
 

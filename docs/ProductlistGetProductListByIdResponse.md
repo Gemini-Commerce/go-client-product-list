@@ -1,5 +1,5 @@
 # # ProductlistGetProductListByIdResponse
-
+Defines the structure for GetProductListByIdResponse.
 
 ## Properties 
 

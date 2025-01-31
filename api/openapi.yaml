@@ -3,6 +3,15 @@ info:
   contact:
     email: info@gemini-commerce.com
     name: Gemini Team
+  description: |-
+    The Collection Service provides a comprehensive API for managing product collections and categories. It supports the creation, retrieval, updating, and deletion of product collections, as well as managing associations between collections and products. Key functionalities include:
+    - **Collection Management**: Create, update, and delete collections of products, enabling businesses to organize products into meaningful groups for easier browsing and marketing.
+    - **Retrieval Operations**: Retrieve collections using various identifiers such as ID, URL key, or code, and list all existing collections with optional search and filter capabilities.
+    - **Association Management**: Establish and manage associations between collections and products, allowing products to belong to one or multiple collections.
+    - **Bulk Operations**: Perform bulk updates on product collection associations, optimizing the management of large-scale collections.
+    - **Count and Search**: Get counts of products in a collection and search collections using filters or product identifiers for efficient management.
+    - **Non-Hierarchical Structure**: While the service supports flat collections and categories, it does not yet include hierarchical relationships between categories.
+    Designed for flexibility and scalability, the Collection Service empowers businesses to organize and present their product offerings effectively while maintaining a streamlined management process.
   license:
     name: Gemini fair use license
     url: https://gemini-commerce.com/api/fair-use-license
@@ -10,8 +19,6 @@ info:
   version: v1
 servers:
 - url: https://product-list.api.gogemini.io/
-security:
-- Authorization: []
 tags:
 - description: Collection Description
   externalDocs:
@@ -20,40 +27,62 @@ tags:
 paths:
   /productlist.ProductList/BulkUpdateProductListAssociations:
     post:
-      operationId: ProductList_BulkUpdateProductListAssociations
+      description: Perform bulk updates on the positions of products within collections.
+        Ideal for efficient reordering.
+      operationId: BulkUpdateProductListAssociations
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistBulkUpdateProductListAssociationsRequest'
+        description: "Used to perform bulk updates of product associations within\
+          \ a collection, such as modifying their positions."
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/productlistBulkUpdateProductListAssociationsResponse'
-          description: A successful response.
+                $ref: '#/components/schemas/rpcStatus'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An internal error occurred is thrown when an incompatible payload
+            is sent
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
+      security:
+      - standardAuthorization: []
+      summary: Bulk Update Product-Collection Associations
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/CreateProductList:
     post:
-      description: The CreateProductList endpoint is used to create a new collection
-        of products within the system. This endpoint allows users to define the details
-        and attributes of the collection.
+      description: "Create a new product collection by providing details such as name,\
+        \ attributes, and metadata. This endpoint is essential for organizing related\
+        \ products into collections for better management and visibility."
       operationId: CreateProductList
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistCreateProductListRequest'
+        description: "Used to create a new product collection with details like code,\
+          \ URL key, and attributes."
         required: true
       responses:
         "200":
@@ -81,20 +110,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
+      security:
+      - standardAuthorization: []
       summary: Create Collection
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/CreateProductListAssociation:
     post:
-      description: The CreateProductListAssociation endpoint is used to create an
-        association between a collection and a product.
+      description: Associate a product with a collection by specifying the collection
+        ID and product details. Essential for managing relationships between products
+        and collections.
       operationId: CreateProductListAssociation
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistCreateProductListAssociationRequest'
+        description: "Used to associate a product with a collection, specifying details\
+          \ like position and GRN."
         required: true
       responses:
         "200":
@@ -122,20 +156,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      summary: Create Collection/Product Association
+      security:
+      - standardAuthorization: []
+      summary: Create Product-Collection Association
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/DeleteProductList:
     post:
-      description: The DeleteProductList endpoint is used to delete an existing collection
-        of products within the system.
+      description: Remove an existing product collection from the system. Ideal for
+        cleaning up outdated or irrelevant collections.
       operationId: DeleteProductList
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistDeleteProductListRequest'
+        description: Defines the structure for DeleteProductListRequest.
         required: true
       responses:
         "200":
@@ -163,20 +200,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
+      security:
+      - standardAuthorization: []
       summary: Delete Collection
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/DeleteProductListAssociation:
     post:
-      description: The DeleteProductListAssociation endpoint is used to delete an
-        association between a collection and a product.
+      description: Remove the association between a product and a collection. Use
+        this for managing and cleaning up relationships.
       operationId: DeleteProductListAssociation
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistDeleteProductListAssociationRequest'
+        description: Defines the structure for DeleteProductListAssociationRequest.
         required: true
       responses:
         "200":
@@ -204,21 +244,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      summary: Delete Collection/Product Association
+      security:
+      - standardAuthorization: []
+      summary: Delete Product-Collection Association
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/GetProductListAssociationsByProductGrn:
     post:
-      description: The GetProductListAssociationsByProductGrn endpoint is used to
-        get the associations between a collection and a list of products by product
-        GRN.
+      description: Retrieve all collections associated with a product using its unique
+        GRN. Useful for tracking product relationships.
       operationId: GetProductListAssociationsByProductGrn
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistGetProductListAssociationsByProductGrnRequest'
+        description: Defines the structure for GetProductListAssociationsByProductGrnRequest.
         required: true
       responses:
         "200":
@@ -246,20 +288,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      summary: Get Collection/Product Associations by Product GRN
+      security:
+      - standardAuthorization: []
+      summary: Retrieve Collections for Product by GRN
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/GetProductListByCode:
     post:
-      description: The GetProductListByCode endpoint is used to retrieve an existing
-        collection of products within the system.
+      description: Fetch a collection's details using its unique code identifier.
+        This endpoint is beneficial for integrations that reference collections by
+        code.
       operationId: GetProductListByCode
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistGetProductListByCodeRequest'
+        description: Defines the structure for GetProductListByCodeRequest.
         required: true
       responses:
         "200":
@@ -287,20 +333,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      summary: Get Collection by Code
+      security:
+      - standardAuthorization: []
+      summary: Retrieve Collection by Code
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/GetProductListById:
     post:
-      description: The GetProductListById endpoint is used to retrieve an existing
-        collection of products within the system.
+      description: Retrieve a collection's details using its unique ID. Ideal for
+        direct data retrieval scenarios.
       operationId: GetProductListById
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistGetProductListByIdRequest'
+        description: Defines the structure for GetProductListByIdRequest.
         required: true
       responses:
         "200":
@@ -328,20 +377,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      summary: Get Collection by Id
+      security:
+      - standardAuthorization: []
+      summary: Retrieve Collection by ID
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/GetProductListByUrlKey:
     post:
-      description: The GetProductListByUrlKey endpoint is used to retrieve an existing
-        collection of products within the system.
+      description: Retrieve details of a collection using its unique URL key. Useful
+        for scenarios where collections are accessed via user-friendly URLs.
       operationId: GetProductListByUrlKey
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistGetProductListByUrlKeyRequest'
+        description: Defines the structure for GetProductListByUrlKeyRequest.
         required: true
       responses:
         "200":
@@ -369,20 +421,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      summary: Get Collection by Url Key
+      security:
+      - standardAuthorization: []
+      summary: Retrieve Collection by URL Key
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/GetProductListsCount:
     post:
-      description: The GetProductListsCount endpoint is used to get the number of
-        products associated with a collection.
+      description: Get the total number of products within a specified collection.
+        Useful for reporting or inventory validation.
       operationId: GetProductListsCount
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistGetProductListsCountRequest'
+        description: Defines the structure for GetProductListsCountRequest.
         required: true
       responses:
         "200":
@@ -410,20 +465,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
+      security:
+      - standardAuthorization: []
       summary: Get Collection Product Count
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/ListProductListAssociations:
     post:
-      description: The ListProductListAssociations endpoint is used to list the associations
-        between a collection and a list of products.
+      description: List all products associated with a specific collection. Ideal
+        for viewing or managing collection contents.
       operationId: ListProductListAssociations
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistListProductListAssociationsRequest'
+        description: Defines the structure for ListProductListAssociationsRequest.
         required: true
       responses:
         "200":
@@ -451,20 +509,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      summary: List Collection/Product Associations
+      security:
+      - standardAuthorization: []
+      summary: List Product Associations in Collection
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/ListProductLists:
     post:
-      description: The ListProductLists endpoint is used to retrieve a list of existing
-        collections of products within the system.
+      description: List all available collections in the system with optional filters.
+        Useful for overviews or administrative purposes.
       operationId: ListProductLists
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistListProductListsRequest'
+        description: Defines the structure for ListProductListsRequest.
         required: true
       responses:
         "200":
@@ -492,20 +553,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      summary: List Collections
+      security:
+      - standardAuthorization: []
+      summary: List All Collections
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/SearchProductLists:
     post:
-      description: The SearchProductLists endpoint is used to retrieve a list of existing
-        collections of products within the system.
+      description: Search for collections based on specified criteria such as attributes
+        or metadata. Ideal for dynamic filtering in applications.
       operationId: SearchProductLists
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistSearchProductListsRequest'
+        description: Defines the structure for SearchProductListsRequest.
         required: true
       responses:
         "200":
@@ -533,20 +597,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
+      security:
+      - standardAuthorization: []
       summary: Search Collections
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/SearchProductListsByIds:
     post:
-      description: The SearchProductListsByIds endpoint is used to retrieve a list
-        of existing collections of products within the system.
+      description: Retrieve details of multiple collections by providing a list of
+        their unique IDs. Optimized for bulk retrieval operations.
       operationId: SearchProductListsByIds
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistSearchProductListsByIdsRequest'
+        description: Defines the structure for SearchProductListsByIdsRequest.
         required: true
       responses:
         "200":
@@ -574,61 +641,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
-      summary: Search Collections by Ids
-      tags:
-      - ProductList
-      x-codegen-request-body-name: body
-  /productlist.ProductList/SetProductListAssociations:
-    post:
-      description: The SetProductListAssociations endpoint is used to set the associations
-        between a collection and a list of products.
-      operationId: SetProductListAssociations
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/productlistSetProductListAssociationsRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/productlistSetProductListAssociationsResponse'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/rpcStatus'
-          description: Unauthorized
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/rpcStatus'
-          description: An internal error occurred is thrown when an incompatible payload
-            is sent
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/rpcStatus'
-          description: An unexpected error response.
-      summary: Set Collection/Product Associations
+      security:
+      - standardAuthorization: []
+      summary: Search Collections by IDs
       tags:
       - ProductList
       x-codegen-request-body-name: body
   /productlist.ProductList/UpdateProductList:
     post:
-      description: The UpdateProductList endpoint is used to update an existing collection
-        of products within the system.
+      description: "Update an existing collection's details, such as attributes or\
+        \ metadata. Use this endpoint to ensure collections remain accurate and up-to-date."
       operationId: UpdateProductList
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/productlistUpdateProductListRequest'
+        description: Defines the structure for UpdateProductListRequest.
         required: true
       responses:
         "200":
@@ -656,6 +685,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/rpcStatus'
           description: An unexpected error response.
+      security:
+      - standardAuthorization: []
       summary: Update Collection
       tags:
       - ProductList
@@ -678,25 +709,19 @@ components:
         value:
           type: string
       type: object
-      x-golang-getsetvalue-exists: true
-    SetProductListAssociationsRequestAssociation:
-      properties:
-        listId:
-          type: string
-        position:
-          format: int32
-          type: integer
-        productGrn:
-          type: string
-      type: object
     productlistBulkUpdateProductListAssociationsRequest:
+      description: "Used to perform bulk updates of product associations within a\
+        \ collection, such as modifying their positions."
       properties:
         tenantId:
+          description: The identifier for the tenant performing the bulk update.
+          title: string
           type: string
         productListAssociations:
           items:
             $ref: '#/components/schemas/productlistBulkUpdateProductListAssociationsRequestProductListAssociation'
           type: array
+      title: BulkUpdateProductListAssociationsRequest
       type: object
     productlistBulkUpdateProductListAssociationsRequestProductListAssociation:
       properties:
@@ -707,26 +732,43 @@ components:
           type: integer
       type: object
     productlistBulkUpdateProductListAssociationsResponse:
+      description: Contains the results of a bulk update operation on product associations
+        within collections.
+      title: BulkUpdateProductListAssociationsResponse
       type: object
     productlistCreateProductListAssociationRequest:
+      description: "Used to associate a product with a collection, specifying details\
+        \ like position and GRN."
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
         listId:
+          description: Field list_id of type string.
+          title: string
           type: string
         position:
+          description: Field position of type int32.
           format: int32
+          title: int32
           type: integer
         productGrn:
+          description: Field product_grn of type string.
+          title: string
           type: string
+      title: CreateProductListAssociationRequest
       type: object
     productlistCreateProductListAssociationResponse:
+      description: "Returns the created association between a product and a collection,\
+        \ along with errors if any."
       example:
         association:
           listId: listId
           productGrn: productGrn
           id: id
           position: 0
+          listGrn: listGrn
         errors:
         - code: code
           message: message
@@ -736,32 +778,52 @@ components:
         association:
           $ref: '#/components/schemas/productlistProductListAssociation'
         errors:
+          description: Field errors of type repeated ProductListAssociationError.
           items:
             $ref: '#/components/schemas/productlistProductListAssociationError'
+          title: repeated ProductListAssociationError
           type: array
+      title: CreateProductListAssociationResponse
       type: object
     productlistCreateProductListRequest:
+      description: "Used to create a new product collection with details like code,\
+        \ URL key, and attributes."
       properties:
         tenantId:
+          description: The unique identifier of the tenant creating the collection.
+          title: string
           type: string
         code:
+          description: A unique code to identify the collection.
+          title: string
           type: string
         urlKey:
           $ref: '#/components/schemas/productlistLocalizedText'
         entityType:
+          description: Specifies the type of entity associated with the collection.
+          title: string
           type: string
         entityCode:
+          description: The code of the associated entity within the collection.
+          title: string
           type: string
         attributes:
           additionalProperties:
             $ref: '#/components/schemas/protobufAny'
+          description: "Additional custom attributes for the collection, stored as\
+            \ key-value pairs."
+          title: "map<string, google.protobuf.Any>"
           type: object
+      title: CreateProductListRequest
       type: object
     productlistCreateProductListResponse:
+      description: Returns the created product collection and any errors encountered
+        during the creation process.
       example:
         list:
           countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -782,24 +844,36 @@ components:
         list:
           $ref: '#/components/schemas/productlistProductListEntity'
         errors:
+          description: A list of errors encountered during the collection creation
+            process.
           items:
             $ref: '#/components/schemas/productlistProductListError'
+          title: repeated ProductListError
           type: array
+      title: CreateProductListResponse
       type: object
     productlistDeleteProductListAssociationRequest:
+      description: Defines the structure for DeleteProductListAssociationRequest.
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
         id:
+          description: Field id of type string.
+          title: string
           type: string
+      title: DeleteProductListAssociationRequest
       type: object
     productlistDeleteProductListAssociationResponse:
+      description: Defines the structure for DeleteProductListAssociationResponse.
       example:
         association:
           listId: listId
           productGrn: productGrn
           id: id
           position: 0
+          listGrn: listGrn
         errors:
         - code: code
           message: message
@@ -809,22 +883,33 @@ components:
         association:
           $ref: '#/components/schemas/productlistProductListAssociation'
         errors:
+          description: Field errors of type repeated ProductListAssociationError.
           items:
             $ref: '#/components/schemas/productlistProductListAssociationError'
+          title: repeated ProductListAssociationError
           type: array
+      title: DeleteProductListAssociationResponse
       type: object
     productlistDeleteProductListRequest:
+      description: Defines the structure for DeleteProductListRequest.
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
         id:
+          description: Field id of type string.
+          title: string
           type: string
+      title: DeleteProductListRequest
       type: object
     productlistDeleteProductListResponse:
+      description: Defines the structure for DeleteProductListResponse.
       example:
         list:
           countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -845,46 +930,69 @@ components:
         list:
           $ref: '#/components/schemas/productlistProductListEntity'
         errors:
+          description: Field errors of type repeated ProductListError.
           items:
             $ref: '#/components/schemas/productlistProductListError'
+          title: repeated ProductListError
           type: array
+      title: DeleteProductListResponse
       type: object
     productlistGetProductListAssociationsByProductGrnRequest:
+      description: Defines the structure for GetProductListAssociationsByProductGrnRequest.
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
         productGrn:
+          description: Field product_grn of type string.
+          title: string
           type: string
+      title: GetProductListAssociationsByProductGrnRequest
       type: object
     productlistGetProductListAssociationsByProductGrnResponse:
+      description: Defines the structure for GetProductListAssociationsByProductGrnResponse.
       example:
         associations:
         - listId: listId
           productGrn: productGrn
           id: id
           position: 0
+          listGrn: listGrn
         - listId: listId
           productGrn: productGrn
           id: id
           position: 0
+          listGrn: listGrn
       properties:
         associations:
+          description: Field associations of type repeated ProductListAssociation.
           items:
             $ref: '#/components/schemas/productlistProductListAssociation'
+          title: repeated ProductListAssociation
           type: array
+      title: GetProductListAssociationsByProductGrnResponse
       type: object
     productlistGetProductListByCodeRequest:
+      description: Defines the structure for GetProductListByCodeRequest.
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
         code:
+          description: Field code of type string.
+          title: string
           type: string
+      title: GetProductListByCodeRequest
       type: object
     productlistGetProductListByCodeResponse:
+      description: Defines the structure for GetProductListByCodeResponse.
       example:
         list:
           countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -899,19 +1007,28 @@ components:
       properties:
         list:
           $ref: '#/components/schemas/productlistProductListEntity'
+      title: GetProductListByCodeResponse
       type: object
     productlistGetProductListByIdRequest:
+      description: Defines the structure for GetProductListByIdRequest.
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
         id:
+          description: Field id of type string.
+          title: string
           type: string
+      title: GetProductListByIdRequest
       type: object
     productlistGetProductListByIdResponse:
+      description: Defines the structure for GetProductListByIdResponse.
       example:
         list:
           countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -926,21 +1043,32 @@ components:
       properties:
         list:
           $ref: '#/components/schemas/productlistProductListEntity'
+      title: GetProductListByIdResponse
       type: object
     productlistGetProductListByUrlKeyRequest:
+      description: Defines the structure for GetProductListByUrlKeyRequest.
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
         urlKey:
+          description: Field url_key of type string.
+          title: string
           type: string
         locale:
+          description: Field locale of type string.
+          title: string
           type: string
+      title: GetProductListByUrlKeyRequest
       type: object
     productlistGetProductListByUrlKeyResponse:
+      description: Defines the structure for GetProductListByUrlKeyResponse.
       example:
         list:
           countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -955,73 +1083,114 @@ components:
       properties:
         list:
           $ref: '#/components/schemas/productlistProductListEntity'
+      title: GetProductListByUrlKeyResponse
       type: object
     productlistGetProductListsCountRequest:
+      description: Defines the structure for GetProductListsCountRequest.
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
+      title: GetProductListsCountRequest
       type: object
     productlistGetProductListsCountResponse:
+      description: Defines the structure for GetProductListsCountResponse.
       example:
         totalSize: 0
       properties:
         totalSize:
+          description: Field total_size of type uint32.
           format: int64
+          title: uint32
           type: integer
+      title: GetProductListsCountResponse
       type: object
     productlistListProductListAssociationsRequest:
+      description: Defines the structure for ListProductListAssociationsRequest.
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
         listId:
+          description: Field list_id of type string.
+          title: string
           type: string
         productGrn:
+          description: Field product_grn of type string.
+          title: string
           type: string
         pageSize:
+          description: Field page_size of type uint32.
           format: int64
+          title: uint32
           type: integer
         pageToken:
+          description: Field page_token of type string.
+          title: string
           type: string
         orderBy:
+          description: Field order_by of type repeated OrderBy.
           items:
             $ref: '#/components/schemas/productlistOrderBy'
+          title: repeated OrderBy
           type: array
+      title: ListProductListAssociationsRequest
       type: object
     productlistListProductListAssociationsResponse:
+      description: Defines the structure for ListProductListAssociationsResponse.
       example:
         associations:
         - listId: listId
           productGrn: productGrn
           id: id
           position: 0
+          listGrn: listGrn
         - listId: listId
           productGrn: productGrn
           id: id
           position: 0
+          listGrn: listGrn
         nextPageToken: nextPageToken
       properties:
         associations:
+          description: Field associations of type repeated ProductListAssociation.
           items:
             $ref: '#/components/schemas/productlistProductListAssociation'
+          title: repeated ProductListAssociation
           type: array
         nextPageToken:
+          description: Field next_page_token of type string.
+          title: string
           type: string
+      title: ListProductListAssociationsResponse
       type: object
     productlistListProductListsRequest:
+      description: Defines the structure for ListProductListsRequest.
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
         pageSize:
+          description: Field page_size of type uint32.
           format: int64
+          title: uint32
           type: integer
         pageToken:
+          description: Field page_token of type string.
+          title: string
           type: string
+      title: ListProductListsRequest
       type: object
     productlistListProductListsResponse:
+      description: Defines the structure for ListProductListsResponse.
       example:
         lists:
         - countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -1035,6 +1204,7 @@ components:
           updatedAt: 2000-01-23T04:56:07.000+00:00
         - countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -1049,13 +1219,20 @@ components:
         nextPageToken: nextPageToken
       properties:
         lists:
+          description: Field lists of type repeated ProductListEntity.
           items:
             $ref: '#/components/schemas/productlistProductListEntity'
+          title: repeated ProductListEntity
           type: array
         nextPageToken:
+          description: Field next_page_token of type string.
+          title: string
           type: string
+      title: ListProductListsResponse
       type: object
     productlistLocalizedText:
+      description: "Represents localized text for multilingual support, used in fields\
+        \ like URL keys."
       example:
         value:
           key: value
@@ -1063,47 +1240,78 @@ components:
         value:
           additionalProperties:
             type: string
+          description: Localized text values mapped by language codes.
+          title: "map<string, string>"
           type: object
+      title: LocalizedText
       type: object
-      x-golang-getsetvalue-exists: true
     productlistOrderBy:
+      description: "Defines sorting criteria for listing or searching operations,\
+        \ including field and direction."
       properties:
         field:
+          description: Field field of type string.
+          title: string
           type: string
         direction:
           $ref: '#/components/schemas/OrderByDirection'
+      title: OrderBy
       type: object
     productlistProductListAssociation:
+      description: "Represents an association between a product and a collection,\
+        \ including metadata like position."
       example:
         listId: listId
         productGrn: productGrn
         id: id
         position: 0
+        listGrn: listGrn
       properties:
         id:
+          description: The unique identifier for the product-collection association.
+          title: string
           type: string
         listId:
+          description: Field list_id of type string.
+          title: string
+          type: string
+        listGrn:
           type: string
         position:
+          description: Defines the position of the product within the collection.
           format: int32
+          title: int32
           type: integer
         productGrn:
+          description: Field product_grn of type string.
+          title: string
           type: string
+      title: ProductListAssociation
       type: object
     productlistProductListAssociationError:
+      description: Details an error encountered during operations on product-product
+        association mappings.
       example:
         code: code
         message: message
       properties:
         code:
+          description: Field code of type string.
+          title: string
           type: string
         message:
+          description: Field message of type string.
+          title: string
           type: string
+      title: ProductListAssociationError
       type: object
     productlistProductListEntity:
+      description: "Represents a product collection entity, including details like\
+        \ ID, code, attributes, and associations."
       example:
         countAssociations: 0
         createdAt: 2000-01-23T04:56:07.000+00:00
+        grn: grn
         code: code
         entityCode: entityCode
         entityType: entityType
@@ -1117,59 +1325,97 @@ components:
         updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
+          description: The unique identifier for the product collection.
+          title: string
+          type: string
+        grn:
           type: string
         code:
+          description: A unique code representing the collection.
+          title: string
           type: string
         urlKey:
           $ref: '#/components/schemas/productlistLocalizedText'
         entityType:
+          description: Specifies the type of entity associated with the collection.
+          title: string
           type: string
         entityCode:
+          description: The code of the associated entity in the collection.
+          title: string
           type: string
         createdAt:
+          description: The timestamp indicating when the collection was created.
           format: date-time
+          title: google.protobuf.Timestamp
           type: string
         updatedAt:
+          description: The timestamp of the last update to the collection.
           format: date-time
+          title: google.protobuf.Timestamp
           type: string
         attributes:
           additionalProperties:
             $ref: '#/components/schemas/protobufAny'
+          description: A map of key-value pairs representing additional attributes
+            of the collection.
+          title: "map<string, google.protobuf.Any>"
           type: object
         countAssociations:
+          description: The total count of products associated with the collection.
           format: int64
+          title: uint32
           type: integer
+      title: ProductListEntity
       type: object
     productlistProductListError:
+      description: Details an error encountered during operations on product collections.
       example:
         code: code
         message: message
       properties:
         code:
+          description: Field code of type string.
+          title: string
           type: string
         message:
+          description: Field message of type string.
+          title: string
           type: string
+      title: ProductListError
       type: object
     productlistSearchProductListsByIdsRequest:
+      description: Defines the structure for SearchProductListsByIdsRequest.
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
         ids:
+          description: Field ids of type repeated string.
           items:
             type: string
+          title: repeated string
           type: array
         pageSize:
+          description: Field page_size of type uint32.
           format: int64
+          title: uint32
           type: integer
         pageNumber:
+          description: Field page_number of type uint32.
           format: int64
+          title: uint32
           type: integer
+      title: SearchProductListsByIdsRequest
       type: object
     productlistSearchProductListsByIdsResponse:
+      description: Defines the structure for SearchProductListsByIdsResponse.
       example:
         results:
         - countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -1183,6 +1429,7 @@ components:
           updatedAt: 2000-01-23T04:56:07.000+00:00
         - countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -1196,11 +1443,15 @@ components:
           updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         results:
+          description: Field results of type repeated ProductListEntity.
           items:
             $ref: '#/components/schemas/productlistProductListEntity'
+          title: repeated ProductListEntity
           type: array
+      title: SearchProductListsByIdsResponse
       type: object
     productlistSearchProductListsRequest:
+      description: Defines the structure for SearchProductListsRequest.
       properties:
         tenantId:
           type: string
@@ -1212,13 +1463,16 @@ components:
         pageNumber:
           format: int64
           type: integer
+      title: SearchProductListsRequest
       type: object
     productlistSearchProductListsResponse:
+      description: Defines the structure for SearchProductListsResponse.
       example:
         totalSize: 0
         results:
         - countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -1232,6 +1486,7 @@ components:
           updatedAt: 2000-01-23T04:56:07.000+00:00
         - countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -1245,72 +1500,50 @@ components:
           updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         results:
+          description: Field results of type repeated ProductListEntity.
           items:
             $ref: '#/components/schemas/productlistProductListEntity'
+          title: repeated ProductListEntity
           type: array
         totalSize:
+          description: Field total_size of type uint32.
           format: int64
+          title: uint32
           type: integer
-      type: object
-    productlistSetProductListAssociationsRequest:
-      properties:
-        tenantId:
-          type: string
-        listId:
-          type: string
-        productGrn:
-          type: string
-        associations:
-          items:
-            $ref: '#/components/schemas/SetProductListAssociationsRequestAssociation'
-          type: array
-      type: object
-    productlistSetProductListAssociationsResponse:
-      example:
-        associations:
-        - listId: listId
-          productGrn: productGrn
-          id: id
-          position: 0
-        - listId: listId
-          productGrn: productGrn
-          id: id
-          position: 0
-        errors:
-        - code: code
-          message: message
-        - code: code
-          message: message
-      properties:
-        associations:
-          items:
-            $ref: '#/components/schemas/productlistProductListAssociation'
-          type: array
-        errors:
-          items:
-            $ref: '#/components/schemas/productlistProductListAssociationError'
-          type: array
+      title: SearchProductListsResponse
       type: object
     productlistUpdateProductListRequest:
+      description: Defines the structure for UpdateProductListRequest.
       properties:
         tenantId:
+          description: Field tenant_id of type string.
+          title: string
           type: string
         id:
+          description: Field id of type string.
+          title: string
           type: string
         urlKey:
           $ref: '#/components/schemas/productlistLocalizedText'
         attributes:
           additionalProperties:
             $ref: '#/components/schemas/protobufAny'
+          description: "Field attributes of type map<string, google.protobuf.Any>."
+          title: "map<string, google.protobuf.Any>"
           type: object
         attributesMask:
+          description: Field attributes_mask of type google.protobuf.FieldMask.
+          title: google.protobuf.FieldMask
           type: string
+      title: UpdateProductListRequest
       type: object
     productlistUpdateProductListResponse:
+      description: Defines the structure for UpdateProductListResponse.
       example:
         list:
           countAssociations: 0
           createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
           code: code
           entityCode: entityCode
           entityType: entityType
@@ -1331,9 +1564,12 @@ components:
         list:
           $ref: '#/components/schemas/productlistProductListEntity'
         errors:
+          description: Field errors of type repeated ProductListError.
           items:
             $ref: '#/components/schemas/productlistProductListError'
+          title: repeated ProductListError
           type: array
+      title: UpdateProductListResponse
       type: object
     protobufAny:
       additionalProperties:
@@ -1474,10 +1710,6 @@ components:
           type: array
       type: object
   securitySchemes:
-    Authorization:
-      in: header
-      name: Authorization
-      type: apiKey
     standardAuthorization:
       flows:
         implicit:

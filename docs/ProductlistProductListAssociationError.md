@@ -1,13 +1,13 @@
 # # ProductlistProductListAssociationError
-
+Details an error encountered during operations on product-product association mappings.
 
 ## Properties 
 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code**| **string** |   | [optional]
-**Message**| **string** |   | [optional]
+**Code**| **string** | Field code of type string.  | [optional]
+**Message**| **string** | Field message of type string.  | [optional]
 
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

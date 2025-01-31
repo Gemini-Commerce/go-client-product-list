@@ -1,5 +1,5 @@
 # # ProductlistGetProductListByUrlKeyResponse
-
+Defines the structure for GetProductListByUrlKeyResponse.
 
 ## Properties 
 

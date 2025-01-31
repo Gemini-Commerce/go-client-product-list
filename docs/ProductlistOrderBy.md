@@ -1,12 +1,12 @@
 # # ProductlistOrderBy
-
+Defines sorting criteria for listing or searching operations, including field and direction.
 
 ## Properties 
 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Field**| **string** |   | [optional]
+**Field**| **string** | Field field of type string.  | [optional]
 **Direction**| [**OrderByDirection**](OrderByDirection.md) |  for more information please, see Model/OrderByDirection.php  | [optional] [default to ORDERBYDIRECTION_DEFAULT]
 
 

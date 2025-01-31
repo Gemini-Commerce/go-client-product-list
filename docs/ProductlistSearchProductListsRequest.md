@@ -1,5 +1,5 @@
 # # ProductlistSearchProductListsRequest
-
+Defines the structure for SearchProductListsRequest.
 
 ## Properties 
 
